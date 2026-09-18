@@ -173,7 +173,7 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.2.** Give an example of a cost function that violates the triangle inequality in the subadditive direction. Verify that $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$ for some triple.
 
-**Exercise 1.3.** Give an example of a cost function that violates the triangle inequality in the superadditive direction. Verify that $d(b_i, b_k) < d(b_i, b_j) + d(b_j, b_k)$ for some triple.
+**Exercise 1.3.** Give an example of a cost function that violates the triangle inequality in the superadditive direction. Verify that $d(b_i, b_k) <<< d(b_i, b_j) + d(b_j, b_k)$ for some triple.
 
 **Exercise 1.4.** Give an example of a pseudometric that is not a metric.
 
