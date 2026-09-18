@@ -38,13 +38,13 @@ $$
 
 We call $S$ the **symmetric part** of the cost and $A$ the **antisymmetric part** of the cost.
 
-The function \(A\) measures the directional imbalance of the cost. It is positive when the transition from \(b_i\) to \(b_j\) is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
+The function $A$ measures the directional imbalance of the cost. It is positive when the transition from $b_i$ to $b_j$ is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
 
-**Proposition 3.3.** The antisymmetric part \(A\) satisfies:
+**Proposition 3.3.** The antisymmetric part $A$ satisfies:
 
-1. \(A(b_i,b_j)=-A(b_j,b_i)\);
-2. \(A(b,b)=0\);
-3. \(A(b_i,b_j)>0\) if and only if \(d(b_i,b_j)>d(b_j,b_i)\);
+1. $A(b_i,b_j)=-A(b_j,b_i)$;
+2. $A(b,b)=0$;
+3. $A(b_i,b_j)>0$ if and only if $d(b_i,b_j)>d(b_j,b_i)$;
 4.
 
 $$
