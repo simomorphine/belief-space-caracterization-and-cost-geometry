@@ -18,14 +18,14 @@ Cost is not a metric. This is not a scandal, and it is not noise. It is structur
 
 Let us begin with what the textbook says.
 
-When we model an information processing system—a computer, a brain, a market, a belief—we typically assign to each pair of states a number representing the cost of moving between them. Call the set of states $\mathcal{B}$, and call the cost function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$.
+When we model an information processing system—a computer, a brain, a market, a belief—we typically assign to each pair of states a number representing the cost of moving between them. Call the set of states $\mathcal{B}$, and call the cost function $C : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$.
 
-The textbook then says: treat $d$ *like* a metric. That is, assume, for the purposes of the model:
+The textbook then says: treat $C$ *like* a metric. That is, assume, for the purposes of the model:
 
 - **Non-negativity.** $d(b_i, b_j) \ge 0$ for all $b_i, b_j$.
 - **Identity.** $d(b, b) = 0$ for all $b$.
-- **Symmetry.** $d(b_i, b_j) = d(b_j, b_i)$ for all $b_i, b_j$.
-- **But not Triangle inequality.** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k$.
+- **Not always Symmetry.** $d(b_i, b_j) = d(b_j, b_i)$ for all $b_i, b_j$.
+- **Triangle inequality does not hold.** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k$.
 
 When all four hold, $d$ is a **metric**, and the pair $(\mathcal{B}, d)$ is a **metric space**. Metric spaces are the foundation of geometry, topology, analysis, and virtually every algorithm that involves distance.
 
