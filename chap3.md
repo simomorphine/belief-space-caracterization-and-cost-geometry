@@ -313,9 +313,7 @@ $$
 Finally,
 
 $$
-(\psi(b_j)+c)-(\psi(b_i)+c)
-=
-\psi(b_j)-\psi(b_i).
+(\psi(b_j)+c)-(\psi(b_i)+c) = \psi(b_j)-\psi(b_i).
 $$
 
 Thus adding a constant to the potential does not change the debt.
@@ -375,9 +373,7 @@ $$
 For a `1`-cochain,
 
 $$
-(\delta D)(b_i,b_j,b_k)
-=
-D(b_j,b_k)-D(b_i,b_k)+D(b_i,b_j).
+(\delta D)(b_i,b_j,b_k) = D(b_j,b_k)-D(b_i,b_k)+D(b_i,b_j).
 $$
 
 The fundamental property is
@@ -399,9 +395,7 @@ $$
 Expanding the definition gives
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k).
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k).
 $$
 
 Thus, in the present framework, the cocycle condition is exactly the additivity condition (D1).
@@ -417,21 +411,13 @@ $$
 then
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Every coboundary is automatically a cocycle because
 
 $$
-\delta D
-=
-\delta(\delta\psi)
-=
-\delta^2\psi
-=
-0.
+\delta D = \delta(\delta\psi) = \delta^2\psi = 0.
 $$
 
 Therefore,
@@ -447,10 +433,7 @@ Cohomology measures this difference.
 Very roughly, the `k`-th cohomology group is
 
 $$
-H^k
-=
-\frac{\ker(\delta:C^k\to C^{k+1})}
-{\operatorname{im}(\delta:C^{k-1}\to C^k)}.
+H^k = \frac{\ker(\delta:C^k\to C^{k+1})} {\mathrm{im}(\delta:C^{k-1}\to C^k)}.
 $$
 
 Thus, cohomology studies cocycles modulo those cocycles that are already explained as coboundaries.
@@ -528,24 +511,13 @@ $$
 Applying the coboundary operator twice gives
 
 $$
-(\delta(\delta\psi))(b_i,b_j,b_k)
-=
-(\delta\psi)(b_j,b_k)
--
-(\delta\psi)(b_i,b_k)
-+
-(\delta\psi)(b_i,b_j).
+(\delta(\delta\psi))(b_i,b_j,b_k) = (\delta\psi)(b_j,b_k) - (\delta\psi)(b_i,b_k) + (\delta\psi)(b_i,b_j).
 $$
 
 Substituting the definition,
 
 $$
-=
-[\psi(b_k)-\psi(b_j)]
--
-[\psi(b_k)-\psi(b_i)]
-+
-[\psi(b_j)-\psi(b_i)].
+= [\psi(b_k)-\psi(b_j)] - [\psi(b_k)-\psi(b_i)] + [\psi(b_j)-\psi(b_i)].
 $$
 
 All terms cancel, giving
@@ -575,9 +547,7 @@ $$
 Rearranging,
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k),
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k),
 $$
 
 which is exactly (D1).
@@ -587,9 +557,7 @@ which is exactly (D1).
 **Remark 3.19 (Alternating 1-Cochains).** A `1`-cochain `D∈C^1(B)` is called *alternating* if
 
 $$
-D(b_i,b_j)
-=
--D(b_j,b_i)
+D(b_i,b_j) = -D(b_j,b_i)
 $$
 
 for all `b_i,b_j∈B`.
@@ -643,9 +611,7 @@ $$
 or equivalently,
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 This corresponds to the triviality of the first cohomology of the complete simplex.
@@ -653,9 +619,7 @@ This corresponds to the triviality of the first cohomology of the complete simpl
 **Remark 3.22 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
 
 $$
-A(b_i,b_j)
-=
--A(b_j,b_i).
+A(b_i,b_j) = -A(b_j,b_i).
 $$
 
 However, `A` need not be a cocycle. As Example 3.8 demonstrates,
@@ -705,9 +669,7 @@ Once the potential representation has been established, this quantity can be int
 **Interpretation 3.24.** Suppose
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Then the debt records the change in the potential `ψ` produced by the transition.
@@ -735,9 +697,7 @@ $$
 then the total debt along the path is
 
 $$
-\sum_{k=0}^{n-1}D(b_k,b_{k+1})
-=
-\psi(b_n)-\psi(b_0).
+\sum_{k=0}^{n-1}D(b_k,b_{k+1}) = \psi(b_n)-\psi(b_0).
 $$
 
 **Proof.** Substituting the potential representation gives
@@ -782,9 +742,7 @@ Consequently, `A` does not generally telescope and does not define a path-indepe
 Debt `D`, by definition, is additive:
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k).
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k).
 $$
 
 Therefore, debt telescopes along paths.
@@ -842,17 +800,13 @@ through two axioms:
 * **(D1) Additivity**
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k);
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k);
 $$
 
 * **(D2) Antisymmetry**
 
 $$
-D(b_i,b_j)
-=
--D(b_j,b_i).
+D(b_i,b_j) = -D(b_j,b_i).
 $$
 
 From these axioms we derived:
@@ -879,9 +833,7 @@ $$
 such that
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i)?
+D(b_i,b_j) = \psi(b_j)-\psi(b_i)?
 $$
 
 For the complete state space considered here, the answer is yes. The proof is the subject of Chapter 4.
