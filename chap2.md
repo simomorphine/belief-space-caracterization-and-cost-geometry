@@ -225,29 +225,154 @@ Since KL divergence is asymmetric, so is $d$.
 
 ## 2.5 The failure of identity
 
-The energy quasi-metric may also fail the identity of indiscernibles.
+The energy pseudo-quasi-metric may fail the identity of indiscernibles. In particular, two distinct states may have zero minimal transition cost.
 
-**Proposition 2.25.** There may exist distinct $b_i, b_j \in \mathcal{B}$ with $d(b_i, b_j) = 0$.
+**Proposition 2.25.** There may exist distinct $b_i,b_j\in\mathcal B$ with
 
-*Proof.* Suppose there is a transition $(b_i, b_j) \in \mathcal{T}$ with $\mathcal{C}(b_i, b_j) = 0$. Then $d(b_i, b_j) = 0$. If $b_i \neq b_j$, the identity of indiscernibles fails.
+$$
+d(b_i,b_j)=0.
+$$
 
-**Example 2.26 (Computational equivalence).** Let $\mathcal{B}$ be the set of configurations of a computer, and let $b_i \sim b_j$ if they compute the same function. Then $d(b_i, b_j) = 0$ for $b_i \sim b_j$, even though $b_i \neq b_j$.
+*Proof.* Suppose there is a permitted transition from $b_i$ to $b_j$ with zero cost:
 
-**Example 2.27 (Gauge equivalence).** Let $\mathcal{B}$ be the set of states of a gauge theory, and let $b_i \sim b_j$ if they are related by a gauge transformation. Then $d(b_i, b_j) = 0$ for gauge-equivalent states.
+$$
+(b_i,b_j)\in\mathcal T,
+\qquad
+\mathcal C(b_i,b_j)=0.
+$$
 
-**Remark 2.28.** When the identity of indiscernibles fails, $d$ is a *pseudoquasimetric* rather than a *quasimetric*. The equivalence classes of zero-cost transitions are the "true" states; the individual elements of $\mathcal{B}$ are representatives.
+Since this transition is one of the paths considered in the definition of $d$,
 
-**Definition 2.29 (Quotient belief space).** Let $\sim$ be the equivalence relation $b_i \sim b_j \iff d(b_i, b_j) = d(b_j, b_i) = 0$. The *quotient belief space* is $\mathcal{B}/{\sim}$.
+$$
+d(b_i,b_j)
+\leq
+\mathcal C(b_i,b_j)
+=
+0.
+$$
 
-**Proposition 2.30.** The energy quasi-metric $d$ descends to a quasi-metric on $\mathcal{B}/{\sim}$ satisfying the identity of indiscernibles.
+By non-negativity, $d(b_i,b_j)\geq0$. Hence
 
-*Proof.* If $b_i \sim b_i'$ and $b_j \sim b_j'$, then
+$$
+d(b_i,b_j)=0.
+$$
 
-$$d(b_i, b_j) \le d(b_i, b_i') + d(b_i', b_j') + d(b_j', b_j) = d(b_i', b_j'),$$
+If $b_i\neq b_j$, the identity of indiscernibles fails. $\square$
 
-and symmetrically $d(b_i', b_j') \le d(b_i, b_j)$. Hence $d$ is well-defined on equivalence classes. The identity of indiscernibles holds by construction. $\square$
+**Example 2.26 (Computational equivalence).**
+Let $\mathcal B$ be a set of computational configurations. Suppose the cost model identifies computationally equivalent configurations as having zero transition cost in both directions. If $b_i$ and $b_j$ are computationally equivalent, then
 
-**Convention 2.31.** For the remainder of the book, we assume that the quotient has been taken: $\mathcal{B}$ satisfies the identity of indiscernibles. If it does not, replace $\mathcal{B}$ by $\mathcal{B}/{\sim}$.
+$$
+d(b_i,b_j)=d(b_j,b_i)=0,
+$$
+
+even though $b_i\neq b_j$ may hold.
+
+**Example 2.27 (Gauge equivalence).**
+Let $\mathcal B$ be a set of states in which gauge-equivalent states are related by zero-cost transformations in both directions. If $b_i$ and $b_j$ are gauge-equivalent, then
+
+$$
+d(b_i,b_j)=d(b_j,b_i)=0,
+$$
+
+even though $b_i\neq b_j$ as representatives.
+
+**Remark 2.28.**
+When the identity of indiscernibles fails, $d$ is a *pseudo-quasi-metric* rather than a *quasi-metric*. Distinct states may have zero distance. When zero distance occurs in both directions, these states can be identified by an equivalence relation.
+
+**Definition 2.29 (Quotient belief space).**
+Define a relation $\sim$ on $\mathcal B$ by
+
+$$
+b_i\sim b_j
+\iff
+d(b_i,b_j)=d(b_j,b_i)=0.
+$$
+
+The *quotient belief space* is
+
+$$
+\mathcal B/{\sim}.
+$$
+
+**Proposition 2.30.**
+The energy pseudo-quasi-metric $d$ descends to a well-defined quasi-metric on $\mathcal B/{\sim}$ satisfying the identity of indiscernibles.
+
+*Proof.* First, $\sim$ is an equivalence relation. Reflexivity follows from $d(b,b)=0$. Symmetry is immediate from the definition. For transitivity, suppose
+
+$$
+b_i\sim b_j
+\quad\text{and}\quad
+b_j\sim b_k.
+$$
+
+Then, by the triangle inequality,
+
+$$
+d(b_i,b_k)
+\leq
+d(b_i,b_j)+d(b_j,b_k)
+=
+0,
+$$
+
+and hence $d(b_i,b_k)=0$. Similarly,
+
+$$
+d(b_k,b_i)=0.
+$$
+
+Thus $b_i\sim b_k$.
+
+Now let $[b_i]$ and $[b_j]$ be equivalence classes. Define
+
+$$
+\bar d([b_i],[b_j]):=d(b_i,b_j).
+$$
+
+This is well-defined. Indeed, if $b_i\sim b_i'$ and $b_j\sim b_j'$, then
+
+$$
+d(b_i,b_j)
+\leq
+d(b_i,b_i')
++
+d(b_i',b_j')
++
+d(b_j',b_j)
+=
+d(b_i',b_j').
+$$
+
+Reversing the roles of the primed and unprimed states gives the opposite inequality. Therefore,
+
+$$
+d(b_i,b_j)=d(b_i',b_j').
+$$
+
+Hence $\bar d$ is independent of the representatives chosen.
+
+Finally, if
+
+$$
+\bar d([b_i],[b_j])
+=
+\bar d([b_j],[b_i])
+=
+0,
+$$
+
+then $b_i\sim b_j$, so
+
+$$
+[b_i]=[b_j].
+$$
+
+Thus the identity of indiscernibles holds on the quotient. $\square$
+
+**Convention 2.31.**
+For the remainder of the book, we work on the quotient space whenever necessary, so that the identity of indiscernibles holds. When zero-distance equivalence is present, we therefore replace $\mathcal B$ by $\mathcal B/{\sim}$.
+
 
 ---
 
