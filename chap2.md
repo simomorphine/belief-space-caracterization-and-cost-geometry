@@ -68,27 +68,94 @@ The elements of $\mathcal{B}$ are called *beliefs*.
 
 The cost of moving between beliefs extends from paths to pairs by minimization.
 
-**Definition 2.14 (Energy pseudo-quasi-metric).** The *energy pseudo-quasi-metric* is the function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}$ defined by
+**Definition 2.14 (Energy pseudo-quasi-metric).**
+The *energy pseudo-quasi-metric* is the function
 
-$$d(b_i, b_j) := \inf_{\gamma : b_i \to b_j} \mathcal{C}(\gamma),$$
+$$
+d:\mathcal{B}\times\mathcal{B}\to\mathbb{R}_{\geq0}\cup\{+\infty\}
+$$
 
-where the infimum is over all paths from $b_i$ to $b_j$. If no path exists, $d(b_i, b_j) := +\infty$.
+defined by
 
-**Proposition 2.15.** The energy pseudo-quasi-metric satisfies:
+$$
+d(b_i,b_j):=\inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma),
+$$
 
-- **(i) Identity.** $d(b, b) = 0$ for all $b \in \mathcal{B}$.
-- **(ii) Non-negativity.** $d(b_i, b_j) \ge 0$ for all $b_i, b_j \in \mathcal{B}$.
-- **(iii) Triangle inequality.** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k \in \mathcal{B}$.
+where the infimum is taken over all paths from $b_i$ to $b_j$. If no path exists, we define
 
-*Proof.* (i) The empty path from $b$ to $b$ has cost zero. Since costs are non-negative, no path has cost less than zero. Hence $d(b, b) = 0$.
+$$
+d(b_i,b_j):=+\infty.
+$$
 
-(ii) Immediate from the non-negativity of $\mathcal{C}$.
+We assume that path costs are non-negative and subadditive under concatenation:
 
-(iii) Let $\gamma_1$ be a path from $b_i$ to $b_j$ with cost $C_1$, and let $\gamma_2$ be a path from $b_j$ to $b_k$ with cost $C_2$. The concatenation $\gamma_1 \cdot \gamma_2$ is a path from $b_i$ to $b_k$ with cost $C_1 + C_2$. Hence
+$$
+\mathcal{C}(\gamma_1\cdot\gamma_2)
+\leq
+\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+$$
 
-$$d(b_i, b_k) \le \inf_{\gamma_1} \mathcal{C}(\gamma_1) + \inf_{\gamma_2} \mathcal{C}(\gamma_2) = d(b_i, b_j) + d(b_j, b_k).$$
+This allows the cost of a composed path to be strictly smaller than the sum of the costs of its constituent paths, for example when the composition produces an efficiency or shared computational cost.
 
-Taking infima over all such decompositions gives the result. $\square$
+**Proposition 2.15.**
+The energy pseudo-quasi-metric satisfies:
+
+* **(i) Identity:** $d(b,b)=0$ for all $b\in\mathcal{B}$.
+* **(ii) Non-negativity:** $d(b_i,b_j)\geq0$ for all $b_i,b_j\in\mathcal{B}$.
+* **(iii) Triangle inequality:**
+
+$$
+d(b_i,b_k)
+\leq
+d(b_i,b_j)+d(b_j,b_k)
+$$
+
+for all $b_i,b_j,b_k\in\mathcal{B}$.
+
+*Proof.*
+
+**(i)** The empty path from $b$ to itself has cost zero. Since all path costs are non-negative,
+
+$$
+d(b,b)=0.
+$$
+
+**(ii)** Since $\mathcal{C}(\gamma)\geq0$ for every path $\gamma$, its infimum is also non-negative. If no path exists, $d(b_i,b_j)=+\infty$, which also belongs to the extended non-negative real numbers.
+
+**(iii)** Let $\gamma_1:b_i\to b_j$ and $\gamma_2:b_j\to b_k$ be paths. Their concatenation
+
+$$
+\gamma_1\cdot\gamma_2:b_i\to b_k
+$$
+
+is a path from $b_i$ to $b_k$. By subadditivity of the path cost,
+
+$$
+\mathcal{C}(\gamma_1\cdot\gamma_2)
+\leq
+\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+$$
+
+Since $d(b_i,b_k)$ is the infimum over all paths from $b_i$ to $b_k$,
+
+$$
+d(b_i,b_k)
+\leq
+\mathcal{C}(\gamma_1\cdot\gamma_2)
+\leq
+\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+$$
+
+This holds for every pair of paths $\gamma_1$ and $\gamma_2$. Taking the infimum independently over all paths from $b_i$ to $b_j$ and from $b_j$ to $b_k$ gives
+
+$$
+d(b_i,b_k)
+\leq
+d(b_i,b_j)+d(b_j,b_k).
+$$
+
+Therefore, $d$ satisfies the triangle inequality. $\square$
+
 
 **Remark 2.16.** The triangle inequality for $d$ is *automatic*: it follows from the definition of $d$ as a minimum over paths. This is a crucial point. The energy quasi-metric always satisfies the triangle inequality, by construction. What it does *not* automatically satisfy is symmetry. The asymmetry is the genuine content.
 
