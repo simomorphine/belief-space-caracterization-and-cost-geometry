@@ -455,27 +455,245 @@ This removes distinctions that are invisible to the bidirectional zero-cost stru
 
 ---
 
-## 2.6 The energy quasi-metric as a directed graph
+## 2.6 The Energy Quasi-Metric as a Directed Graph
 
-The energy quasi-metric has a natural interpretation as a weighted directed graph.
+The energy quasi-metric has a natural representation as a weighted directed graph.
 
-**Construction 2.32.** Let $\mathcal{B}$ be a belief space with energy quasi-metric $d$. Define a directed graph $G_d$ with:
+The connection is important because the graph makes the directional and compositional structure of energy cost explicit. A transition from $b_i$ to $b_j$ need not have the same cost as the reverse transition, and some states may not be reachable from one another at all.
 
-- Vertex set $\mathcal{B}$;
-- Edge set $\{(b_i, b_j) : d(b_i, b_j) < +\infty\}$;
-- Edge weight $d(b_i, b_j)$.
+**Construction 2.32.** Let $\mathcal{B}$ be a belief space equipped with an energy quasi-metric
 
-Then $d$ is exactly the shortest-path metric of $G_d$. Conversely, any weighted directed graph with non-negative weights induces an energy quasi-metric on its vertex set.
+$$
+d:\mathcal{B}\times\mathcal{B}\rightarrow\mathbb{R}_{\geq 0}\cup\{+\infty\}.
+$$
 
-**Proposition 2.33.** The energy quasi-metric $d$ is the shortest-path metric of the graph $G_d$. That is, $d(b_i, b_j)$ equals the minimum over all paths in $G_d$ from $b_i$ to $b_j$ of the sum of edge weights.
+Define a weighted directed graph $G_d$ by:
 
-*Proof.* By construction. $\square$
+* Vertex set $\mathcal{B}$;
+* Directed edge $(b_i,b_j)$ whenever $d(b_i,b_j)<+\infty$;
+* Edge weight $d(b_i,b_j)$.
 
-**Remark 2.34.** The graph $G_d$ is the "universal" representation of the energy quasi-metric. It shows that the theory of quasi-metrics is equivalent to the theory of weighted directed graphs with non-negative weights. This equivalence will be used repeatedly.
+Thus, every finite value of the quasi-metric is represented by a directed edge.
 
-**Example 2.35 (Complete graph).** If $d(b_i, b_j) < +\infty$ for all $b_i, b_j$, then $G_d$ is the complete directed graph on $\mathcal{B}$. In this case, the shortest-path metric is the same as the edge weights: $d(b_i, b_j)$ is the weight of the edge from $b_i$ to $b_j$.
+### Proposition 2.33 — Graph Representation
 
-**Example 2.36 (Sparse graph).** If $d(b_i, b_j) = +\infty$ for many pairs, then $G_d$ is sparse. The shortest-path metric is nontrivial: it requires path composition.
+The energy quasi-metric $d$ is equal to the shortest-path distance induced by the weighted directed graph $G_d$.
+
+More precisely,
+
+$$
+d(b_i,b_j)
+=
+\inf_{\gamma:b_i\to b_j}
+\mathcal{C}_{G_d}(\gamma),
+$$
+
+where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$.
+
+*Proof.*
+
+Consider first a pair $(b_i,b_j)$ for which
+
+$$
+d(b_i,b_j)<+\infty.
+$$
+
+By construction, $G_d$ contains the direct edge
+
+$$
+b_i\rightarrow b_j
+$$
+
+with weight $d(b_i,b_j)$. Therefore the shortest-path distance satisfies
+
+$$
+d_{G_d}(b_i,b_j)\leq d(b_i,b_j).
+$$
+
+Now consider any path
+
+$$
+b_i=b_0\rightarrow b_1\rightarrow\cdots\rightarrow b_n=b_j.
+$$
+
+Its total cost is
+
+$$
+\sum_{k=0}^{n-1}d(b_k,b_{k+1}).
+$$
+
+Repeated application of the triangle inequality gives
+
+$$
+d(b_i,b_j)
+\leq
+\sum_{k=0}^{n-1}d(b_k,b_{k+1}).
+$$
+
+Since this holds for every path from $b_i$ to $b_j$,
+
+$$
+d(b_i,b_j)\leq d_{G_d}(b_i,b_j).
+$$
+
+Combining the two inequalities,
+
+$$
+d_{G_d}(b_i,b_j)=d(b_i,b_j).
+$$
+
+If no path exists, both quantities are $+\infty$.
+
+Therefore $d$ is exactly the shortest-path distance induced by $G_d$. $\square$
+
+### Remark 2.34
+
+The graph $G_d$ provides a canonical **representation** of the energy quasi-metric.
+
+It is not, however, a unique representation: different weighted directed graphs can have the same shortest-path distance.
+
+The important correspondence is therefore not a one-to-one equivalence between graphs and quasi-metrics. Rather, a weighted directed graph generates an energy quasi-metric through shortest-path minimization, while an energy quasi-metric can itself be represented by a weighted directed graph.
+
+This gives two complementary viewpoints:
+
+$$
+\text{local transitions}
+\longrightarrow
+\text{weighted directed graph}
+\longrightarrow
+\text{shortest-path cost}.
+$$
+
+and
+
+$$
+\text{energy quasi-metric}
+\longrightarrow
+\text{canonical graph representation}.
+$$
+
+### Proposition 2.35 — Graphs Induce Energy Pseudo-Quasi-Metrics
+
+Let $G=(V,E,w)$ be a directed graph with non-negative edge weights.
+
+Define
+
+$$
+d_G(b_i,b_j)
+=
+\inf_{\gamma:b_i\to b_j}
+\mathcal{C}(\gamma),
+$$
+
+where $\mathcal{C}(\gamma)$ is the sum of the edge weights along $\gamma$, and set
+
+$$
+d_G(b_i,b_j)=+\infty
+$$
+
+when no path from $b_i$ to $b_j$ exists.
+
+Then $d_G$ is an energy pseudo-quasi-metric on $V$.
+
+*Proof.*
+
+Non-negativity follows from the non-negative edge weights.
+
+The empty path gives
+
+$$
+d_G(b_i,b_i)=0.
+$$
+
+For any paths $\gamma_1:b_i\to b_j$ and $\gamma_2:b_j\to b_k$, their concatenation is a path from $b_i$ to $b_k$ with cost
+
+$$
+\mathcal{C}(\gamma_1\cdot\gamma_2)
+=
+\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+$$
+
+Therefore,
+
+$$
+d_G(b_i,b_k)
+\leq
+d_G(b_i,b_j)+d_G(b_j,b_k).
+$$
+
+Thus the triangle inequality holds.
+
+Symmetry is not required, since the graph is directed. Identity of indiscernibles may also fail when distinct vertices can be connected by paths of zero total cost.
+
+Hence $d_G$ is an energy pseudo-quasi-metric. $\square$
+
+### Example 2.36 — Complete Directed Graph
+
+Suppose
+
+$$
+d(b_i,b_j)<+\infty
+$$
+
+for every pair $b_i,b_j\in\mathcal{B}$.
+
+Then $G_d$ is a complete directed graph.
+
+Every pair of vertices has a direct edge whose weight is
+
+$$
+d(b_i,b_j).
+$$
+
+The triangle inequality guarantees that no indirect path can have lower cost:
+
+$$
+d(b_i,b_j)
+\leq
+d(b_i,b_k)+d(b_k,b_j).
+$$
+
+Therefore the shortest-path distance is exactly the original edge weight:
+
+$$
+d_{G_d}(b_i,b_j)=d(b_i,b_j).
+$$
+
+### Example 2.37 — Sparse Directed Graph
+
+Suppose that
+
+$$
+d(b_i,b_j)=+\infty
+$$
+
+for many pairs of states.
+
+Then many directed edges are absent from $G_d$.
+
+A state $b_j$ may nevertheless be reachable from $b_i$ through intermediate states:
+
+$$
+b_i\rightarrow b_k\rightarrow b_j.
+$$
+
+In this case,
+
+$$
+d(b_i,b_j)
+\leq
+d(b_i,b_k)+d(b_k,b_j).
+$$
+
+The cost between the two states therefore depends on path composition.
+
+If no path exists at all, then
+
+$$
+d(b_i,b_j)=+\infty.
+$$
+
+The sparse case makes the reachability structure of the belief space explicit: finite energy cost corresponds to reachability, while infinite cost corresponds to the absence of a path.
 
 ---
 
