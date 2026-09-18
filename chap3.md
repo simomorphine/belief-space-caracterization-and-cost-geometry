@@ -335,39 +335,7 @@ $$\sum_{k=0}^{n-1} D(b_k, b_{k+1}) = \psi(b_n) - \psi(b_0).$$
 
 ---
 
-## 3.7 The debt-to-cost ratio
-
-The debt $D$ and the cost $d$ together determine a natural ratio.
-
-**Definition 3.34 (Debt-to-cost ratio).** For a transition $b_i \to b_j$ with $d(b_i, b_j) > 0$, the *debt-to-cost ratio* is
-
-$$r(b_i, b_j) := \frac{D(b_i, b_j)}{d(b_i, b_j)}.$$
-
-When $d(b_i, b_j) = 0$, we adopt the convention $r(b_i, b_j) = 0$.
-
-**Remark 3.35.** The convention $r(b,b) = 0$ at the diagonal reflects the fact that the diagonal transition carries no debt and no cost. It is the unique value consistent with the limit $d \to 0$ when $D$ also vanishes, which holds whenever the transition is not purely a debt phenomenon. In the pure-debt case ($d = 0$, $D \neq 0$), the ratio is genuinely undefined; such transitions are treated separately in Chapter 6.
-
-**Proposition 3.36.** The debt-to-cost ratio satisfies:
-
-- **(i)** $r(b, b) = 0$;
-- **(ii)** $r(b_i, b_j) = -r(b_j, b_i) \cdot \dfrac{d(b_j, b_i)}{d(b_i, b_j)}$;
-- **(iii)** $r(b_i, b_j)$ is invariant under gauge transformations of $\psi$.
-
-*Proof.* (i) Convention.
-
-(ii) $r(b_i, b_j) = D(b_i, b_j)/d(b_i, b_j) = -D(b_j, b_i)/d(b_i, b_j) = -r(b_j, b_i) \cdot d(b_j, b_i)/d(b_i, b_j)$.
-
-(iii) $D$ is gauge-invariant (Proposition 3.18), and $d$ is independent of $\psi$. $\square$
-
-**Remark 3.37.** The ratio $r$ is dimensionless. It measures the "debt intensity" of a transition. A transition with $r = 0$ is pure cost (no debt). A transition with $|r| \to \infty$ is pure debt (no cost). The ratio is a natural coordinate on the space of transitions.
-
-**Remark 3.38.** Property (ii) is not the clean antisymmetry one might expect ($r(b_i,b_j) = -r(b_j,b_i)$). The correction factor $d(b_j,b_i)/d(b_i,b_j)$ appears because $D$ is antisymmetric but $d$ is not. If $d$ were symmetric, the ratio would be cleanly antisymmetric. The asymmetry of $d$ leaks into the ratio.
-
-**Remark 3.39.** In Chapter 6, we will see that the ratio $r$ is the tangent of the phase of the complex quasi-metric $Q = d + iD$. Specifically, $\arg Q = \arctan(r)$. This will connect the debt-to-cost ratio to the geometric structure of $Q$.
-
----
-
-## 3.8 Why debt is the right object
+## 3.7 Why debt is the right object
 
 We close this chapter with a reflection on why debt, rather than asymmetry, is the right object to study.
 
@@ -385,7 +353,7 @@ We close this chapter with a reflection on why debt, rather than asymmetry, is t
 
 ---
 
-## 3.9 Summary
+## 3.8 Summary
 
 We have introduced the debt function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$, defined by two axioms:
 
