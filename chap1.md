@@ -127,7 +127,7 @@ The real part is the usual cost. The imaginary part is debt—the correction tha
 
 Debt is not a defect. It is a **potential difference**. It is exact, antisymmetric, additive, gauge-invariant, and cycle-cancelling. It is, in the technical sense, a **coboundary**: the image of a potential function under the discrete exterior derivative.
 
-And once you see this, the whole structure falls into place. The asymmetry of cost becomes a polar decomposition. The triangle inequality becomes a Minkowski inequality in $\mathbb{R}^2$. The topology of the space becomes a lattice of four topologies. The gauge freedom becomes an $\mathbb{R}$-action. The complex structure becomes a $\mathbb{Z}/2$-grading.
+And once you see this, the whole structure falls into place. The asymmetry of cost becomes a polar decomposition. The topology of the space becomes a lattice of four topologies. The gauge freedom becomes an $\mathbb{R}$-action. The complex structure becomes a $\mathbb{Z}/2$-grading.
 
 None of this is imposed. It is discovered. The structure was always there. It was hidden in the hedge.
 
