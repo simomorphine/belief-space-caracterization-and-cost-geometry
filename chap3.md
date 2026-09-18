@@ -142,7 +142,7 @@ and what assumptions are required for such a representation to exist.
 
 ---
 
-## 3.3 The debt function: definition
+## 3.2 The debt function: definition
 
 We now introduce the central object of the book.
 
@@ -159,7 +159,7 @@ These are the only axioms. Everything else follows.
 
 ---
 
-## 3.4 Immediate consequences
+## 3.3 Immediate consequences
 
 The two axioms (D1) and (D2) have immediate consequences.
 
@@ -199,7 +199,7 @@ $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 ---
 
-### 3.5 Debt as an Alternating 1-Cocycle
+### 3.4 Debt as an Alternating 1-Cocycle
 
 The axioms (D1) and (D2) have a natural interpretation in the language of cohomology. This section makes that interpretation precise.
 
@@ -307,7 +307,7 @@ This distinction is fundamental: `A` represents the asymmetry of the cost functi
 
 ---
 
-## 3.6 The debt of a transition
+## 3.5 The debt of a transition
 
 Let us interpret the debt function in the context of belief space.
 
@@ -335,7 +335,7 @@ $$\sum_{k=0}^{n-1} D(b_k, b_{k+1}) = \psi(b_n) - \psi(b_0).$$
 
 ---
 
-## 3.7 Why debt is the right object
+## 3.6 Why debt is the right object
 
 We close this chapter with a reflection on why debt, rather than asymmetry, is the right object to study.
 
@@ -353,7 +353,7 @@ We close this chapter with a reflection on why debt, rather than asymmetry, is t
 
 ---
 
-## 3.8 Summary
+## 3.7 Summary
 
 We have introduced the debt function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$, defined by two axioms:
 
@@ -372,7 +372,7 @@ The central remaining question is: does every debt function arise from a potenti
 
 ---
 
-### Cohomology Reminder
+### 3.8 Cohomology Reminder
 
 Cohomology provides a language for detecting structure that is locally consistent but may or may not arise from a global potential. For the purposes of this book, we only need a small part of the general theory.
 
@@ -472,7 +472,7 @@ The next section applies this language directly to the debt axioms.
 
 ---
 
-### References
+### 3.9 References
 
 The basic language of cochains, coboundaries, cocycles, and cohomology used in this section can be found in:
 
