@@ -6,7 +6,7 @@ Before you read anything here, there is one very important thing you should know
 
 > **I use DeepSeek to help generate a lot of this content.**
 
-So, yes, there is a very real possibility that **90% of what you find here is wrong.**
+So, yes, there is a very real possibility that **99% of what you find here is wrong.**
 
 And honestly, **that's not the point.** 😂
 
@@ -172,8 +172,6 @@ If an idea connects beautifully to existing mathematics, show us the connection.
 
 If something completely unexpected appears...
 
-**follow the rabbit hole.** 🐇
-
 ---
 
 # One final disclaimer
@@ -198,7 +196,6 @@ It is:
 
 > **"Here is the mess. Let's see what mathematics we can build from it."**
 
-Welcome to the rabbit hole.
 
 And this time...
 
