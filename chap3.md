@@ -4,15 +4,15 @@
 
 ## 3.1 The asymmetry of cost
 
-Chapter 2 established the energy quasi-metric \(d\) as the cost of moving between states of the belief space. Because \(d\) is a quasi-metric, it need not be symmetric. In general,
+Chapter 2 established the energy quasi-metric $d$ as the cost of moving between states of the belief space. Because $d$ is a quasi-metric, it need not be symmetric. In general,
 
 $$
 d(b_i,b_j) \neq d(b_j,b_i).
 $$
 
-This asymmetry is not an error in the construction. It records the fact that moving from \(b_i\) to \(b_j\) may have a different cost from moving in the opposite direction.
+This asymmetry is not an error in the construction. It records the fact that moving from $b_i$ to $b_j$ may have a different cost from moving in the opposite direction.
 
-**Observation 3.1.** There may exist \(b_i,b_j\in\mathcal B\) such that
+**Observation 3.1.** There may exist $b_i,b_j\in\mathcal B$ such that
 
 $$
 d(b_i,b_j)\neq d(b_j,b_i).
