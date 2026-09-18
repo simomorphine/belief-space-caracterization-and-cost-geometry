@@ -48,7 +48,7 @@ $$\mathcal{C}(\gamma) := \sum_{k=0}^{n-1} \mathcal{C}(s_k, s_{k+1}).$$
 
 **Definition 2.8 (Reachability).** A state $s_j$ is *reachable* from a state $s_i$ if there exists at least a path from $s_i$ to $s_j$. The *reachability relation* is the transitive closure of $\mathcal{T}$.
 
-**Definition 2.9 (Bounded reachability).** A state $s_j$ is *reachable from $s_i$ with budget $B$* if there exists a path from $s_i$ to $s_j$ with cost at most $B$.
+**Definition 2.9 (Bounded reachability).** A state $s_j$ is *reachable from* $s_i$ with budget $B$ if there exists a path from $s_i$ to $s_j$ with cost at most $B$.
 
 **Definition 2.10 (Belief space).** Let $(\mathcal{S}, \mathcal{T}, \mathcal{C})$ be an information processing system and let $s_0 \in \mathcal{S}$ be a distinguished *initial state*. The *belief space* is
 
