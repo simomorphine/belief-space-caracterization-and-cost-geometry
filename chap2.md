@@ -602,9 +602,7 @@ $$
 For any paths $\gamma_1:b_i\to b_j$ and $\gamma_2:b_j\to b_k$, their concatenation is a path from $b_i$ to $b_k$ with cost
 
 $$
-\mathcal{C}(\gamma_1\cdot\gamma_2)
-=
-\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+\mathcal{C}(\gamma_1\cdot\gamma_2) = \mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
 $$
 
 Therefore,
@@ -758,6 +756,4 @@ Compute the shortest-path metric $d^*$ of the graph $G_d$. Is $d^* = d$? If not,
 **Exercise 2.10.** Reflect on the following question: is the energy quasi-metric $d$ a *fundamental* quantity, or is it derived from a deeper structure? Write a short essay (one page) arguing for your position.
 
 
----
 
-**End of Chapter 2.**
