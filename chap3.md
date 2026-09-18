@@ -203,7 +203,7 @@ $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 The axioms (D1) and (D2) have a natural interpretation in the language of cohomology. This section makes that interpretation precise.
 
-**Definition 3.20 (Discrete de Rham Complex).** Let `B` be a set, viewed as the vertex set of a complete directed graph. We use the term *discrete de Rham complex* for the following cochain structure. For `k ≥ 0`, let `C^k(B)` be the `R`-vector space of real-valued functions on `(k+1)`-tuples `(b_0, ..., b_k)` of elements of `B`.
+**Definition 3.15 (Discrete de Rham Complex).** Let `B` be a set, viewed as the vertex set of a complete directed graph. We use the term *discrete de Rham complex* for the following cochain structure. For `k ≥ 0`, let `C^k(B)` be the `R`-vector space of real-valued functions on `(k+1)`-tuples `(b_0, ..., b_k)` of elements of `B`.
 
 In particular:
 
@@ -211,7 +211,7 @@ In particular:
 * `C^1(B)` is the space of functions `D : B × B → R`.
 * `C^2(B)` is the space of real-valued functions on `B × B × B`.
 
-**Definition 3.21 (Coboundary).** The *coboundary* operator `δ : C^0(B) → C^1(B)` is defined by
+**Definition 3.16 (Coboundary).** The *coboundary* operator `δ : C^0(B) → C^1(B)` is defined by
 
 `(δψ)(b_i,b_j) := ψ(b_j) − ψ(b_i).`
 
@@ -219,7 +219,7 @@ The coboundary operator `δ : C^1(B) → C^2(B)` is defined by
 
 `(δD)(b_i,b_j,b_k) := D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j).`
 
-**Proposition 3.22 (Nilpotency of the Coboundary).** For every `ψ ∈ C^0(B)`,
+**Proposition 3.17 (Nilpotency of the Coboundary).** For every `ψ ∈ C^0(B)`,
 
 `δ²ψ = 0`.
 
@@ -234,7 +234,7 @@ The coboundary operator `δ : C^1(B) → C^2(B)` is defined by
 
 Therefore, `δ² = 0`. `□`
 
-**Proposition 3.23 (Additivity is the Cocycle Condition).** A function `D ∈ C^1(B)` satisfies the debt axiom (D1) if and only if
+**Proposition 3.18 (Additivity is the Cocycle Condition).** A function `D ∈ C^1(B)` satisfies the debt axiom (D1) if and only if
 
 `δD = 0`.
 
@@ -250,7 +250,7 @@ for all `b_i,b_j,b_k ∈ B`. Rearranging gives
 
 which is exactly (D1). `□`
 
-**Remark 3.24 (Alternating 1-Cochains).** A `1`-cochain `D ∈ C^1(B)` is called *alternating* if
+**Remark 3.19 (Alternating 1-Cochains).** A `1`-cochain `D ∈ C^1(B)` is called *alternating* if
 
 `D(b_i,b_j) = −D(b_j,b_i)`
 
@@ -260,17 +260,17 @@ This is precisely the content of axiom (D2). Thus (D2) says that the debt functi
 
 Notice that alternation is not a consequence of the cocycle condition. It is a separate structural requirement imposed by the definition of debt.
 
-**Corollary 3.25 (Debt Functions are Alternating 1-Cocycles).** A function `D ∈ C^1(B)` is a debt function if and only if it is an alternating `1`-cocycle of the discrete de Rham complex on `B`.
+**Corollary 3.20 (Debt Functions are Alternating 1-Cocycles).** A function `D ∈ C^1(B)` is a debt function if and only if it is an alternating `1`-cocycle of the discrete de Rham complex on `B`.
 
 *Proof.* By Definition 3.11, `D` is a debt function if and only if it satisfies (D1) and (D2).
 
 By Proposition 3.23, (D1) is equivalent to `δD = 0`, so `D` is a `1`-cocycle.
 
-By Remark 3.24, (D2) is equivalent to `D` being alternating.
+By Remark 3.19, (D2) is equivalent to `D` being alternating.
 
 Therefore, `D` is a debt function if and only if it is an alternating `1`-cocycle. `□`
 
-**Remark 3.26 (Debt as a Cohomological Object).** Corollary 3.25 provides a cohomological characterization of debt. The two debt axioms have distinct mathematical meanings:
+**Remark 3.21 (Debt as a Cohomological Object).** Corollary 3.20 provides a cohomological characterization of debt. The two debt axioms have distinct mathematical meanings:
 
 * (D1) expresses closure: `δD = 0`.
 * (D2) expresses alternation: `D(b_i,b_j) = −D(b_j,b_i)`.
@@ -285,7 +285,7 @@ or equivalently,
 
 This corresponds to the triviality of the first cohomology of the complete simplex.
 
-**Remark 3.27 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
+**Remark 3.22 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
 
 `A(b_i,b_j) = −A(b_j,b_i).`
 
@@ -311,27 +311,27 @@ This distinction is fundamental: `A` represents the asymmetry of the cost functi
 
 Let us interpret the debt function in the context of belief space.
 
-**Definition 3.28 (Debt of a transition).** For a transition $b_i \to b_j$, the *debt* is $D(b_i, b_j)$.
+**Definition 3.23 (Debt of a transition).** For a transition $b_i \to b_j$, the *debt* is $D(b_i, b_j)$.
 
-**Interpretation 3.29.** The debt $D(b_i, b_j)$ measures the change in a *potential* $\psi$ associated with the belief space. If $\psi(b)$ represents the "computational obligation" or "entropy" or "free energy" of belief $b$, then $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$ is the change in that quantity when transitioning from $b_i$ to $b_j$.
+**Interpretation 3.24.** The debt $D(b_i, b_j)$ measures the change in a *potential* $\psi$ associated with the belief space. If $\psi(b)$ represents the "computational obligation" or "entropy" or "free energy" of belief $b$, then $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$ is the change in that quantity when transitioning from $b_i$ to $b_j$.
 
 - **Positive debt:** $D(b_i, b_j) > 0$. The transition increases the potential. The system takes on new obligations.
 - **Negative debt:** $D(b_i, b_j) < 0$. The transition decreases the potential. The system pays down existing obligations.
 - **Zero debt:** $D(b_i, b_j) = 0$. The transition preserves the potential. The system remains in equilibrium.
 
-**Remark 3.30.** The interpretation of $\psi$ is deliberately left open. In different applications, $\psi$ may represent different quantities: entropy, free energy, computational obligation, information content, or something else. The theory does not depend on the interpretation. What matters is that $\psi$ exists and that $D$ is its coboundary.
+**Remark 3.25.** The interpretation of $\psi$ is deliberately left open. In different applications, $\psi$ may represent different quantities: entropy, free energy, computational obligation, information content, or something else. The theory does not depend on the interpretation. What matters is that $\psi$ exists and that $D$ is its coboundary.
 
-**Proposition 3.31 (Debt of a path).** For a path $\gamma = (b_0, b_1, \dots, b_n)$, the total debt is
+**Proposition 3.26 (Debt of a path).** For a path $\gamma = (b_0, b_1, \dots, b_n)$, the total debt is
 
 $$\sum_{k=0}^{n-1} D(b_k, b_{k+1}) = \psi(b_n) - \psi(b_0).$$
 
 *Proof.* Telescoping. $\square$
 
-**Corollary 3.32.** The total debt of a path depends only on the endpoints, not on the path itself.
+**Corollary 3.27.** The total debt of a path depends only on the endpoints, not on the path itself.
 
 *Proof.* Immediate from Proposition 3.31. $\square$
 
-**Remark 3.33.** This is the fundamental property of debt. It is a *conservative* quantity: it depends only on the endpoints, not on the path. Note that the cost $d$ is path-independent in a different sense: $d(b_i,b_j)$ is the *minimum* cost over paths, so it depends only on the endpoints by definition. The debt is path-independent in the stronger sense that *every* path between $b_i$ and $b_j$ has the same debt.
+**Remark 3.28.** This is the fundamental property of debt. It is a *conservative* quantity: it depends only on the endpoints, not on the path. Note that the cost $d$ is path-independent in a different sense: $d(b_i,b_j)$ is the *minimum* cost over paths, so it depends only on the endpoints by definition. The debt is path-independent in the stronger sense that *every* path between $b_i$ and $b_j$ has the same debt.
 
 ---
 
