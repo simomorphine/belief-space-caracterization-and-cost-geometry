@@ -84,7 +84,7 @@ d(b_i,b_j)+d(b_j,b_i)
 \right).
 $$
 
-\(\square\)
+
 
 The symmetric and antisymmetric parts reconstruct the original cost.
 
@@ -94,7 +94,7 @@ $$
 d=S+A,
 $$
 
-where \(S\) is symmetric and \(A\) is antisymmetric. This decomposition is unique.
+where $S$ is symmetric and $A$ is antisymmetric. This decomposition is unique.
 
 *Proof.*
 
