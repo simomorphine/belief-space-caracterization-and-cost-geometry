@@ -101,11 +101,7 @@ where $S$ is symmetric and $A$ is antisymmetric. This decomposition is unique.
 By definition,
 
 $$
-S(b_i,b_j)+A(b_i,b_j)
-=
-\frac12(d(b_i,b_j)+d(b_j,b_i))
-+
-\frac12(d(b_i,b_j)-d(b_j,b_i)),
+S(b_i,b_j)+A(b_i,b_j) = \frac12(d(b_i,b_j)+d(b_j,b_i)) + \frac12(d(b_i,b_j)-d(b_j,b_i)),
 $$
 
 so
