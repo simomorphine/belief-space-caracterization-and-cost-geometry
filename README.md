@@ -90,7 +90,6 @@ We are exploring ideas around:
 * **complex-valued quantities**
 * **metrics and quasi-metrics**
 * **topology**
-* **manifolds**
 * **equilibrium structures**
 * **connections between cost and uncertainty**
 * and whatever other mathematical structures emerge along the way
