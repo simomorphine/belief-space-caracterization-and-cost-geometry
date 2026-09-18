@@ -731,21 +731,35 @@ This is the central object of the book. Everything else is a consequence.
 
 **Exercise 2.1.** Let $\mathcal{B}$ be a finite set and let $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$ be a quasi-metric. Show that $d$ induces a weighted directed graph $G_d$ on $\mathcal{B}$ with edge weights $d(b_i, b_j)$. Compute $G_d$ for $\mathcal{B} = \{1, 2, 3\}$ with
 
-$$d = \begin{pmatrix} 0 & 1 & 3 \\ 2 & 0 & 1 \\ 1 & 2 & 0 \end{pmatrix}.$$
+```math
+d =
+\begin{pmatrix}
+0 & 1 & 2 \\
+2 & 0 & 1 \\
+1 & 2 & 0
+\end{pmatrix}
+```
 
 **Exercise 2.2.** Show that if $d$ is symmetric, then $G_d$ is an undirected graph (or rather, a directed graph with symmetric edge weights). Give an example of a symmetric quasi-metric that is not a metric.
 
-**Exercise 2.3.** Prove that if $d(b_i, b_j) = 0$ and $d(b_j, b_i) = 0$, then $b_i \sim b_j$ is an equivalence relation. Show that the quotient $\mathcal{B}/{\sim}$ is a metric space.
+**Exercise 2.3.** Prove that if $d(b_i, b_j) = 0$ and $d(b_j, b_i) = 0$, then $b_i \sim b_j$ is an equivalence relation. Show that the quotient $\mathcal{B}/{\sim}$ is a quasi metric space.
 
 **Exercise 2.4.** Give an example of an information processing system where the energy quasi-metric is asymmetric but the underlying cost function is symmetric. (Hint: consider path composition.)
 
-**Exercise 2.5.** Let $\mathcal{B}$ be the set of probability distributions on a finite set $\Omega$, and let $d(\mu, \nu) = D_{\mathrm{KL}}(\nu \| \mu)$. Verify that $d$ satisfies (A2)–(A4) but not symmetry.
+**Exercise 2.5.** Let $\mathcal{B}$ be the set of probability distributions on a finite set $\Omega$, and let $d(\mu, \nu) = D_{\mathrm{KL}}(\nu \| \mu)$. Verify that $d$ is non-negative and satisfies $d(\mu,\mu)=0$, but is neither symmetric nor a quasi-metric in general.
 
-**Exercise 2.6.** Let $\mathcal{B}$ be a finite set with the energy quasi-metric
+**Exercise 2.6.** Let $\mathcal{B}$ be a finite set with the following non-negative asymmetric cost function
 
-$$d = \begin{pmatrix} 0 & 2 & 5 \\ 1 & 0 & 3 \\ 4 & 1 & 0 \end{pmatrix}.$$
+```math
+d =
+\begin{pmatrix}
+0 & 2 & 5 \\
+1 & 0 & 3 \\
+4 & 1 & 0
+\end{pmatrix}.
+```
 
-Compute the shortest-path metric $d^*$ of the graph $G_d$. Is $d^* = d$? If not, explain why.
+Compute the shortest-path metric $d^\*$ of the graph $G_d$. Is $d^\* = d$? If not, explain why.
 
 **Exercise 2.7.** Show that the energy quasi-metric $d$ is the *largest* quasi-metric on $\mathcal{B}$ satisfying $d(b_i, b_j) \le \mathcal{C}(b_i, b_j)$ for all $(b_i, b_j) \in \mathcal{T}$. (Hint: use the triangle inequality.)
 
