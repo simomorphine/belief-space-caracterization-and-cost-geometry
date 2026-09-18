@@ -157,15 +157,47 @@ $$
 Therefore, $d$ satisfies the triangle inequality. $\square$
 
 
-**Remark 2.16.** The triangle inequality for $d$ is *automatic*: it follows from the definition of $d$ as a minimum over paths. This is a crucial point. The energy quasi-metric always satisfies the triangle inequality, by construction. What it does *not* automatically satisfy is symmetry. The asymmetry is the genuine content.
+**Remark 2.16.** The triangle inequality for $d$ follows from the definition of $d$ as an infimum over paths together with the subadditivity of $\mathcal{C}$ under concatenation:
 
-**Remark 2.17.** The notation "quasi-metric" reflects the fact that $d$ satisfies the triangle inequality but need not be symmetric. If $d$ is also symmetric, it is a pseudometric (or a metric, if the identity of indiscernibles also holds).
+$$
+\mathcal{C}(\gamma_1\cdot\gamma_2)
+\leq
+\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
+$$
 
-**Proposition 2.18 (Path-independence of $d$).** The energy quasi-metric $d$ depends only on the endpoints, not on the path. That is, if $\gamma_1$ and $\gamma_2$ are two paths from $b_i$ to $b_j$, then $d(b_i, b_j) \le \mathcal{C}(\gamma_1)$ and $d(b_i, b_j) \le \mathcal{C}(\gamma_2)$, with equality if and only if both paths are optimal.
+Thus, the induced energy pseudo-quasi-metric satisfies the triangle inequality by construction. What is not implied by this construction is symmetry. In general,
 
-*Proof.* Immediate from the definition of $d$ as an infimum. $\square$
+$$
+d(b_i,b_j)\neq d(b_j,b_i).
+$$
 
-**Remark 2.19.** The energy quasi-metric $d$ is an *emergent* quantity. It is not given; it is derived from the underlying cost function $\mathcal{C}$ by minimization. This is the standard move in shortest-path theory, and it is what makes $d$ well-behaved even when $\mathcal{C}$ is not.
+**Remark 2.17.** The terminology "pseudo-quasi-metric" reflects two possible failures of the usual metric structure. The function $d$ need not be symmetric, and distinct states may have zero distance. If $d$ is symmetric, it becomes a pseudometric; if, in addition,
+
+$$
+d(b_i,b_j)=0\Longrightarrow b_i=b_j,
+$$
+
+then $d$ is a metric.
+
+**Proposition 2.18 (Endpoint dependence of $d$).**
+The quantity $d(b_i,b_j)$ depends only on the endpoints $b_i$ and $b_j$, because it is defined as the infimum of the costs of all paths connecting them. In particular, for every path $\gamma:b_i\to b_j$,
+
+$$
+d(b_i,b_j)\leq\mathcal{C}(\gamma).
+$$
+
+Moreover,
+
+$$
+d(b_i,b_j)=\mathcal{C}(\gamma)
+$$
+
+if and only if $\gamma$ attains the infimum and is therefore an optimal path.
+
+*Proof.* Immediate from the definition of $d$ as the infimum of the costs of all paths from $b_i$ to $b_j$. $\square$
+
+**Remark 2.19.** The energy pseudo-quasi-metric $d$ is an *emergent* quantity. It is not given independently; it is derived from the underlying path-cost function $\mathcal{C}$ by minimization. The construction converts a path-dependent cost into an endpoint-dependent quantity by retaining only the least-cost path between each pair of states.
+
 
 ---
 
