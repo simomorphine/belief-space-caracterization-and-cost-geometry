@@ -199,52 +199,111 @@ $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 ---
 
-## 3.5 Debt as an alternating 1-cocycle
+### 3.5 Debt as an Alternating 1-Cocycle
 
-The axioms (D1) and (D2) have a natural interpretation in the language of cohomology.
+The axioms (D1) and (D2) have a natural interpretation in the language of cohomology. This section makes that interpretation precise.
 
-**Definition 3.15 (Discrete de Rham complex).** Let $\mathcal{B}$ be a set, viewed as the vertex set of the complete directed graph on $\mathcal{B}$. For $k \ge 0$, let $C^k(\mathcal{B})$ be the $\mathbb{R}$-vector space of functions on $(k+1)$-tuples $(b_0, \dots, b_k)$ of $\mathcal{B}$.
+**Definition 3.20 (Discrete de Rham Complex).** Let `B` be a set, viewed as the vertex set of a complete directed graph. We use the term *discrete de Rham complex* for the following cochain structure. For `k ≥ 0`, let `C^k(B)` be the `R`-vector space of real-valued functions on `(k+1)`-tuples `(b_0, ..., b_k)` of elements of `B`.
 
-- $C^0(\mathcal{B})$ is the space of functions $\psi : \mathcal{B} \to \mathbb{R}$.
-- $C^1(\mathcal{B})$ is the space of functions $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$.
-- $C^2(\mathcal{B})$ is the space of functions $A : \mathcal{B} \times \mathcal{B} \times \mathcal{B} \to \mathbb{R}$.
+In particular:
 
-**Definition 3.16 (Coboundary).** The *coboundary* $\delta : C^0(\mathcal{B}) \to C^1(\mathcal{B})$ is
+* `C^0(B)` is the space of functions `ψ : B → R`.
+* `C^1(B)` is the space of functions `D : B × B → R`.
+* `C^2(B)` is the space of real-valued functions on `B × B × B`.
 
-$$(\delta\psi)(b_i, b_j) := \psi(b_j) - \psi(b_i).$$
+**Definition 3.21 (Coboundary).** The *coboundary* operator `δ : C^0(B) → C^1(B)` is defined by
 
-The *coboundary* $\delta : C^1(\mathcal{B}) \to C^2(\mathcal{B})$ is
+`(δψ)(b_i,b_j) := ψ(b_j) − ψ(b_i).`
 
-$$(\delta D)(b_i, b_j, b_k) := D(b_j, b_k) - D(b_i, b_k) + D(b_i, b_j).$$
+The coboundary operator `δ : C^1(B) → C^2(B)` is defined by
 
-**Proposition 3.17.** $\delta^2 = 0$.
+`(δD)(b_i,b_j,b_k) := D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j).`
 
-*Proof.* Direct computation:
+**Proposition 3.22 (Nilpotency of the Coboundary).** For every `ψ ∈ C^0(B)`,
 
-$$(\delta^2\psi)(b_i, b_j, b_k) = (\delta\psi)(b_j, b_k) - (\delta\psi)(b_i, b_k) + (\delta\psi)(b_i, b_j)$$
-$$= [\psi(b_k) - \psi(b_j)] - [\psi(b_k) - \psi(b_i)] + [\psi(b_j) - \psi(b_i)] = 0. \quad \square$$
+`δ²ψ = 0`.
 
-**Proposition 3.18.** A function $D \in C^1(\mathcal{B})$ satisfies (D1) if and only if $\delta D = 0$. That is, $D$ is a *cocycle*.
+*Proof.* Applying the coboundary operator twice gives
 
-*Proof.* $\delta D = 0$ means
+`(δ(δψ))(b_i,b_j,b_k)`
+`= (δψ)(b_j,b_k) − (δψ)(b_i,b_k) + (δψ)(b_i,b_j)`
 
-$$D(b_j, b_k) - D(b_i, b_k) + D(b_i, b_j) = 0$$
+`= [ψ(b_k) − ψ(b_j)] − [ψ(b_k) − ψ(b_i)] + [ψ(b_j) − ψ(b_i)]`
 
-for all $b_i, b_j, b_k$. Rearranging:
+`= 0.`
 
-$$D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k).$$
+Therefore, `δ² = 0`. `□`
 
-This is exactly (D1). $\square$
+**Proposition 3.23 (Additivity is the Cocycle Condition).** A function `D ∈ C^1(B)` satisfies the debt axiom (D1) if and only if
 
-**Proposition 3.19.** A function $D \in C^1(\mathcal{B})$ satisfies (D2) if and only if $D$ is *alternating*: $D(b_i, b_j) = -D(b_j, b_i)$.
+`δD = 0`.
 
-*Proof.* Immediate. $\square$
+In other words, `D` is a `1`-cocycle.
 
-**Corollary 3.20.** Debt functions are exactly the alternating 1-cocycles of the discrete de Rham complex on $\mathcal{B}$.
+*Proof.* The condition `δD = 0` means
 
-**Remark 3.21.** This is the cohomological characterization of debt. The two axioms (D1) and (D2) are exactly the two conditions for $D$ to be an alternating 1-cocycle. The basepoint theorem (Chapter 4) will show that every such cocycle is a coboundary, i.e., $D = \delta\psi$ for some $\psi \in C^0(\mathcal{B})$. This is the statement that the first cohomology of the complete directed graph on $\mathcal{B}$ is trivial.
+`D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j) = 0`
 
-**Remark 3.22.** The asymmetry $A$ of Definition 3.2 is also an alternating 1-cochain, but it is *not* a cocycle: as Example 3.8 shows, $\delta A \neq 0$ in general. So $A$ and $D$ live in the same space $C^1(\mathcal{B})$ but in different subspaces: $A$ is an arbitrary alternating 1-cochain, while $D$ is an alternating 1-cocycle. The space of alternating 1-cocycles is strictly smaller.
+for all `b_i,b_j,b_k ∈ B`. Rearranging gives
+
+`D(b_i,b_k) = D(b_i,b_j) + D(b_j,b_k),`
+
+which is exactly (D1). `□`
+
+**Remark 3.24 (Alternating 1-Cochains).** A `1`-cochain `D ∈ C^1(B)` is called *alternating* if
+
+`D(b_i,b_j) = −D(b_j,b_i)`
+
+for all `b_i,b_j ∈ B`.
+
+This is precisely the content of axiom (D2). Thus (D2) says that the debt function is an alternating `1`-cochain.
+
+Notice that alternation is not a consequence of the cocycle condition. It is a separate structural requirement imposed by the definition of debt.
+
+**Corollary 3.25 (Debt Functions are Alternating 1-Cocycles).** A function `D ∈ C^1(B)` is a debt function if and only if it is an alternating `1`-cocycle of the discrete de Rham complex on `B`.
+
+*Proof.* By Definition 3.11, `D` is a debt function if and only if it satisfies (D1) and (D2).
+
+By Proposition 3.23, (D1) is equivalent to `δD = 0`, so `D` is a `1`-cocycle.
+
+By Remark 3.24, (D2) is equivalent to `D` being alternating.
+
+Therefore, `D` is a debt function if and only if it is an alternating `1`-cocycle. `□`
+
+**Remark 3.26 (Debt as a Cohomological Object).** Corollary 3.25 provides a cohomological characterization of debt. The two debt axioms have distinct mathematical meanings:
+
+* (D1) expresses closure: `δD = 0`.
+* (D2) expresses alternation: `D(b_i,b_j) = −D(b_j,b_i)`.
+
+The basepoint theorem in Chapter 4 will show that, on the complete directed structure considered here, every such cocycle is a coboundary. That is, there exists a potential `ψ ∈ C^0(B)` such that
+
+`D = δψ,`
+
+or equivalently,
+
+`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
+
+This corresponds to the triviality of the first cohomology of the complete simplex.
+
+**Remark 3.27 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
+
+`A(b_i,b_j) = −A(b_j,b_i).`
+
+However, `A` need not be a cocycle. As Example 3.8 demonstrates,
+
+`δA ≠ 0`
+
+in general.
+
+Thus `A` and `D` belong to the same cochain space `C^1(B)`, but they satisfy different structural requirements:
+
+`A`: alternating `1`-cochain,
+
+`D`: alternating `1`-cocycle.
+
+For `|B| ≥ 3`, the space of alternating `1`-cocycles is a proper subspace of the space of alternating `1`-cochains.
+
+This distinction is fundamental: `A` represents the asymmetry of the cost function, whereas `D` is a separate debt structure constrained by both antisymmetry and additivity.
 
 ---
 
