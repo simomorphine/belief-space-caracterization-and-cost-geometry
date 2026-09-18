@@ -20,13 +20,8 @@ This is not a defect. It is a feature. The asymmetry of $d$ is a genuine quantit
 
 $$A(b_i, b_j) := \tfrac{1}{2}\bigl(d(b_i, b_j) - d(b_j, b_i)\bigr).$$
 
-**Remark 3.3.** The factor of $\tfrac{1}{2}$ is the canonical normalization for a 1-form. It is chosen so that the decomposition $d = S + A$, where
 
-$$S(b_i, b_j) := \tfrac{1}{2}\bigl(d(b_i, b_j) + d(b_j, b_i)\bigr)$$
-
-is the symmetrization, holds with no residual factor. With the unnormalized difference $d(b_i,b_j) - d(b_j,b_i)$, the decomposition would read $d = S + \tfrac{1}{2}A_{\text{un}}$; the $\tfrac{1}{2}$ is absorbed into the definition of $A$ once and for all.
-
-**Proposition 3.4 (Properties of asymmetry).** The asymmetry $A$ satisfies:
+**Proposition 3.3 (Properties of asymmetry).** The asymmetry $A$ satisfies:
 
 - **(i) Antisymmetry.** $A(b_i, b_j) = -A(b_j, b_i)$ for all $b_i, b_j$.
 - **(ii) Vanishing on the diagonal.** $A(b, b) = 0$ for all $b$.
