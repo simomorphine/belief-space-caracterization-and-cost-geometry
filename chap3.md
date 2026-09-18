@@ -1,18 +1,16 @@
 # Chapter 3: The Debt Function
 
----
-
 ## 3.1 The asymmetry of cost
 
-Chapter 2 established the energy quasi-metric $d$ as the cost of moving between states of the belief space. Because $d$ is a quasi-metric, it need not be symmetric. In general,
+Chapter 2 established the energy quasi-metric `d` as the cost of moving between states of the belief space. Because `d` is a quasi-metric, it need not be symmetric. In general,
 
 $$
 d(b_i,b_j) \neq d(b_j,b_i).
 $$
 
-This asymmetry is not an error in the construction. It records the fact that moving from $b_i$ to $b_j$ may have a different cost from moving in the opposite direction.
+This asymmetry is not an error in the construction. It records the fact that moving from `b_i` to `b_j` may have a different cost from moving in the opposite direction.
 
-**Observation 3.1.** There may exist $b_i,b_j\in\mathcal B$ such that
+**Observation 3.1.** There may exist `b_i,b_j ∈ B` such that
 
 $$
 d(b_i,b_j)\neq d(b_j,b_i).
@@ -20,7 +18,7 @@ $$
 
 The first task of this chapter is therefore to isolate the asymmetric part of the energy quasi-metric.
 
-**Definition 3.2 (Symmetric and antisymmetric parts).** Assume that $d(b_i,b_j)<+\infty$ for all $b_i,b_j\in\mathcal B$. Define
+**Definition 3.2 (Symmetric and Antisymmetric Parts).** Assume that `d(b_i,b_j)<+\infty` for all `b_i,b_j∈B`. Define
 
 $$
 S(b_i,b_j)
@@ -36,15 +34,15 @@ A(b_i,b_j)
 \frac12\left(d(b_i,b_j)-d(b_j,b_i)\right).
 $$
 
-We call $S$ the **symmetric part** of the cost and $A$ the **antisymmetric part** of the cost.
+We call `S` the **symmetric part** of the cost and `A` the **antisymmetric part** of the cost.
 
-The function $A$ measures the directional imbalance of the cost. It is positive when the transition from $b_i$ to $b_j$ is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
+The function `A` measures the directional imbalance of the cost. It is positive when the transition from `b_i` to `b_j` is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
 
-**Proposition 3.3.** The antisymmetric part $A$ satisfies:
+**Proposition 3.3.** The antisymmetric part `A` satisfies:
 
-1. $A(b_i,b_j)=-A(b_j,b_i)$;
-2. $A(b,b)=0$;
-3. $A(b_i,b_j)>0$ if and only if $d(b_i,b_j)>d(b_j,b_i)$;
+1. `A(b_i,b_j)=-A(b_j,b_i)`;
+2. `A(b,b)=0`;
+3. `A(b_i,b_j)>0` if and only if `d(b_i,b_j)>d(b_j,b_i)`;
 4.
 
 $$
@@ -53,11 +51,11 @@ $$
 \frac12\left(d(b_i,b_j)+d(b_j,b_i)\right).
 $$
 
-*Proof.*
+**Proof.**
 
 For antisymmetry,
 
-$$ 
+$$
 A(b_j,b_i) = \frac12\left(d(b_j,b_i)-d(b_i,b_j)\right) = -A(b_i,b_j).
 $$
 
@@ -84,19 +82,19 @@ d(b_i,b_j)+d(b_j,b_i)
 \right).
 $$
 
-
+`□`
 
 The symmetric and antisymmetric parts reconstruct the original cost.
 
-**Proposition 3.4 (Canonical decomposition).** The energy quasi-metric admits the decomposition
+**Proposition 3.4 (Canonical Decomposition).** The energy quasi-metric admits the decomposition
 
 $$
 d=S+A,
 $$
 
-where $S$ is symmetric and $A$ is antisymmetric. This decomposition is unique.
+where `S` is symmetric and `A` is antisymmetric. This decomposition is unique.
 
-*Proof.*
+**Proof.**
 
 By definition,
 
@@ -110,7 +108,7 @@ $$
 S(b_i,b_j)+A(b_i,b_j)=d(b_i,b_j).
 $$
 
-The function $S$ is symmetric and $A$ is antisymmetric by construction.
+The function `S` is symmetric and `A` is antisymmetric by construction.
 
 For uniqueness, suppose
 
@@ -118,15 +116,15 @@ $$
 d=S'+A',
 $$
 
-where $S'$ is symmetric and $A'$ is antisymmetric. Evaluating the same equation with $b_i$ and $b_j$ exchanged and adding and subtracting the two equations gives
+where `S'` is symmetric and `A'` is antisymmetric. Evaluating the same equation with `b_i` and `b_j` exchanged, then adding and subtracting the two equations, gives
 
 $$
 S'=S,\qquad A'=A.
 $$
 
-Thus the decomposition is unique. 
+Thus the decomposition is unique. `□`
 
-**Remark 3.5.** The antisymmetric component $A$ should not be identified with the debt function introduced in this chapter. $A$ is determined directly by the asymmetry of the energy quasi-metric. Debt is a separate object whose mathematical structure will be introduced independently.
+**Remark 3.5.** The antisymmetric component `A` should not be identified with the debt function introduced in this chapter. `A` is determined directly by the asymmetry of the energy quasi-metric. Debt is a separate object whose mathematical structure will be introduced independently.
 
 The distinction is important. Asymmetry tells us that the cost of a transition depends on its direction. It does not, by itself, tell us why this asymmetry exists, whether it can be represented by a potential, or whether it satisfies additional structural properties.
 
@@ -144,18 +142,55 @@ and what assumptions are required for such a representation to exist.
 
 ## 3.2 The debt function: definition
 
-We now introduce the central object of the book.
+We now introduce the central object of the chapter.
 
-**Definition 3.6 (Debt function).** Let $\mathcal{B}$ be a belief space. A *debt function* is a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$ satisfying:
+**Definition 3.6 (Debt Function).** Let `B` be a belief space. A **debt function** is a function
 
-- **(D1) Additivity.** $D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$ for all $b_i, b_j, b_k \in \mathcal{B}$.
-- **(D2) Antisymmetry.** $D(b_i, b_j) = -D(b_j, b_i)$ for all $b_i, b_j \in \mathcal{B}$.
+$$
+D:B\times B\to\mathbb R
+$$
 
-These are the only axioms. Everything else follows.
+satisfying:
 
-**Remark 3.7.** The axioms (D1) and (D2) are minimal. They are satisfied by any potential difference: if $\psi : \mathcal{B} \to \mathbb{R}$ is any function, then $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$ satisfies (D1) and (D2). The central result of Chapter 4 is that *every* debt function arises this way.
+* **(D1) Additivity.**
 
-**Remark 3.8.** The debt function is *not* the same as the asymmetry $A$. The asymmetry measures the *magnitude* of directional imbalance; the debt measures the *potential* that generates it. The two are related by the polar decomposition of Chapter 11. For now, the essential difference is that $A$ is not additive while $D$ is additive by axiom (D1).
+$$
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
+$$
+
+for all `b_i,b_j,b_k∈B`.
+
+* **(D2) Antisymmetry.**
+
+$$
+D(b_i,b_j) = -D(b_j,b_i)
+$$
+
+for all `b_i,b_j∈B`.
+
+These are the only axioms. Everything else in this chapter will be derived from them.
+
+**Remark 3.7.** The axioms (D1) and (D2) are satisfied by every potential difference. If `ψ:B→R` is any function and
+
+$$
+D(b_i,b_j):=\psi(b_j)-\psi(b_i),
+$$
+
+then `D` satisfies both axioms.
+
+The central result of Chapter 4 will establish the converse: every debt function arises from such a potential.
+
+**Remark 3.8.** The debt function is not the same as the asymmetry `A`.
+
+The asymmetry
+
+$$
+A(b_i,b_j) = \frac12 \left( d(b_i,b_j)-d(b_j,b_i) \right)
+$$
+
+measures directional imbalance in the cost.
+
+Debt is a separate function satisfying the stronger structural condition of additivity. In particular, `A` need not be additive, whereas `D` is additive by axiom (D1).
 
 ---
 
@@ -163,360 +198,849 @@ These are the only axioms. Everything else follows.
 
 The two axioms (D1) and (D2) have immediate consequences.
 
-**Proposition 3.9. (Identity).** $D(b, b) = 0$ for all $b \in \mathcal{B}$.
+**Proposition 3.9 (Identity).** For every `b∈B`,
 
-*Proof.* By (D2), $D(b, b) = -D(b, b)$. Hence $2D(b, b) = 0$, so $D(b, b) = 0$. $\square$
+$$
+D(b,b)=0.
+$$
 
-**Proposition 3.10. (Cycle invariance).** For any closed path $b_1 \to b_2 \to \cdots \to b_n \to b_1$,
+**Proof.** By (D2),
 
-$$\sum_{k=1}^n D(b_k, b_{k+1}) = 0,$$
+$$
+D(b,b)=-D(b,b).
+$$
 
-where $b_{n+1} := b_1$.
+Hence
 
-*Proof.* By (D1), for each $k$,
+$$
+2D(b,b)=0,
+$$
 
-$$D(b_k, b_{k+1}) = D(b_1, b_{k+1}) - D(b_1, b_k).$$
+so
 
-Summing over $k = 1, \dots, n$ and telescoping,
+$$
+D(b,b)=0.
+$$
 
-$$\sum_{k=1}^n D(b_k, b_{k+1}) = D(b_1, b_{n+1}) - D(b_1, b_1) = D(b_1, b_1) - D(b_1, b_1) = 0,$$
+`□`
 
-where we used $b_{n+1} = b_1$ and Proposition 3.14. $\square$
+**Proposition 3.10 (Cycle Invariance).** For any closed path
 
-**Proposition 3.11. (Path independence).** If $\gamma_1$ and $\gamma_2$ are two paths from $b_i$ to $b_j$, then
+$$
+b_1\to b_2\to\cdots\to b_n\to b_1,
+$$
 
-$$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
+the total debt is zero:
 
-*Proof.* The concatenation $\gamma_1 \cdot \gamma_2^{-1}$ is a closed path. By Proposition 3.10, its total debt is zero. Hence the debt of $\gamma_1$ equals the debt of $\gamma_2$. $\square$
+$$
+\sum_{k=1}^{n}D(b_k,b_{k+1})=0,
+$$
 
-**Remark 3.12.** Proposition 3.11 is the key property. It says that the debt of a path depends only on the endpoints, not on the path itself. This is the defining property of a *conservative* quantity. Debt is conservative.
+where `b_{n+1}:=b_1`.
 
-**Proposition 3.13. (Gauge invariance).** Let $\psi : \mathcal{B} \to \mathbb{R}$ and let $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$. Then $D$ satisfies (D1) and (D2). Moreover, if $\psi' := \psi + c$ for a constant $c \in \mathbb{R}$, then $D_{\psi'} = D_\psi$.
+**Proof.** By (D1),
 
-*Proof.* (D1): $\psi(b_k) - \psi(b_i) = [\psi(b_j) - \psi(b_i)] + [\psi(b_k) - \psi(b_j)]$. (D2): $\psi(b_j) - \psi(b_i) = -[\psi(b_i) - \psi(b_j)]$. Gauge invariance: constants cancel in differences. $\square$
+$$
+D(b_k,b_{k+1}) = D(b_1,b_{k+1})-D(b_1,b_k).
+$$
 
-**Remark 3.14.** Proposition 3.13 says that *every* potential difference is a debt function. The converse—that every debt function is a potential difference—is the content of the basepoint theorem (Chapter 4). Together, they establish that debt functions and potential differences are the same thing.
+Summing over `k=1,...,n` gives a telescoping sum:
+
+$$
+\sum_{k=1}^{n}D(b_k,b_{k+1}) = D(b_1,b_{n+1})-D(b_1,b_1).
+$$
+
+Since `b_{n+1}=b_1` and Proposition 3.9 gives `D(b_1,b_1)=0`,
+
+$$
+\sum_{k=1}^{n}D(b_k,b_{k+1})=0.
+$$
+
+`□`
+
+**Proposition 3.11 (Path Independence).** If `γ_1` and `γ_2` are two paths from `b_i` to `b_j`, then
+
+$$
+\sum_{e\in\gamma_1}D(e) = \sum_{e\in\gamma_2}D(e).
+$$
+
+**Proof.** The concatenation
+
+$$
+\gamma_1\cdot\gamma_2^{-1}
+$$
+
+is a closed path. By Proposition 3.10, its total debt is zero. Therefore the debt accumulated along `γ_1` equals the debt accumulated along `γ_2`.
+
+`□`
+
+**Remark 3.12.** Proposition 3.11 is an important structural property. The total debt of a path depends only on its endpoints, not on the particular path taken.
+
+This is stronger than the endpoint dependence of the energy quasi-metric. The energy quasi-metric is obtained by minimizing over possible paths. Debt is different: every path between the same endpoints has the same total debt.
+
+**Proposition 3.13 (Gauge Invariance).** Let `ψ:B→R` and define
+
+$$
+D(b_i,b_j):=\psi(b_j)-\psi(b_i).
+$$
+
+Then `D` satisfies (D1) and (D2). Moreover, if
+
+$$
+\psi'=\psi+c
+$$
+
+for a constant `c∈R`, then
+
+$$
+D_{\psi'}=D_\psi.
+$$
+
+**Proof.**
+
+For (D1),
+
+$$
+\psi(b_k)-\psi(b_i) = [\psi(b_j)-\psi(b_i)] + [\psi(b_k)-\psi(b_j)].
+$$
+
+For (D2),
+
+$$
+\psi(b_j)-\psi(b_i) = -[\psi(b_i)-\psi(b_j)].
+$$
+
+Finally,
+
+$$
+(\psi(b_j)+c)-(\psi(b_i)+c)
+=
+\psi(b_j)-\psi(b_i).
+$$
+
+Thus adding a constant to the potential does not change the debt.
+
+`□`
+
+**Remark 3.14.** Proposition 3.13 shows that every potential difference is a debt function. The converse—that every debt function is a potential difference—is the subject of Chapter 4.
 
 ---
 
-### 3.4 Debt as an Alternating 1-Cocycle
+## 3.4 A Cohomology Reminder
 
-The axioms (D1) and (D2) have a natural interpretation in the language of cohomology. This section makes that interpretation precise.
+Before interpreting debt cohomologically, it is useful to recall the basic language.
 
-**Definition 3.15 (Discrete de Rham Complex).** Let `B` be a set, viewed as the vertex set of a complete directed graph. We use the term *discrete de Rham complex* for the following cochain structure. For `k ≥ 0`, let `C^k(B)` be the `R`-vector space of real-valued functions on `(k+1)`-tuples `(b_0, ..., b_k)` of elements of `B`.
+Cohomology provides a mathematical framework for studying structures that satisfy local consistency conditions and asking whether those structures arise from global potentials.
 
-In particular:
+For the purposes of this book, only a small part of the general theory is required.
 
-* `C^0(B)` is the space of functions `ψ : B → R`.
-* `C^1(B)` is the space of functions `D : B × B → R`.
-* `C^2(B)` is the space of real-valued functions on `B × B × B`.
+The basic objects are **cochains**, **cocycles**, **coboundaries**, and **cohomology groups**.
 
-**Definition 3.16 (Coboundary).** The *coboundary* operator `δ : C^0(B) → C^1(B)` is defined by
+A **cochain** is a function defined on objects of a specified dimension.
 
-`(δψ)(b_i,b_j) := ψ(b_j) − ψ(b_i).`
-
-The coboundary operator `δ : C^1(B) → C^2(B)` is defined by
-
-`(δD)(b_i,b_j,b_k) := D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j).`
-
-**Proposition 3.17 (Nilpotency of the Coboundary).** For every `ψ ∈ C^0(B)`,
-
-`δ²ψ = 0`.
-
-*Proof.* Applying the coboundary operator twice gives
-
-`(δ(δψ))(b_i,b_j,b_k)`
-`= (δψ)(b_j,b_k) − (δψ)(b_i,b_k) + (δψ)(b_i,b_j)`
-
-`= [ψ(b_k) − ψ(b_j)] − [ψ(b_k) − ψ(b_i)] + [ψ(b_j) − ψ(b_i)]`
-
-`= 0.`
-
-Therefore, `δ² = 0`. `□`
-
-**Proposition 3.18 (Additivity is the Cocycle Condition).** A function `D ∈ C^1(B)` satisfies the debt axiom (D1) if and only if
-
-`δD = 0`.
-
-In other words, `D` is a `1`-cocycle.
-
-*Proof.* The condition `δD = 0` means
-
-`D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j) = 0`
-
-for all `b_i,b_j,b_k ∈ B`. Rearranging gives
-
-`D(b_i,b_k) = D(b_i,b_j) + D(b_j,b_k),`
-
-which is exactly (D1). `□`
-
-**Remark 3.19 (Alternating 1-Cochains).** A `1`-cochain `D ∈ C^1(B)` is called *alternating* if
-
-`D(b_i,b_j) = −D(b_j,b_i)`
-
-for all `b_i,b_j ∈ B`.
-
-This is precisely the content of axiom (D2). Thus (D2) says that the debt function is an alternating `1`-cochain.
-
-Notice that alternation is not a consequence of the cocycle condition. It is a separate structural requirement imposed by the definition of debt.
-
-**Corollary 3.20 (Debt Functions are Alternating 1-Cocycles).** A function `D ∈ C^1(B)` is a debt function if and only if it is an alternating `1`-cocycle of the discrete de Rham complex on `B`.
-
-*Proof.* By Definition 3.11, `D` is a debt function if and only if it satisfies (D1) and (D2).
-
-By Proposition 3.23, (D1) is equivalent to `δD = 0`, so `D` is a `1`-cocycle.
-
-By Remark 3.19, (D2) is equivalent to `D` being alternating.
-
-Therefore, `D` is a debt function if and only if it is an alternating `1`-cocycle. `□`
-
-**Remark 3.21 (Debt as a Cohomological Object).** Corollary 3.20 provides a cohomological characterization of debt. The two debt axioms have distinct mathematical meanings:
-
-* (D1) expresses closure: `δD = 0`.
-* (D2) expresses alternation: `D(b_i,b_j) = −D(b_j,b_i)`.
-
-The basepoint theorem in Chapter 4 will show that, on the complete directed structure considered here, every such cocycle is a coboundary. That is, there exists a potential `ψ ∈ C^0(B)` such that
-
-`D = δψ,`
-
-or equivalently,
-
-`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
-
-This corresponds to the triviality of the first cohomology of the complete simplex.
-
-**Remark 3.22 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
-
-`A(b_i,b_j) = −A(b_j,b_i).`
-
-However, `A` need not be a cocycle. As Example 3.8 demonstrates,
-
-`δA ≠ 0`
-
-in general.
-
-Thus `A` and `D` belong to the same cochain space `C^1(B)`, but they satisfy different structural requirements:
-
-`A`: alternating `1`-cochain,
-
-`D`: alternating `1`-cocycle.
-
-For `|B| ≥ 3`, the space of alternating `1`-cocycles is a proper subspace of the space of alternating `1`-cochains.
-
-This distinction is fundamental: `A` represents the asymmetry of the cost function, whereas `D` is a separate debt structure constrained by both antisymmetry and additivity.
-
----
-
-## 3.5 The debt of a transition
-
-Let us interpret the debt function in the context of belief space.
-
-**Definition 3.23 (Debt of a transition).** For a transition $b_i \to b_j$, the *debt* is $D(b_i, b_j)$.
-
-**Interpretation 3.24.** The debt $D(b_i, b_j)$ measures the change in a *potential* $\psi$ associated with the belief space. If $\psi(b)$ represents the "computational obligation" or "entropy" or "free energy" of belief $b$, then $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$ is the change in that quantity when transitioning from $b_i$ to $b_j$.
-
-- **Positive debt:** $D(b_i, b_j) > 0$. The transition increases the potential. The system takes on new obligations.
-- **Negative debt:** $D(b_i, b_j) < 0$. The transition decreases the potential. The system pays down existing obligations.
-- **Zero debt:** $D(b_i, b_j) = 0$. The transition preserves the potential. The system remains in equilibrium.
-
-**Remark 3.25.** The interpretation of $\psi$ is deliberately left open. In different applications, $\psi$ may represent different quantities: entropy, free energy, computational obligation, information content, or something else. The theory does not depend on the interpretation. What matters is that $\psi$ exists and that $D$ is its coboundary.
-
-**Proposition 3.26 (Debt of a path).** For a path $\gamma = (b_0, b_1, \dots, b_n)$, the total debt is
-
-$$\sum_{k=0}^{n-1} D(b_k, b_{k+1}) = \psi(b_n) - \psi(b_0).$$
-
-*Proof.* Telescoping. $\square$
-
-**Corollary 3.27.** The total debt of a path depends only on the endpoints, not on the path itself.
-
-*Proof.* Immediate from Proposition 3.31. $\square$
-
-**Remark 3.28.** This is the fundamental property of debt. It is a *conservative* quantity: it depends only on the endpoints, not on the path. Note that the cost $d$ is path-independent in a different sense: $d(b_i,b_j)$ is the *minimum* cost over paths, so it depends only on the endpoints by definition. The debt is path-independent in the stronger sense that *every* path between $b_i$ and $b_j$ has the same debt.
-
----
-
-## 3.6 Why debt is the right object
-
-We close this chapter with a reflection on why debt, rather than asymmetry, is the right object to study.
-
-**The asymmetry $A$ is not additive.** As Example 3.8 shows, $A(b_i, b_k) \neq A(b_i, b_j) + A(b_j, b_k)$ in general. The asymmetry of a composed transition is not the sum of the asymmetries of its parts. This means that $A$ does not telescope, does not define a path-independent quantity, and does not admit a potential.
-
-**The debt $D$ is additive.** By axiom (D1), $D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$. The debt of a composed transition *is* the sum of the debts of its parts. This means that $D$ telescopes, defines a path-independent quantity, and admits a potential (Chapter 4).
-
-**The asymmetry $A$ is an arbitrary alternating 1-cochain.** It lives in $C^1(\mathcal{B})$ and satisfies (D2) but not (D1).
-
-**The debt $D$ is an alternating 1-cocycle.** It lives in the subspace of $C^1(\mathcal{B})$ consisting of functions satisfying both (D1) and (D2).
-
-**The relationship.** The asymmetry $A$ and the debt $D$ are both alternating 1-cochains, but they live in different subspaces: $A$ is an arbitrary alternating 1-cochain, while $D$ is an alternating 1-cocycle. The precise relationship between them—how $A$ decomposes into a cocycle part and a non-cocycle part—is developed in Chapter 11 via the polar decomposition of quasi-metrics. For now, the essential point is that additivity is what allows telescoping, path-independence, and the existence of a potential, and $A$ does not have it while $D$ does by axiom.
-
-**The moral.** Debt is the right object because it is additive. Additivity is what allows telescoping, path-independence, and the existence of a potential. The asymmetry, while natural, is not additive, and therefore does not admit the same rich structure.
-
----
-
-## 3.7 Summary
-
-We have introduced the debt function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$, defined by two axioms:
-
-- **(D1) Additivity.** $D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$.
-- **(D2) Antisymmetry.** $D(b_i, b_j) = -D(b_j, b_i)$.
-
-We have shown that these axioms imply:
-
-- **Identity.** $D(b, b) = 0$.
-- **Cycle invariance.** The total debt of any closed path is zero.
-- **Path independence.** The total debt of a path depends only on the endpoints.
-- **Gauge invariance.** Debt is invariant under addition of a constant to the potential.
-- **Cohomological characterization.** Debt functions are exactly the alternating 1-cocycles of the discrete de Rham complex.
-
-The central remaining question is: does every debt function arise from a potential? That is, given $D$ satisfying (D1) and (D2), does there exist $\psi : \mathcal{B} \to \mathbb{R}$ with $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$? The answer is yes, and the proof is the subject of Chapter 4.
-
----
-
-### 3.8 Cohomology Reminder
-
-Cohomology provides a language for detecting structure that is locally consistent but may or may not arise from a global potential. For the purposes of this book, we only need a small part of the general theory.
-
-The basic objects are **cochains**, **cocycles**, and **coboundaries**.
-
-A **cochain** is simply a function defined on geometric or combinatorial objects of a specified dimension.
-
-For example, given a set of states `B`:
+Given a state space `B`:
 
 * a `0`-cochain assigns a number to each state;
 * a `1`-cochain assigns a number to each ordered pair of states;
 * a `2`-cochain assigns a number to each ordered triple of states.
 
-We denote these spaces by `C^0(B)`, `C^1(B)`, and `C^2(B)`.
+We denote the corresponding spaces by
 
-Thus, a function
+$$
+C^0(B),\qquad C^1(B),\qquad C^2(B).
+$$
 
-`ψ : B → R`
+Thus,
 
-is a `0`-cochain, while a function
+$$
+\psi:B\to\mathbb R
+$$
 
-`D : B × B → R`
+is a `0`-cochain, while
+
+$$
+D:B\times B\to\mathbb R
+$$
 
 is a `1`-cochain.
 
-The **coboundary operator** `δ` maps a `k`-cochain to a `(k+1)`-cochain. In the setting used in this chapter,
+The **coboundary operator** `δ` maps a `k`-cochain to a `(k+1)`-cochain.
 
-`(δψ)(b_i,b_j) = ψ(b_j) − ψ(b_i)`
+For a `0`-cochain,
 
-and
+$$
+(\delta\psi)(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i).
+$$
 
-`(δD)(b_i,b_j,b_k) = D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j).`
+For a `1`-cochain,
 
-The fundamental property of the coboundary operator is
+$$
+(\delta D)(b_i,b_j,b_k)
+=
+D(b_j,b_k)-D(b_i,b_k)+D(b_i,b_j).
+$$
 
-`δ² = 0`.
+The fundamental property is
 
-In other words, applying the coboundary operator twice always gives zero.
+$$
+\delta^2=0.
+$$
+
+That is, applying the coboundary operator twice always gives zero.
 
 A **cocycle** is a cochain whose coboundary vanishes.
 
 For a `1`-cochain `D`, this means
 
-`δD = 0`.
+$$
+\delta D=0.
+$$
 
 Expanding the definition gives
 
-`D(b_i,b_k) = D(b_i,b_j) + D(b_j,b_k).`
+$$
+D(b_i,b_k)
+=
+D(b_i,b_j)+D(b_j,b_k).
+$$
 
-Thus, in our setting, the cocycle condition is exactly the additivity condition appearing in axiom (D1).
+Thus, in the present framework, the cocycle condition is exactly the additivity condition (D1).
 
-A **coboundary** is a cochain that is itself obtained by applying `δ` to another cochain.
+A **coboundary** is a cochain obtained by applying `δ` to another cochain.
 
 For example, if
 
-`D = δψ,`
+$$
+D=\delta\psi,
+$$
 
 then
 
-`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
+$$
+D(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i).
+$$
 
 Every coboundary is automatically a cocycle because
 
-`δD = δ(δψ) = δ²ψ = 0.`
+$$
+\delta D
+=
+\delta(\delta\psi)
+=
+\delta^2\psi
+=
+0.
+$$
 
 Therefore,
 
-`coboundaries ⊆ cocycles.`
+$$
+\text{coboundaries}\subseteq\text{cocycles}.
+$$
 
-The converse does not hold in general. A cocycle need not be a coboundary.
+The converse need not hold in a general cohomological setting. A cocycle does not necessarily have to be a coboundary.
 
-This difference is what cohomology measures.
+Cohomology measures this difference.
 
-Very roughly, the `k`-th cohomology group is the space of `k`-cocycles modulo the `k`-coboundaries:
+Very roughly, the `k`-th cohomology group is
 
-`H^k = ker(δ : C^k → C^{k+1}) / im(δ : C^{k-1} → C^k).`
+$$
+H^k
+=
+\frac{\ker(\delta:C^k\to C^{k+1})}
+{\operatorname{im}(\delta:C^{k-1}\to C^k)}.
+$$
 
-Thus, cohomology asks:
+Thus, cohomology studies cocycles modulo those cocycles that are already explained as coboundaries.
 
-Which locally consistent structures are not explained by a global potential?
+In the present framework, this distinction is important for debt.
 
-In the present framework, this question is particularly important for debt. If `D` is a `1`-cocycle, then it satisfies the local consistency condition
+If `D` is a `1`-cocycle, then
 
-`δD = 0`.
+$$
+\delta D=0.
+$$
 
-If, in addition, `D` is a coboundary, then there exists a scalar potential `ψ` such that
+If `D` is also a coboundary, then there exists a potential `ψ` such that
 
-`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
+$$
+D(b_i,b_j)=\psi(b_j)-\psi(b_i).
+$$
 
-The distinction between these two possibilities is precisely where the potential interpretation of debt enters.
+The question of whether every debt cocycle is a coboundary is therefore a cohomological question.
 
-For the complete state space considered in this chapter, the relevant first cohomology is trivial. Consequently, every `1`-cocycle is a coboundary. This means that once the debt satisfies the cocycle condition, a potential representation exists:
-
-`D = δψ.`
-
-The next section applies this language directly to the debt axioms.
+For the complete simplex considered in this chapter, the relevant first cohomology is trivial. Consequently, every `1`-cocycle is a coboundary. This is the mathematical reason that the potential representation of debt will emerge in Chapter 4.
 
 ---
 
-### 3.9 References
+## 3.5 Debt as an Alternating 1-Cocycle
 
-The basic language of cochains, coboundaries, cocycles, and cohomology used in this section can be found in:
+The axioms (D1) and (D2) now have a precise interpretation in the language of cohomology.
 
-Allen Hatcher, *Algebraic Topology*, Chapter 3: Cohomology. The chapter introduces cochain complexes, the coboundary operator, the identity `δ² = 0`, cocycles, coboundaries, and cohomology groups.
+**Definition 3.15 (Discrete De Rham Complex).** Let `B` be a set, viewed as the vertex set of a complete directed graph. We use the term *discrete de Rham complex* for the following cochain structure.
 
-[Hatcher — Algebraic Topology (free online edition)](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html?utm_source=chatgpt.com)
+For `k≥0`, let `C^k(B)` be the `R`-vector space of real-valued functions on `(k+1)`-tuples of elements of `B`.
 
-For the broader relationship between cohomology and differential forms, see:
+In particular:
 
-Raoul Bott and Loring W. Tu, *Differential Forms in Algebraic Topology*, Graduate Texts in Mathematics 82, Springer. The book develops de Rham theory as a concrete model for cohomology and discusses several related cohomological constructions.
+* `C^0(B)` is the space of functions `ψ:B→R`;
+* `C^1(B)` is the space of functions `D:B×B→R`;
+* `C^2(B)` is the space of real-valued functions on `B×B×B`.
 
-[Bott & Tu — Differential Forms in Algebraic Topology](https://link.springer.com/book/10.1007/978-1-4757-3951-0?utm_source=chatgpt.com)
+**Definition 3.16 (Coboundary).** The coboundary operator
 
-The construction used in this book is a discrete/cochain formulation adapted to the state space `B`. It should therefore be read as a discrete cohomological framework inspired by these standard constructions, rather than as a direct reproduction of the classical de Rham complex.
+$$
+\delta:C^0(B)\to C^1(B)
+$$
 
+is defined by
+
+$$
+(\delta\psi)(b_i,b_j)
+:=
+\psi(b_j)-\psi(b_i).
+$$
+
+The coboundary operator
+
+$$
+\delta:C^1(B)\to C^2(B)
+$$
+
+is defined by
+
+$$
+(\delta D)(b_i,b_j,b_k)
+:=
+D(b_j,b_k)-D(b_i,b_k)+D(b_i,b_j).
+$$
+
+**Proposition 3.17 (Nilpotency of the Coboundary).** For every `ψ∈C^0(B)`,
+
+$$
+\delta^2\psi=0.
+$$
+
+**Proof.**
+
+Applying the coboundary operator twice gives
+
+$$
+(\delta(\delta\psi))(b_i,b_j,b_k)
+=
+(\delta\psi)(b_j,b_k)
+-
+(\delta\psi)(b_i,b_k)
++
+(\delta\psi)(b_i,b_j).
+$$
+
+Substituting the definition,
+
+$$
+=
+[\psi(b_k)-\psi(b_j)]
+-
+[\psi(b_k)-\psi(b_i)]
++
+[\psi(b_j)-\psi(b_i)].
+$$
+
+All terms cancel, giving
+
+$$
+\delta^2\psi=0.
+$$
+
+`□`
+
+**Proposition 3.18 (Additivity is the Cocycle Condition).** A function `D∈C^1(B)` satisfies (D1) if and only if
+
+$$
+\delta D=0.
+$$
+
+In other words, `D` is a `1`-cocycle.
+
+**Proof.**
+
+The condition `δD=0` means
+
+$$
+D(b_j,b_k)-D(b_i,b_k)+D(b_i,b_j)=0.
+$$
+
+Rearranging,
+
+$$
+D(b_i,b_k)
+=
+D(b_i,b_j)+D(b_j,b_k),
+$$
+
+which is exactly (D1).
+
+`□`
+
+**Remark 3.19 (Alternating 1-Cochains).** A `1`-cochain `D∈C^1(B)` is called *alternating* if
+
+$$
+D(b_i,b_j)
+=
+-D(b_j,b_i)
+$$
+
+for all `b_i,b_j∈B`.
+
+This is precisely the content of axiom (D2). Thus (D2) says that the debt function is an alternating `1`-cochain.
+
+Alternation is not a consequence of the cocycle condition. It is a separate structural requirement imposed by the definition of debt.
+
+**Corollary 3.20 (Debt Functions are Alternating 1-Cocycles).** A function `D∈C^1(B)` is a debt function if and only if it is an alternating `1`-cocycle of the discrete de Rham complex on `B`.
+
+**Proof.**
+
+By Definition 3.6, `D` is a debt function if and only if it satisfies (D1) and (D2).
+
+By Proposition 3.18, (D1) is equivalent to
+
+$$
+\delta D=0,
+$$
+
+so `D` is a `1`-cocycle.
+
+By Remark 3.19, (D2) is equivalent to `D` being alternating.
+
+Therefore, `D` is a debt function if and only if it is an alternating `1`-cocycle.
+
+`□`
+
+**Remark 3.21 (Debt as a Cohomological Object).** Corollary 3.20 provides a cohomological characterization of debt.
+
+The two debt axioms have distinct mathematical meanings:
+
+* (D1) expresses closure:
+
+$$
+\delta D=0;
+$$
+
+* (D2) expresses alternation:
+
+$$
+D(b_i,b_j)=-D(b_j,b_i).
+$$
+
+The basepoint theorem in Chapter 4 will show that, on the complete structure considered here, every such cocycle is a coboundary. That is, there exists a potential `ψ∈C^0(B)` such that
+
+$$
+D=\delta\psi,
+$$
+
+or equivalently,
+
+$$
+D(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i).
+$$
+
+This corresponds to the triviality of the first cohomology of the complete simplex.
+
+**Remark 3.22 (Asymmetry is Not Debt).** The asymmetry `A` introduced in Definition 3.2 is also an alternating `1`-cochain, since
+
+$$
+A(b_i,b_j)
+=
+-A(b_j,b_i).
+$$
+
+However, `A` need not be a cocycle. As Example 3.8 demonstrates,
+
+$$
+\delta A\neq0
+$$
+
+in general.
+
+Thus `A` and `D` belong to the same cochain space `C^1(B)`, but they satisfy different structural requirements:
+
+$$
+A:\quad\text{alternating 1-cochain},
+$$
+
+while
+
+$$
+D:\quad\text{alternating 1-cocycle}.
+$$
+
+For `|B|≥3`, the space of alternating `1`-cocycles is a proper subspace of the space of alternating `1`-cochains.
+
+This distinction is fundamental. `A` represents the asymmetry of the cost function, whereas `D` is a separate debt structure constrained by both antisymmetry and additivity.
+
+---
+
+## 3.6 The Debt of a Transition
+
+Let us now interpret the debt function in the context of belief space.
+
+**Definition 3.23 (Debt of a Transition).** For a transition
+
+$$
+b_i\to b_j,
+$$
+
+the debt is
+
+$$
+D(b_i,b_j).
+$$
+
+Once the potential representation has been established, this quantity can be interpreted as the change in a potential associated with the belief space.
+
+**Interpretation 3.24.** Suppose
+
+$$
+D(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i).
+$$
+
+Then the debt records the change in the potential `ψ` produced by the transition.
+
+* **Positive debt:** `D(b_i,b_j)>0`. The transition increases the potential.
+* **Negative debt:** `D(b_i,b_j)<0`. The transition decreases the potential.
+* **Zero debt:** `D(b_i,b_j)=0`. The transition preserves the potential.
+
+The interpretation of `ψ` is deliberately left open. Depending on the application, it may represent entropy, free energy, computational obligation, information content, or another quantity.
+
+The mathematical structure developed in this chapter does not require choosing one interpretation.
+
+**Proposition 3.25 (Debt of a Path).** Let
+
+$$
+\gamma=(b_0,b_1,\ldots,b_n)
+$$
+
+be a path. If
+
+$$
+D=\delta\psi,
+$$
+
+then the total debt along the path is
+
+$$
+\sum_{k=0}^{n-1}D(b_k,b_{k+1})
+=
+\psi(b_n)-\psi(b_0).
+$$
+
+**Proof.** Substituting the potential representation gives
+
+$$
+\sum_{k=0}^{n-1}
+[\psi(b_{k+1})-\psi(b_k)].
+$$
+
+The sum telescopes:
+
+$$
+\psi(b_n)-\psi(b_0).
+$$
+
+`□`
+
+**Corollary 3.26.** The total debt of a path depends only on its endpoints, not on the path itself.
+
+**Proof.** Immediate from Proposition 3.25. `□`
+
+**Remark 3.27.** This is the fundamental conservative property of debt.
+
+The energy quasi-metric is endpoint-dependent in a different sense: `d(b_i,b_j)` is defined through a minimization over paths. Debt is stronger. Every path between the same endpoints has the same total debt.
+
+---
+
+## 3.7 Why Debt is the Right Object to Study
+
+We can now state the central structural difference between asymmetry and debt.
+
+The asymmetry `A` is not additive in general. There may exist states `b_i,b_j,b_k` such that
+
+$$
+A(b_i,b_k)
+\neq
+A(b_i,b_j)+A(b_j,b_k).
+$$
+
+Consequently, `A` does not generally telescope and does not define a path-independent quantity.
+
+Debt `D`, by definition, is additive:
+
+$$
+D(b_i,b_k)
+=
+D(b_i,b_j)+D(b_j,b_k).
+$$
+
+Therefore, debt telescopes along paths.
+
+This difference has a direct cohomological interpretation.
+
+The asymmetry is an alternating `1`-cochain:
+
+$$
+A\in C^1(B),
+\qquad
+A(b_i,b_j)=-A(b_j,b_i),
+$$
+
+but generally
+
+$$
+\delta A\neq0.
+$$
+
+Debt is an alternating `1`-cocycle:
+
+$$
+D\in C^1(B),
+\qquad
+D(b_i,b_j)=-D(b_j,b_i),
+\qquad
+\delta D=0.
+$$
+
+Thus the important distinction is not that one quantity is asymmetric and the other is not. Both are antisymmetric.
+
+The distinction is **additivity**.
+
+Additivity is what makes the debt telescope. On the complete state space, this ultimately leads to the potential representation
+
+$$
+D=\delta\psi.
+$$
+
+The precise relationship between the cost asymmetry `A` and the debt function `D` is a separate question and should not be assumed from the definitions alone.
+
+---
+
+## 3.8 Summary
+
+This chapter introduced the debt function
+
+$$
+D:B\times B\to\mathbb R
+$$
+
+through two axioms:
+
+* **(D1) Additivity**
+
+$$
+D(b_i,b_k)
+=
+D(b_i,b_j)+D(b_j,b_k);
+$$
+
+* **(D2) Antisymmetry**
+
+$$
+D(b_i,b_j)
+=
+-D(b_j,b_i).
+$$
+
+From these axioms we derived:
+
+* **Identity**
+
+$$
+D(b,b)=0;
+$$
+
+* **Cycle invariance:** the total debt around every closed path is zero;
+* **Path independence:** every path between the same endpoints has the same total debt;
+* **Gauge invariance:** adding a constant to a potential does not change its differences;
+* **Cohomological characterization:** debt functions are exactly the alternating `1`-cocycles of the cochain structure introduced above.
+
+The central remaining question is whether every debt function arises from a potential.
+
+That is, given `D` satisfying (D1) and (D2), does there exist
+
+$$
+\psi:B\to\mathbb R
+$$
+
+such that
+
+$$
+D(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i)?
+$$
+
+For the complete state space considered here, the answer is yes. The proof is the subject of Chapter 4.
+
+---
+
+## 3.9 References
+
+The cohomological language used in this chapter is standard mathematical terminology, although the particular discrete construction used here is adapted to the state space `B`.
+
+A standard introduction to cochains, coboundaries, cocycles, and cohomology is:
+
+Allen Hatcher, *Algebraic Topology*, Chapter 3, “Cohomology.”
+
+The book is freely available from the author's Cornell webpage.
+
+For the relationship between cohomology and differential forms, see:
+
+Raoul Bott and Loring W. Tu, *Differential Forms in Algebraic Topology*, Graduate Texts in Mathematics 82, Springer.
+
+The present construction should therefore be understood as a discrete cochain framework inspired by standard cohomological constructions, rather than as a direct reproduction of the classical de Rham complex.
 
 ---
 
 ## 3.10 Exercises
 
-**Exercise 3.1.** Verify that the function $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$ satisfies (D1) and (D2) for any $\psi : \mathcal{B} \to \mathbb{R}$.
+**Exercise 3.1.** Verify that the function
 
-**Exercise 3.2.** Give an example of a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$ that satisfies (D1) but not (D2). Give an example that satisfies (D2) but not (D1).
+$$
+D(b_i,b_j)
+=
+\psi(b_j)-\psi(b_i)
+$$
 
-**Exercise 3.3.** Let $\mathcal{B} = \{1, 2, 3\}$ and let $D$ be defined by
+satisfies (D1) and (D2) for any
 
-$$D(1, 2) = 2, \quad D(2, 3) = 3, \quad D(1, 3) = 5,$$
+$$
+\psi:B\to\mathbb R.
+$$
 
-with $D$ extended by antisymmetry and $D(i, i) = 0$. Verify that $D$ satisfies (D1) and (D2). Find a potential $\psi$ such that $D = \delta\psi$.
+**Exercise 3.2.** Give an example of a function
 
-**Exercise 3.4.** Let $\mathcal{B}$ be a set and let $D$ satisfy (D1) and (D2). Prove that for any basepoint $s_0 \in \mathcal{B}$, the function $\psi_{s_0}(b) := D(s_0, b)$ satisfies $D(b_i, b_j) = \psi_{s_0}(b_j) - \psi_{s_0}(b_i)$.
+$$
+D:B\times B\to\mathbb R
+$$
 
-**Exercise 3.5.** Prove that the decomposition $d = S + A$ of Proposition 3.7 is unique. (Hint: consider $d - d^T$ where $d^T(b_i,b_j) := d(b_j,b_i)$.)
+that satisfies (D1) but not (D2).
 
-**Exercise 3.6.** Show that the asymmetry $A$ is *not* additive: exhibit a belief space and a triple $(b_i, b_j, b_k)$ with $A(b_i, b_k) \neq A(b_i, b_j) + A(b_j, b_k)$.
+Then give an example that satisfies (D2) but not (D1).
 
-**Exercise 3.7.** Show that the debt-to-cost ratio $r$ is invariant under the addition of a constant to $\psi$, but is *not* invariant under a general gauge transformation $\psi \mapsto \psi + \chi$ where $\chi$ is not constant. (Hint: consider whether the ratio depends on $\psi$ at all.)
+**Exercise 3.3.** Let
 
-**Exercise 3.8.** Let $\mathcal{B}$ be a finite set with $n$ elements. Show that the space of debt functions on $\mathcal{B}$ is isomorphic to $\mathbb{R}^{n-1}$. (Hint: use Exercise 3.4 to construct a map from debt functions to potentials, and identify its kernel.)
+$$
+B=\{1,2,3\}
+$$
 
-**Exercise 3.9.** Prove that the asymmetry $A(b_i, b_j) = \tfrac{1}{2}(d(b_i, b_j) - d(b_j, b_i))$ is *not* a debt function in general. (Hint: use Exercise 3.6.)
+and define
 
-**Exercise 3.10.** Let $D$ be a debt function and let $c \in \mathbb{R}$. Show that $cD$ is also a debt function. What is the corresponding potential?
+$$
+D(1,2)=2,\qquad
+D(2,3)=3,\qquad
+D(1,3)=5,
+$$
 
-**Exercise 3.11.** Reflect on the following question: why is additivity the right axiom for debt, rather than some weaker condition? Write a short essay (one page) arguing for your position.
+with `D` extended by antisymmetry and `D(i,i)=0`.
 
+Verify that `D` satisfies (D1) and (D2). Find a potential `ψ` such that
 
+$$
+D=\delta\psi.
+$$
+
+**Exercise 3.4.** Let `B` be a set and let `D` satisfy (D1) and (D2). Fix a basepoint `s_0∈B` and define
+
+$$
+\psi_{s_0}(b):=D(s_0,b).
+$$
+
+Prove that
+
+$$
+D(b_i,b_j)
+=
+\psi_{s_0}(b_j)-\psi_{s_0}(b_i).
+$$
+
+**Exercise 3.5.** Prove that the decomposition
+
+$$
+d=S+A
+$$
+
+of Proposition 3.4 is unique.
+
+*Hint:* Consider `d-d^T`, where
+
+$$
+d^T(b_i,b_j):=d(b_j,b_i).
+$$
+
+**Exercise 3.6.** Show that the asymmetry `A` is not additive in general. Construct a belief space and a triple `(b_i,b_j,b_k)` such that
+
+$$
+A(b_i,b_k)
+\neq
+A(b_i,b_j)+A(b_j,b_k).
+$$
+
+**Exercise 3.7.** Let `D=δψ`. Show that replacing `ψ` by
+
+$$
+\psi'= \psi+c
+$$
+
+for a constant `c` leaves `D` unchanged.
+
+What happens if the transformation is
+
+$$
+\psi'=\psi+\chi
+$$
+
+for a nonconstant function `χ`?
+
+**Exercise 3.8.** Let `B` be a finite set with `n` elements. Show that the space of debt functions on `B` is isomorphic to
+
+$$
+\mathbb R^{n-1}.
+$$
+
+*Hint:* Use Exercise 3.4 to construct the correspondence between debt functions and potentials, and identify the freedom to add a constant to the potential.
+
+**Exercise 3.9.** Prove that the asymmetry
+
+$$
+A(b_i,b_j)
+=
+\frac12
+\left(
+d(b_i,b_j)-d(b_j,b_i)
+\right)
+$$
+
+is not a debt function in general.
+
+*Hint:* Use Exercise 3.6.
+
+**Exercise 3.10.** Let `D` be a debt function and let `c∈R`. Show that
+
+$$
+cD
+$$
+
+is also a debt function. If `D=δψ`, determine the corresponding potential.
+
+**Exercise 3.11.** Consider the following question:
+
+Why should debt be additive rather than satisfy some weaker condition?
+
+Give a short mathematical argument based on telescoping, path independence, and potential representation.
