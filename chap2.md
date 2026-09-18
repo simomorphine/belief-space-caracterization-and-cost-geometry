@@ -761,7 +761,7 @@ d =
 
 Construct the weighted directed graph $G_d$ and compute its shortest-path quasi-metric $d^\*$. Is $d^\*=d$? Explain why.
 
-**Exercise 2.7.** Show that the energy quasi-metric $d$ is the *largest* quasi-metric on $\mathcal{B}$ satisfying $d(b_i, b_j) \le \mathcal{C}(b_i, b_j)$ for all $(b_i, b_j) \in \mathcal{T}$. (Hint: use the triangle inequality.)
+**Exercise 2.7.** Show that the energy quasi-metric $d$ is the *largest* (pointwise) quasi-metric on $\mathcal{B}$ satisfying $d(b_i, b_j) \le \mathcal{C}(b_i, b_j)$ for all $(b_i, b_j) \in \mathcal{T}$. (Hint: use the triangle inequality.)
 
 **Exercise 2.8.** Give an example of a belief space $\mathcal{B}$ that is infinite but has finite diameter: $\sup_{b_i, b_j} d(b_i, b_j) < +\infty$.
 
