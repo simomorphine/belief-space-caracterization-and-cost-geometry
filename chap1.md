@@ -193,5 +193,20 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.12.** Reflect on the following question: is the metric assumption a *modeling choice* or a *fact about the world*? Write a short essay (one page) arguing for your position.
 
+**Exercise 1.13. Disequilibrium Between Direct and Indirect Cost**
+
+Let $d$ be a quasi-metric on a set of states $B$. Consider three states $b_i,b_j,b_k$ such that
+
+$d(b_i,b_k) \ll d(b_i,b_j)+d(b_j,b_k)$.
+
+1. Verify that the triangle inequality is satisfied.
+2. Define the path-cost gap
+
+$\Delta(b_i,b_j,b_k)=d(b_i,b_j)+d(b_j,b_k)-d(b_i,b_k)$.
+
+3. Show that $\Delta \geq 0$ whenever the triangle inequality holds.
+4. Construct an example where $\Delta$ is large.
+5. Discuss whether $\Delta$ can be interpreted as a measure of disequilibrium between the direct transition and the corresponding indirect path. (The purpose of this exercise is not a violation of the triangle inequality. Instead, it asks whether satisfying the triangle inequality can still leave a meaningful amount of structure in the difference between direct and indirect costs.)
+
 
 The book's posture is now: *not correcting the textbook, but exploring what its assumptions make possible.*
