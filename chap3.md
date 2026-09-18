@@ -195,7 +195,7 @@ $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 *Proof.* (D1): $\psi(b_k) - \psi(b_i) = [\psi(b_j) - \psi(b_i)] + [\psi(b_k) - \psi(b_j)]$. (D2): $\psi(b_j) - \psi(b_i) = -[\psi(b_i) - \psi(b_j)]$. Gauge invariance: constants cancel in differences. $\square$
 
-**Remark 3.14.** Proposition 3.18 says that *every* potential difference is a debt function. The converse—that every debt function is a potential difference—is the content of the basepoint theorem (Chapter 4). Together, they establish that debt functions and potential differences are the same thing.
+**Remark 3.14.** Proposition 3.13 says that *every* potential difference is a debt function. The converse—that every debt function is a potential difference—is the content of the basepoint theorem (Chapter 4). Together, they establish that debt functions and potential differences are the same thing.
 
 ---
 
