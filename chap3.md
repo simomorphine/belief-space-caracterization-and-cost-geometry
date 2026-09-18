@@ -368,10 +368,6 @@ We have shown that these axioms imply:
 - **Gauge invariance.** Debt is invariant under addition of a constant to the potential.
 - **Cohomological characterization.** Debt functions are exactly the alternating 1-cocycles of the discrete de Rham complex.
 
-We have also introduced the asymmetry $A$ with the canonical $\tfrac{1}{2}$ normalization, shown that $d = S + A$ decomposes uniquely into symmetric and antisymmetric parts, and shown by example that $A$ is *not* additive—which is precisely why debt, and not asymmetry, is the right object to study.
-
-Finally, we have introduced the debt-to-cost ratio $r(b_i, b_j) = D(b_i, b_j)/d(b_i, b_j)$, which measures the "debt intensity" of a transition and will play a central role in the geometric theory of Chapter 6.
-
 The central remaining question is: does every debt function arise from a potential? That is, given $D$ satisfying (D1) and (D2), does there exist $\psi : \mathcal{B} \to \mathbb{R}$ with $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$? The answer is yes, and the proof is the subject of Chapter 4.
 
 ---
