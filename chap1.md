@@ -25,7 +25,7 @@ The textbook then says: treat $d$ *like* a metric. That is, assume, for the purp
 - **Non-negativity.** $d(b_i, b_j) \ge 0$ for all $b_i, b_j$.
 - **Identity.** $d(b, b) = 0$ for all $b$.
 - **Symmetry.** $d(b_i, b_j) = d(b_j, b_i)$ for all $b_i, b_j$.
-- **Triangle inequality.** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k$.
+- **But not Triangle inequality.** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k$.
 
 When all four hold, $d$ is a **metric**, and the pair $(\mathcal{B}, d)$ is a **metric space**. Metric spaces are the foundation of geometry, topology, analysis, and virtually every algorithm that involves distance.
 
