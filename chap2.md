@@ -481,7 +481,8 @@ The energy quasi-metric $d$ is equal to the shortest-path distance induced by th
 
 More precisely,
 
-$$ d(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}_{G_d}(\gamma),
+$$ 
+d(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}_{G_d}(\gamma),
 $$
 
 where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$.
@@ -575,10 +576,7 @@ Let $G=(V,E,w)$ be a directed graph with non-negative edge weights.
 Define
 
 $$
-d_G(b_i,b_j)
-=
-\inf_{\gamma:b_i\to b_j}
-\mathcal{C}(\gamma),
+d_G(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}(\gamma),
 $$
 
 where $\mathcal{C}(\gamma)$ is the sum of the edge weights along $\gamma$, and set
