@@ -2,21 +2,25 @@
 
 ---
 
-Cost is not a metric. This is not a scandal, and it is not noise. It is structure.
+Textbooks say cost is *like* a metric. They do not say cost *is* a metric.
 
-The standard assumption in information processing is that the cost of moving between two states is a metric: symmetric, non-negative, and satisfying the triangle inequality. The assumption is almost always false. Costs are asymmetric—uploading and downloading are not the same. Costs violate the triangle inequality—bulk discounts, fixed fees, and amortization make the direct path more expensive than a detour. Costs are path-dependent—the same transition costs different amounts depending on history.
+The distinction matters. "Like a metric" means: we will use the metric apparatus as a model, knowing it is an approximation, and we will not be held responsible for the cases where it breaks. "Is a metric" means: the four axioms hold, and any failure is an error in your analysis.
 
-And yet the failures are not random. They have a shape. This book is about that shape.
+The hedge is honest. It is also unnamed. Textbooks say "like a metric" because they do not have a language for what cost actually is. They know the metric axioms fail. They know the failure is not noise. But they have no framework for the failure, so they retreat to approximation.
+
+This book supplies the framework. The hedge was pointing at something real. That something is **debt**, and the object that carries it is a **complex quasi-metric**.
+
+Cost is not a metric. This is not a scandal, and it is not noise. It is structure. This book is about that structure.
 
 ---
 
 ## 1.1 The metric assumption
 
-Let us begin with what everyone assumes.
+Let us begin with what the textbook says.
 
 When we model an information processing system—a computer, a brain, a market, a belief—we typically assign to each pair of states a number representing the cost of moving between them. Call the set of states $\mathcal{B}$, and call the cost function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$.
 
-The standard assumptions are:
+The textbook then says: treat $d$ *like* a metric. That is, assume, for the purposes of the model:
 
 - **Non-negativity.** $d(b_i, b_j) \ge 0$ for all $b_i, b_j$.
 - **Identity.** $d(b, b) = 0$ for all $b$.
@@ -25,9 +29,9 @@ The standard assumptions are:
 
 When all four hold, $d$ is a **metric**, and the pair $(\mathcal{B}, d)$ is a **metric space**. Metric spaces are the foundation of geometry, topology, analysis, and virtually every algorithm that involves distance.
 
-The metric assumption is so pervasive that it is rarely stated. It is absorbed into the language. We say "the cost of moving from $A$ to $B$" as though there were a single well-defined number, the same in both directions, satisfying the usual inequalities. We say "near" and "far" as though these were symmetric relations.
+The textbook knows these four assumptions do not all hold. It says "like a metric" precisely because it knows. But it does not say *which* assumptions fail, or *how*, or *what takes their place*. It leaves the "like" unanalyzed.
 
-But they are not. And the failures are not small.
+This book analyzes the "like."
 
 ---
 
@@ -37,7 +41,7 @@ Not all of the metric axioms fail equally. Three of them survive almost everywhe
 
 **Non-negativity survives.** Cost is never negative. You cannot pay a negative amount to move from one state to another. This is not a deep fact—it is a convention about what we mean by "cost"—but it is a robust one.
 
-**Identity survives.** Not updating—staying in the same state—costs nothing. The transition from $b$ to $b$ is free. This, too, is a convention, but a natural one: if there is no change, there is nothing to pay for.
+**Identity survives.** Not updating—staying in the same state—costs nothing. The transition from $b$ to $b$ is free. If there is no change, there is nothing to pay for.
 
 **Symmetry fails.** The cost of going from $b_i$ to $b_j$ need not equal the cost of going from $b_j$ to $b_i$. Uploading and downloading are not the same. Encrypting and decrypting are not the same. Buying and selling are not the same. The bid-ask spread is precisely the statement that $d(A, B) \neq d(B, A)$.
 
@@ -45,7 +49,7 @@ Not all of the metric axioms fail equally. Three of them survive almost everywhe
 
 So the situation is this: cost satisfies non-negativity and identity, but not symmetry and not the triangle inequality.
 
-A function satisfying non-negativity, identity, and the triangle inequality—but not symmetry—is called a **quasi-metric**. A function satisfying non-negativity, identity, and symmetry—but allowing distinct points at zero distance—is called a **pseudometric**. A function satisfying all three of non-negativity, identity, and the triangle inequality, but with the triangle inequality holding only *up to a correction*, is a **pseudo-quasi-metric with defect**.
+A function satisfying non-negativity, identity, and the triangle inequality—but not symmetry—is called a **quasi-metric**. A function satisfying non-negativity, identity, and symmetry—but allowing distinct points at zero distance—is called a **pseudometric**. A function satisfying non-negativity, identity, and the triangle inequality, but with the triangle inequality holding only *up to a correction*, is a **pseudo-quasi-metric with defect**.
 
 That defect is what this book is about.
 
@@ -57,7 +61,9 @@ Here is the question that motivates everything that follows.
 
 *Under what condition is cost a pseudo-quasi-metric?*
 
-The answer is not "always" and not "never." It is probabilistic.
+The textbook's answer is: approximately always, in the regimes we care about. The hedge is that the approximation is good enough.
+
+Our answer is different. The condition is not "approximately always." It is probabilistic.
 
 **Cost is a pseudo-quasi-metric with probability $\alpha$, and fails to be one with probability $1 - \alpha$.**
 
@@ -70,6 +76,8 @@ We call that residual **debt**.
 $$\text{cost} \longrightarrow \text{cost} + i \cdot \text{debt}.$$
 
 The real part is the usual cost. The imaginary part is the correction that emerges when the triangle inequality fails. The complex number is not a decoration. It is the natural packaging of "cost, together with the amount by which cost fails to be a quasi-metric."
+
+The textbook's "like a metric" is the statement that $\alpha$ is close to $1$. Our framework is the statement that the residual—the $1 - \alpha$ part—has a name, a sign, and a structure.
 
 ---
 
@@ -89,9 +97,9 @@ Together, these three facts mean that the complex structure is not a choice. It 
 
 ---
 
-## 1.5 Why this is not noise
+## 1.5 Why the failures are structured
 
-It would be easy to treat the failures of the metric assumption as defects—as noise to be averaged away, or as pathologies to be assumed absent.
+It would be easy to treat the failures of the metric assumption as defects—as noise to be averaged away, or as pathologies to be assumed absent. The textbook's hedge is a version of this: assume them absent, and trust that the assumption is good enough.
 
 But the failures are not random. They have a shape. And the shape is the same in every case.
 
@@ -104,6 +112,8 @@ But the failures are not random. They have a shape. And the shape is the same in
 **Non-identity** is a statement about the *kernel* of the cost. It says that there are states at zero distance that are not the same state. The equivalence classes are the level sets of a **potential**: a function that assigns a number to each state, with the property that zero-cost transitions are exactly those that preserve the number.
 
 In each case, the failure is not noise. It is structure. And the structure is the structure of **differential forms**.
+
+The textbook's "like a metric" acknowledges that the structure is there. It simply does not say what it is. This book does.
 
 ---
 
@@ -119,7 +129,7 @@ Debt is not a defect. It is a **potential difference**. It is exact, antisymmetr
 
 And once you see this, the whole structure falls into place. The asymmetry of cost becomes a polar decomposition. The triangle inequality becomes a Minkowski inequality in $\mathbb{R}^2$. The topology of the space becomes a lattice of four topologies. The gauge freedom becomes an $\mathbb{R}$-action. The complex structure becomes a $\mathbb{Z}/2$-grading.
 
-None of this is imposed. It is discovered. The structure was always there. It was just hidden in the assumption that cost is a scalar.
+None of this is imposed. It is discovered. The structure was always there. It was hidden in the hedge.
 
 ---
 
@@ -135,6 +145,27 @@ The goal is not to be useful. The goal is to be **true and beautiful**, and to l
 
 ---
 
+## 1.8 How to read this book
+
+The book is organized into seven parts.
+
+**Part I (Chapters 1–2)** introduces the problem and the setting: cost is not a metric, and belief space is the natural setting for the theory.
+
+**Part II (Chapters 3–5)** develops the debt function from two axioms: additivity and antisymmetry. The central result is the basepoint theorem: any debt function is a potential difference.
+
+**Part III (Chapters 6–8)** introduces the complex quasi-metric $Q = d + iD$, proves that its modulus is a metric, and develops the gauge structure.
+
+**Part IV (Chapters 9–10)** develops the $\gamma$-family $d_\gamma = \sqrt{d^2 + \gamma^2 D^2}$, which interpolates between pure cost and full complex modulus.
+
+**Part V (Chapters 11–13)** develops the polar decomposition of quasi-metrics and the bitopological structure, culminating in the equilibrium hierarchy.
+
+**Part VI (Chapters 14–16)** develops the deeper structure: the $\mathbb{Z}/2$-grading, the categorical picture, and the open questions.
+
+**Part VII (Chapters 17–18)** reflects on the nature of cost and closes the argument.
+
+Each chapter is self-contained. Each begins with a definition and ends with exercises. The reader who wants only the main results can read the theorems and skip the proofs. The reader who wants the full structure should read everything.
+
+---
 
 ## 1.9 Exercises
 
@@ -158,4 +189,10 @@ The goal is not to be useful. The goal is to be **true and beautiful**, and to l
 
 **Exercise 1.10.** Suppose cost is a pseudo-quasi-metric with probability $\alpha$. Define the debt $D(b_i, b_j)$ as the expected violation of the triangle inequality along the transition from $b_i$ to $b_j$. Show that $D$ is antisymmetric and vanishes on the diagonal.
 
-**Exercise 1.11.** Reflect on the following question: is the metric assumption a *modeling choice* or a *fact about the world*? Write a short essay (one page) arguing for your position.
+**Exercise 1.11.** The textbook says cost is *like* a metric. Write a short essay (one page) explaining what you think the word "like" is doing in that sentence. Is it a hedge, a placeholder, or a precise claim?
+
+**Exercise 1.12.** Reflect on the following question: is the metric assumption a *modeling choice* or a *fact about the world*? Write a short essay (one page) arguing for your position.
+
+- **Exercise 1.11** is new, and asks the reader to think about what "like" is doing.
+
+The book's posture is now: *not correcting the textbook, completing it.*
