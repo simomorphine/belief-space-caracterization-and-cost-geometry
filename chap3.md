@@ -187,9 +187,9 @@ where we used $b_{n+1} = b_1$ and Proposition 3.14. $\square$
 
 $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
-*Proof.* The concatenation $\gamma_1 \cdot \gamma_2^{-1}$ is a closed path. By Proposition 3.15, its total debt is zero. Hence the debt of $\gamma_1$ equals the debt of $\gamma_2$. $\square$
+*Proof.* The concatenation $\gamma_1 \cdot \gamma_2^{-1}$ is a closed path. By Proposition 3.10, its total debt is zero. Hence the debt of $\gamma_1$ equals the debt of $\gamma_2$. $\square$
 
-**Remark 3.12.** Proposition 3.16 is the key property. It says that the debt of a path depends only on the endpoints, not on the path itself. This is the defining property of a *conservative* quantity. Debt is conservative.
+**Remark 3.12.** Proposition 3.11 is the key property. It says that the debt of a path depends only on the endpoints, not on the path itself. This is the defining property of a *conservative* quantity. Debt is conservative.
 
 **Proposition 3.13. (Gauge invariance).** Let $\psi : \mathcal{B} \to \mathbb{R}$ and let $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$. Then $D$ satisfies (D1) and (D2). Moreover, if $\psi' := \psi + c$ for a constant $c \in \mathbb{R}$, then $D_{\psi'} = D_\psi$.
 
