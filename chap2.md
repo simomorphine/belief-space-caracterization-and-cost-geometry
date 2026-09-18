@@ -52,7 +52,7 @@ $$\mathcal{C}(\gamma) := \sum_{k=0}^{n-1} \mathcal{C}(s_k, s_{k+1}).$$
 
 **Definition 2.10 (Belief space).** Let $(\mathcal{S}, \mathcal{T}, \mathcal{C})$ be an information processing system and let $s_0 \in \mathcal{S}$ be a distinguished *initial state*. The *belief space* is
 
-$$\mathcal{B} := \{s \in \mathcal{S} : s \text{ is reachable from } s_0 \text{ with finite budget}\}.$$
+$$\mathcal{B} := \lbrace s \in \mathcal{S} : s \text{ is reachable from } s_0 \text{ with finite budget}\rbrace.$$
 
 The elements of $\mathcal{B}$ are called *beliefs*.
 
