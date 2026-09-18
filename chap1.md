@@ -181,7 +181,7 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.6.** Prove that if $d$ is a quasi-metric on $\mathcal{B}$, then the symmetrization $d_{\text{avg}}(b_i, b_j) := \tfrac{1}{2}(d(b_i, b_j) + d(b_j, b_i))$ is a pseudometric.
 
-**Exercise 1.7.** Prove that if $d$ is a quasi-metric, then the asymmetry $\alpha(b_i, b_j) := \tfrac{1}{2}(d(b_i, b_j) - d(b_j, b_i))$ is antisymmetric and vanishes on the diagonal. (Note the factor of $\tfrac{1}{2}$: this is the canonical normalization for a 1-form.)
+**Exercise 1.7.** Prove that if $d$ is a quasi-metric, then the asymmetry $A(b_i, b_j) := \tfrac{1}{2}(d(b_i, b_j) - d(b_j, b_i))$ is antisymmetric and vanishes on the diagonal. (Note the factor of $\tfrac{1}{2}$: this is the canonical normalization for a 1-form.)
 
 **Exercise 1.8.** Show that the decomposition $d = S + \alpha$, where $S$ is the symmetrization and $\alpha$ is the asymmetry defined in Exercise 1.7, is unique.
 
