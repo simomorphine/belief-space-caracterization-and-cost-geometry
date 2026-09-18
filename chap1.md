@@ -199,7 +199,7 @@ Let $d$ be a quasi-metric on a set of states $B$. Consider three states $b_i,b_j
 
 $d(b_i,b_k) \ll d(b_i,b_j)+d(b_j,b_k)$.
 
-1. Verify that the triangle inequality is satisfied.
+1. notice that the triangle inequality is satisfied.
 2. Define the path-cost gap
 
 $\Delta(b_i,b_j,b_k)=d(b_i,b_j)+d(b_j,b_k)-d(b_i,b_k)$.
