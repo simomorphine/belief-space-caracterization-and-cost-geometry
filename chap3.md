@@ -110,7 +110,7 @@ $$
 S(b_i,b_j)+A(b_i,b_j)=d(b_i,b_j).
 $$
 
-The function \(S\) is symmetric and \(A\) is antisymmetric by construction.
+The function $S$ is symmetric and $A$ is antisymmetric by construction.
 
 For uniqueness, suppose
 
@@ -118,15 +118,15 @@ $$
 d=S'+A',
 $$
 
-where \(S'\) is symmetric and \(A'\) is antisymmetric. Evaluating the same equation with \(b_i\) and \(b_j\) exchanged and adding and subtracting the two equations gives
+where $S'$ is symmetric and $A'$ is antisymmetric. Evaluating the same equation with $b_i$ and $b_j$ exchanged and adding and subtracting the two equations gives
 
 $$
 S'=S,\qquad A'=A.
 $$
 
-Thus the decomposition is unique. \(\square\)
+Thus the decomposition is unique. 
 
-**Remark 3.5.** The antisymmetric component \(A\) should not be identified with the debt function introduced in this chapter. \(A\) is determined directly by the asymmetry of the energy quasi-metric. Debt is a separate object whose mathematical structure will be introduced independently.
+**Remark 3.5.** The antisymmetric component $A$ should not be identified with the debt function introduced in this chapter. $A$ is determined directly by the asymmetry of the energy quasi-metric. Debt is a separate object whose mathematical structure will be introduced independently.
 
 The distinction is important. Asymmetry tells us that the cost of a transition depends on its direction. It does not, by itself, tell us why this asymmetry exists, whether it can be represented by a potential, or whether it satisfies additional structural properties.
 
