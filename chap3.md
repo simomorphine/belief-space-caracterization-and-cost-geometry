@@ -20,7 +20,7 @@ $$
 
 The first task of this chapter is therefore to isolate the asymmetric part of the energy quasi-metric.
 
-**Definition 3.2 (Symmetric and antisymmetric parts).** Assume that \(d(b_i,b_j)<+\infty\) for all \(b_i,b_j\in\mathcal B\). Define
+**Definition 3.2 (Symmetric and antisymmetric parts).** Assume that $d(b_i,b_j)<+\infty$ for all $b_i,b_j\in\mathcal B$. Define
 
 $$
 S(b_i,b_j)
@@ -36,7 +36,7 @@ A(b_i,b_j)
 \frac12\left(d(b_i,b_j)-d(b_j,b_i)\right).
 $$
 
-We call \(S\) the **symmetric part** of the cost and \(A\) the **antisymmetric part** of the cost.
+We call $S$ the **symmetric part** of the cost and $A$ the **antisymmetric part** of the cost.
 
 The function \(A\) measures the directional imbalance of the cost. It is positive when the transition from \(b_i\) to \(b_j\) is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
 
