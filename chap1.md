@@ -87,7 +87,7 @@ A natural question: why $i$? Why not simply treat cost and debt as two real numb
 
 There are three answers, and they are the same three that will recur throughout the book.
 
-**First: the failure has a sign.** Debt is not just a magnitude. When the triangle inequality fails, it fails in one of two directions. It can fail *subadditively*—the direct path is more expensive than the detour, $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$—or *superadditively*—the direct path is cheaper than the detour, $d(b_i, b_k) <<< d(b_i, b_j) + d(b_j, b_k)$. These are not the same failure. They have opposite signs. Debt must be a signed quantity, and the sign must be meaningful.
+**First: the failure has a sign.** Debt is not just a magnitude. When the triangle inequality fails, it fails in one of two directions. It can fail *subadditively*—the direct path is more expensive than the detour, $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$—or *superadditively*—the direct path is cheaper than the detour, $d(b_i, b_k) ⋘ d(b_i, b_j) + d(b_j, b_k)$. These are not the same failure. They have opposite signs. Debt must be a signed quantity, and the sign must be meaningful.
 
 **Second: the correction is antisymmetric.** Debt is not a symmetric relation. If going from $b_i$ to $b_j$ incurs debt $D(b_i, b_j)$, then going from $b_j$ to $b_i$ incurs debt $-D(b_i, b_j)$. Debt reverses sign under reversal of the transition. This is exactly the defining property of the imaginary unit: $i$ changes sign under complex conjugation, and the imaginary part of $Q$ is antisymmetric whenever the real part is symmetric.
 
