@@ -146,16 +146,16 @@ and what assumptions are required for such a representation to exist.
 
 We now introduce the central object of the book.
 
-**Definition 3.11 (Debt function).** Let $\mathcal{B}$ be a belief space. A *debt function* is a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$ satisfying:
+**Definition 3.6 (Debt function).** Let $\mathcal{B}$ be a belief space. A *debt function* is a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$ satisfying:
 
 - **(D1) Additivity.** $D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$ for all $b_i, b_j, b_k \in \mathcal{B}$.
 - **(D2) Antisymmetry.** $D(b_i, b_j) = -D(b_j, b_i)$ for all $b_i, b_j \in \mathcal{B}$.
 
 These are the only axioms. Everything else follows.
 
-**Remark 3.12.** The axioms (D1) and (D2) are minimal. They are satisfied by any potential difference: if $\psi : \mathcal{B} \to \mathbb{R}$ is any function, then $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$ satisfies (D1) and (D2). The central result of Chapter 4 is that *every* debt function arises this way.
+**Remark 3.7.** The axioms (D1) and (D2) are minimal. They are satisfied by any potential difference: if $\psi : \mathcal{B} \to \mathbb{R}$ is any function, then $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$ satisfies (D1) and (D2). The central result of Chapter 4 is that *every* debt function arises this way.
 
-**Remark 3.13.** The debt function is *not* the same as the asymmetry $A$. The asymmetry measures the *magnitude* of directional imbalance; the debt measures the *potential* that generates it. The two are related by the polar decomposition of Chapter 11. For now, the essential difference is that $A$ is not additive (Example 3.8) while $D$ is additive by axiom (D1).
+**Remark 3.8.** The debt function is *not* the same as the asymmetry $A$. The asymmetry measures the *magnitude* of directional imbalance; the debt measures the *potential* that generates it. The two are related by the polar decomposition of Chapter 11. For now, the essential difference is that $A$ is not additive while $D$ is additive by axiom (D1).
 
 ---
 
@@ -163,11 +163,11 @@ These are the only axioms. Everything else follows.
 
 The two axioms (D1) and (D2) have immediate consequences.
 
-**Proposition 3.14 (Identity).** $D(b, b) = 0$ for all $b \in \mathcal{B}$.
+**Proposition 3.9. (Identity).** $D(b, b) = 0$ for all $b \in \mathcal{B}$.
 
 *Proof.* By (D2), $D(b, b) = -D(b, b)$. Hence $2D(b, b) = 0$, so $D(b, b) = 0$. $\square$
 
-**Proposition 3.15 (Cycle invariance).** For any closed path $b_1 \to b_2 \to \cdots \to b_n \to b_1$,
+**Proposition 3.10. (Cycle invariance).** For any closed path $b_1 \to b_2 \to \cdots \to b_n \to b_1$,
 
 $$\sum_{k=1}^n D(b_k, b_{k+1}) = 0,$$
 
@@ -183,19 +183,19 @@ $$\sum_{k=1}^n D(b_k, b_{k+1}) = D(b_1, b_{n+1}) - D(b_1, b_1) = D(b_1, b_1) - D
 
 where we used $b_{n+1} = b_1$ and Proposition 3.14. $\square$
 
-**Proposition 3.16 (Path independence).** If $\gamma_1$ and $\gamma_2$ are two paths from $b_i$ to $b_j$, then
+**Proposition 3.11. (Path independence).** If $\gamma_1$ and $\gamma_2$ are two paths from $b_i$ to $b_j$, then
 
 $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 *Proof.* The concatenation $\gamma_1 \cdot \gamma_2^{-1}$ is a closed path. By Proposition 3.15, its total debt is zero. Hence the debt of $\gamma_1$ equals the debt of $\gamma_2$. $\square$
 
-**Remark 3.17.** Proposition 3.16 is the key property. It says that the debt of a path depends only on the endpoints, not on the path itself. This is the defining property of a *conservative* quantity. Debt is conservative.
+**Remark 3.12.** Proposition 3.16 is the key property. It says that the debt of a path depends only on the endpoints, not on the path itself. This is the defining property of a *conservative* quantity. Debt is conservative.
 
-**Proposition 3.18 (Gauge invariance).** Let $\psi : \mathcal{B} \to \mathbb{R}$ and let $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$. Then $D$ satisfies (D1) and (D2). Moreover, if $\psi' := \psi + c$ for a constant $c \in \mathbb{R}$, then $D_{\psi'} = D_\psi$.
+**Proposition 3.13. (Gauge invariance).** Let $\psi : \mathcal{B} \to \mathbb{R}$ and let $D(b_i, b_j) := \psi(b_j) - \psi(b_i)$. Then $D$ satisfies (D1) and (D2). Moreover, if $\psi' := \psi + c$ for a constant $c \in \mathbb{R}$, then $D_{\psi'} = D_\psi$.
 
 *Proof.* (D1): $\psi(b_k) - \psi(b_i) = [\psi(b_j) - \psi(b_i)] + [\psi(b_k) - \psi(b_j)]$. (D2): $\psi(b_j) - \psi(b_i) = -[\psi(b_i) - \psi(b_j)]$. Gauge invariance: constants cancel in differences. $\square$
 
-**Remark 3.19.** Proposition 3.18 says that *every* potential difference is a debt function. The converse—that every debt function is a potential difference—is the content of the basepoint theorem (Chapter 4). Together, they establish that debt functions and potential differences are the same thing.
+**Remark 3.14.** Proposition 3.18 says that *every* potential difference is a debt function. The converse—that every debt function is a potential difference—is the content of the basepoint theorem (Chapter 4). Together, they establish that debt functions and potential differences are the same thing.
 
 ---
 
