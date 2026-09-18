@@ -203,13 +203,13 @@ $$\sum_{e \in \gamma_1} D(e) = \sum_{e \in \gamma_2} D(e).$$
 
 The axioms (D1) and (D2) have a natural interpretation in the language of cohomology.
 
-**Definition 3.20 (Discrete de Rham complex).** Let $\mathcal{B}$ be a set, viewed as the vertex set of the complete directed graph on $\mathcal{B}$. For $k \ge 0$, let $C^k(\mathcal{B})$ be the $\mathbb{R}$-vector space of functions on $(k+1)$-tuples $(b_0, \dots, b_k)$ of $\mathcal{B}$.
+**Definition 3.15 (Discrete de Rham complex).** Let $\mathcal{B}$ be a set, viewed as the vertex set of the complete directed graph on $\mathcal{B}$. For $k \ge 0$, let $C^k(\mathcal{B})$ be the $\mathbb{R}$-vector space of functions on $(k+1)$-tuples $(b_0, \dots, b_k)$ of $\mathcal{B}$.
 
 - $C^0(\mathcal{B})$ is the space of functions $\psi : \mathcal{B} \to \mathbb{R}$.
 - $C^1(\mathcal{B})$ is the space of functions $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$.
 - $C^2(\mathcal{B})$ is the space of functions $A : \mathcal{B} \times \mathcal{B} \times \mathcal{B} \to \mathbb{R}$.
 
-**Definition 3.21 (Coboundary).** The *coboundary* $\delta : C^0(\mathcal{B}) \to C^1(\mathcal{B})$ is
+**Definition 3.16 (Coboundary).** The *coboundary* $\delta : C^0(\mathcal{B}) \to C^1(\mathcal{B})$ is
 
 $$(\delta\psi)(b_i, b_j) := \psi(b_j) - \psi(b_i).$$
 
@@ -217,14 +217,14 @@ The *coboundary* $\delta : C^1(\mathcal{B}) \to C^2(\mathcal{B})$ is
 
 $$(\delta D)(b_i, b_j, b_k) := D(b_j, b_k) - D(b_i, b_k) + D(b_i, b_j).$$
 
-**Proposition 3.22.** $\delta^2 = 0$.
+**Proposition 3.17.** $\delta^2 = 0$.
 
 *Proof.* Direct computation:
 
 $$(\delta^2\psi)(b_i, b_j, b_k) = (\delta\psi)(b_j, b_k) - (\delta\psi)(b_i, b_k) + (\delta\psi)(b_i, b_j)$$
 $$= [\psi(b_k) - \psi(b_j)] - [\psi(b_k) - \psi(b_i)] + [\psi(b_j) - \psi(b_i)] = 0. \quad \square$$
 
-**Proposition 3.23.** A function $D \in C^1(\mathcal{B})$ satisfies (D1) if and only if $\delta D = 0$. That is, $D$ is a *cocycle*.
+**Proposition 3.18.** A function $D \in C^1(\mathcal{B})$ satisfies (D1) if and only if $\delta D = 0$. That is, $D$ is a *cocycle*.
 
 *Proof.* $\delta D = 0$ means
 
@@ -236,15 +236,15 @@ $$D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k).$$
 
 This is exactly (D1). $\square$
 
-**Proposition 3.24.** A function $D \in C^1(\mathcal{B})$ satisfies (D2) if and only if $D$ is *alternating*: $D(b_i, b_j) = -D(b_j, b_i)$.
+**Proposition 3.19.** A function $D \in C^1(\mathcal{B})$ satisfies (D2) if and only if $D$ is *alternating*: $D(b_i, b_j) = -D(b_j, b_i)$.
 
 *Proof.* Immediate. $\square$
 
-**Corollary 3.25.** Debt functions are exactly the alternating 1-cocycles of the discrete de Rham complex on $\mathcal{B}$.
+**Corollary 3.20.** Debt functions are exactly the alternating 1-cocycles of the discrete de Rham complex on $\mathcal{B}$.
 
-**Remark 3.26.** This is the cohomological characterization of debt. The two axioms (D1) and (D2) are exactly the two conditions for $D$ to be an alternating 1-cocycle. The basepoint theorem (Chapter 4) will show that every such cocycle is a coboundary, i.e., $D = \delta\psi$ for some $\psi \in C^0(\mathcal{B})$. This is the statement that the first cohomology of the complete directed graph on $\mathcal{B}$ is trivial.
+**Remark 3.21.** This is the cohomological characterization of debt. The two axioms (D1) and (D2) are exactly the two conditions for $D$ to be an alternating 1-cocycle. The basepoint theorem (Chapter 4) will show that every such cocycle is a coboundary, i.e., $D = \delta\psi$ for some $\psi \in C^0(\mathcal{B})$. This is the statement that the first cohomology of the complete directed graph on $\mathcal{B}$ is trivial.
 
-**Remark 3.27.** The asymmetry $A$ of Definition 3.2 is also an alternating 1-cochain, but it is *not* a cocycle: as Example 3.8 shows, $\delta A \neq 0$ in general. So $A$ and $D$ live in the same space $C^1(\mathcal{B})$ but in different subspaces: $A$ is an arbitrary alternating 1-cochain, while $D$ is an alternating 1-cocycle. The space of alternating 1-cocycles is strictly smaller.
+**Remark 3.22.** The asymmetry $A$ of Definition 3.2 is also an alternating 1-cochain, but it is *not* a cocycle: as Example 3.8 shows, $\delta A \neq 0$ in general. So $A$ and $D$ live in the same space $C^1(\mathcal{B})$ but in different subspaces: $A$ is an arbitrary alternating 1-cochain, while $D$ is an alternating 1-cocycle. The space of alternating 1-cocycles is strictly smaller.
 
 ---
 
