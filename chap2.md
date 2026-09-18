@@ -223,35 +223,45 @@ Since KL divergence is asymmetric, so is $d$.
 
 ---
 
-## 2.5 The failure of identity
+## 2.5 The Failure of Identity
 
-The energy pseudo-quasi-metric may fail the identity of indiscernibles. In particular, two distinct states may have zero minimal transition cost.
+The energy quasi-metric need not satisfy the identity of indiscernibles.
 
-**Proposition 2.25.** There may exist distinct $b_i,b_j\in\mathcal B$ with
+Recall that the identity of indiscernibles requires
 
 $$
+d(b_i,b_j)=0 \quad \Longrightarrow \quad b_i=b_j.
+$$
+
+For an energy pseudo-quasi-metric, distinct states may instead be connected by transitions of zero cost.
+
+**Proposition 2.25.** There may exist distinct $b_i,b_j\in\mathcal{B}$ such that
+
+$$
+b_i\neq b_j
+\qquad\text{and}\qquad
 d(b_i,b_j)=0.
 $$
 
-*Proof.* Suppose there is a permitted transition from $b_i$ to $b_j$ with zero cost:
+*Proof.* Suppose that $(b_i,b_j)\in\mathcal{T}$ is a permitted transition with
 
 $$
-(b_i,b_j)\in\mathcal T,
-\qquad
-\mathcal C(b_i,b_j)=0.
+\mathcal{C}(b_i,b_j)=0.
 $$
 
-Since this transition is one of the paths considered in the definition of $d$,
+Since the direct transition is a path from $b_i$ to $b_j$,
 
 $$
 d(b_i,b_j)
+=
+\inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma)
 \leq
-\mathcal C(b_i,b_j)
+\mathcal{C}(b_i,b_j)
 =
 0.
 $$
 
-By non-negativity, $d(b_i,b_j)\geq0$. Hence
+Because $d$ is non-negative,
 
 $$
 d(b_i,b_j)=0.
@@ -259,78 +269,120 @@ $$
 
 If $b_i\neq b_j$, the identity of indiscernibles fails. $\square$
 
-**Example 2.26 (Computational equivalence).**
-Let $\mathcal B$ be a set of computational configurations. Suppose the cost model identifies computationally equivalent configurations as having zero transition cost in both directions. If $b_i$ and $b_j$ are computationally equivalent, then
+The important point is that zero cost does not necessarily mean that two states are literally the same state. It means only that, under the chosen cost model, moving between them may require no computational or energetic expenditure.
+
+### Example 2.26 — Computational Equivalence
+
+Let $\mathcal{B}$ be a set of computational configurations.
+
+Suppose that the cost model assigns zero cost to transformations that change the representation of a computation without changing the computation itself. For example, assume that two configurations representing the same computational operation can be transformed into one another at zero cost.
+
+Then distinct configurations $b_i\neq b_j$ may satisfy
 
 $$
-d(b_i,b_j)=d(b_j,b_i)=0,
-$$
-
-even though $b_i\neq b_j$ may hold.
-
-**Example 2.27 (Gauge equivalence).**
-Let $\mathcal B$ be a set of states in which gauge-equivalent states are related by zero-cost transformations in both directions. If $b_i$ and $b_j$ are gauge-equivalent, then
-
-$$
-d(b_i,b_j)=d(b_j,b_i)=0,
-$$
-
-even though $b_i\neq b_j$ as representatives.
-
-**Remark 2.28.**
-When the identity of indiscernibles fails, $d$ is a *pseudo-quasi-metric* rather than a *quasi-metric*. Distinct states may have zero distance. When zero distance occurs in both directions, these states can be identified by an equivalence relation.
-
-**Definition 2.29 (Quotient belief space).**
-Define a relation $\sim$ on $\mathcal B$ by
-
-$$
-b_i\sim b_j
-\iff
 d(b_i,b_j)=d(b_j,b_i)=0.
 $$
 
-The *quotient belief space* is
+Thus the cost structure cannot distinguish these configurations through energy expenditure alone.
+
+This is not a theorem about computation in general. It is a consequence of the particular cost model being used.
+
+### Example 2.27 — Gauge Equivalence
+
+Let $\mathcal{B}$ be a set of states in a model with a gauge symmetry.
+
+Suppose that gauge-related states are assigned zero transition cost in both directions. If
 
 $$
-\mathcal B/{\sim}.
+b_i\neq b_j
 $$
 
-**Proposition 2.30.**
-The energy pseudo-quasi-metric $d$ descends to a well-defined quasi-metric on $\mathcal B/{\sim}$ satisfying the identity of indiscernibles.
+but $b_i$ and $b_j$ are related by a gauge transformation, then
 
-*Proof.* First, $\sim$ is an equivalence relation. Reflexivity follows from $d(b,b)=0$. Symmetry is immediate from the definition. For transitivity, suppose
+$$
+d(b_i,b_j)=d(b_j,b_i)=0.
+$$
+
+Again, the conclusion depends on the chosen cost model: gauge equivalence does not by itself imply zero computational or energetic cost.
+
+### Remark 2.28
+
+When distinct states can have zero cost in both directions, the original state space contains distinctions that are invisible to the cost structure.
+
+This motivates the relation
 
 $$
 b_i\sim b_j
-\quad\text{and}\quad
-b_j\sim b_k.
+\quad\Longleftrightarrow\quad
+d(b_i,b_j)=d(b_j,b_i)=0.
 $$
 
-Then, by the triangle inequality,
+The relation identifies states that are mutually indistinguishable with respect to zero cost.
+
+Under the assumptions that $d(b,b)=0$ and that $d$ satisfies the triangle inequality, $\sim$ is an equivalence relation:
+
+* **Reflexivity:** $d(b,b)=0$.
+* **Symmetry:** built into the definition of $\sim$.
+* **Transitivity:** if $b_i\sim b_j$ and $b_j\sim b_k$, then
 
 $$
 d(b_i,b_k)
 \leq
 d(b_i,b_j)+d(b_j,b_k)
-=
-0,
+=0,
 $$
 
-and hence $d(b_i,b_k)=0$. Similarly,
+and non-negativity gives $d(b_i,b_k)=0$. The reverse direction follows in the same way.
+
+The resulting equivalence classes should not be interpreted automatically as metaphysically "true" states. They are simply the states that the chosen cost structure identifies at zero cost.
+
+### Definition 2.29 — Quotient Belief Space
+
+Let $\sim$ be the equivalence relation defined by
 
 $$
-d(b_k,b_i)=0.
+b_i\sim b_j
+\quad\Longleftrightarrow\quad
+d(b_i,b_j)=d(b_j,b_i)=0.
 $$
 
-Thus $b_i\sim b_k$.
-
-Now let $[b_i]$ and $[b_j]$ be equivalence classes. Define
+The **quotient belief space** is
 
 $$
-\bar d([b_i],[b_j]):=d(b_i,b_j).
+\mathcal{B}/\sim.
 $$
 
-This is well-defined. Indeed, if $b_i\sim b_i'$ and $b_j\sim b_j'$, then
+An element of $\mathcal{B}/\sim$ is therefore an equivalence class of states that are mutually zero-cost.
+
+### Proposition 2.30 — Induced Quasi-Metric on the Quotient
+
+Let $d$ be an energy pseudo-quasi-metric on $\mathcal{B}$. Then $d$ induces a well-defined quasi-metric $\bar d$ on $\mathcal{B}/\sim$ by
+
+$$
+\bar d([b_i],[b_j])=d(b_i,b_j).
+$$
+
+Moreover,
+
+$$
+\bar d([b_i],[b_j])=0
+\quad\Longleftrightarrow\quad
+[b_i]=[b_j].
+$$
+
+*Proof.*
+
+First we show that the definition is independent of the representatives.
+
+Suppose
+
+$$
+b_i\sim b_i'
+\qquad\text{and}\qquad
+b_j\sim b_j'.
+$$
+
+By the triangle inequality,
 
 $$
 d(b_i,b_j)
@@ -339,39 +391,72 @@ d(b_i,b_i')
 +
 d(b_i',b_j')
 +
-d(b_j',b_j)
-=
-d(b_i',b_j').
+d(b_j',b_j).
 $$
 
-Reversing the roles of the primed and unprimed states gives the opposite inequality. Therefore,
+Since $b_i\sim b_i'$ and $b_j\sim b_j'$,
+
+$$
+d(b_i,b_i')=0
+\qquad\text{and}\qquad
+d(b_j',b_j)=0.
+$$
+
+Therefore,
+
+$$
+d(b_i,b_j)\leq d(b_i',b_j').
+$$
+
+Interchanging the primed and unprimed representatives gives
+
+$$
+d(b_i',b_j')\leq d(b_i,b_j).
+$$
+
+Hence
 
 $$
 d(b_i,b_j)=d(b_i',b_j').
 $$
 
-Hence $\bar d$ is independent of the representatives chosen.
+Thus $\bar d$ is well-defined.
 
-Finally, if
+The non-negativity and triangle inequality of $\bar d$ are inherited directly from $d$.
 
-$$
-\bar d([b_i],[b_j])
-=
-\bar d([b_j],[b_i])
-=
-0,
-$$
-
-then $b_i\sim b_j$, so
+Finally, suppose
 
 $$
+\bar d([b_i],[b_j])=0.
+$$
+
+Then
+
+$$
+d(b_i,b_j)=0.
+$$
+
+Because $\bar d$ is a quasi-metric on equivalence classes, the corresponding reverse distance is also zero exactly when the two classes are equivalent. By the definition of $\sim$,
+
+$$
+d(b_i,b_j)=d(b_j,b_i)=0
+\quad\Longleftrightarrow\quad
 [b_i]=[b_j].
 $$
 
-Thus the identity of indiscernibles holds on the quotient. $\square$
+Therefore the identity of indiscernibles holds on the quotient. $\square$
 
-**Convention 2.31.**
-For the remainder of the book, we work on the quotient space whenever necessary, so that the identity of indiscernibles holds. When zero-distance equivalence is present, we therefore replace $\mathcal B$ by $\mathcal B/{\sim}$.
+### Convention 2.31
+
+For the remainder of the book, we work on the quotient whenever zero-cost equivalence is present.
+
+Thus, when necessary, $\mathcal{B}$ is understood to mean
+
+$$
+\mathcal{B}/\sim.
+$$
+
+This removes distinctions that are invisible to the bidirectional zero-cost structure and allows the resulting quasi-metric to satisfy the identity of indiscernibles.
 
 
 ---
