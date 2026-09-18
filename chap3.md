@@ -369,9 +369,7 @@ The **coboundary operator** `δ` maps a `k`-cochain to a `(k+1)`-cochain.
 For a `0`-cochain,
 
 $$
-(\delta\psi)(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+(\delta\psi)(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 For a `1`-cochain,
