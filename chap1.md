@@ -193,6 +193,6 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.12.** Reflect on the following question: is the metric assumption a *modeling choice* or a *fact about the world*? Write a short essay (one page) arguing for your position.
 
-- **Exercise 1.11** is new, and asks the reader to think about what "like" is doing.
+**Exercise 1.11** is new, and asks the reader to think about what "like" is doing.
 
 The book's posture is now: *not correcting the textbook, completing it.*
