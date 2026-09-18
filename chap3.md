@@ -57,33 +57,20 @@ $$
 
 For antisymmetry,
 
-$$
-A(b_j,b_i)
-=
-\frac12\left(d(b_j,b_i)-d(b_i,b_j)\right)
-=
--A(b_i,b_j).
+$$ 
+A(b_j,b_i) = \frac12\left(d(b_j,b_i)-d(b_i,b_j)\right) = -A(b_i,b_j).
 $$
 
 On the diagonal,
 
 $$
-A(b,b)
-=
-\frac12\left(d(b,b)-d(b,b)\right)
-=
-0.
+A(b,b) = \frac12\left(d(b,b)-d(b,b)\right) = 0.
 $$
 
 The sign property follows directly from the definition. Finally,
 
 $$
-|A(b_i,b_j)|
-=
-\frac12
-\left|
-d(b_i,b_j)-d(b_j,b_i)
-\right|
+|A(b_i,b_j)| = \frac12 \left| d(b_i,b_j)-d(b_j,b_i) \right|
 $$
 
 and therefore
