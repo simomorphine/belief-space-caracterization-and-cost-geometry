@@ -183,16 +183,15 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.7.** Prove that if $d$ is a quasi-metric, then the asymmetry $A(b_i, b_j) := \tfrac{1}{2}(d(b_i, b_j) - d(b_j, b_i))$ is antisymmetric and vanishes on the diagonal. (Note the factor of $\tfrac{1}{2}$: this is the canonical normalization for a 1-form.)
 
-**Exercise 1.8.** Show that the decomposition $d = S + \alpha$, where $S$ is the symmetrization and $\alpha$ is the asymmetry defined in Exercise 1.7, is unique.
+**Exercise 1.8.** Show that the decomposition $d = S + A$, where $S$ is the symmetrization and $A$ is the asymmetry defined in Exercise 1.7, is unique.
 
 **Exercise 1.9.** Give an example of a cost function that is path-dependent. Show that in this case, the cost of a transition is not a function of the endpoints alone.
 
-**Exercise 1.10.** Suppose cost is a pseudo-quasi-metric with probability $\alpha$. Define the debt $D(b_i, b_j)$ as the expected violation of the triangle inequality along the transition from $b_i$ to $b_j$. Show that $D$ is antisymmetric and vanishes on the diagonal.
+**Exercise 1.10.** Suppose $d$ is a pseudo-quasi-metric and let $\alpha$ be a probability distribution over intermediate states. Define the signed debt $D(b_i,b_j)$ as the expected difference between the forward and reverse triangle-inequality defects. Show that $D$ is antisymmetric and vanishes on the diagonal.
 
 **Exercise 1.11.** The textbook says cost is *like* a metric. Write a short essay (one page) explaining what you think the word "like" is doing in that sentence. Is it a hedge, a placeholder, or a precise claim?
 
 **Exercise 1.12.** Reflect on the following question: is the metric assumption a *modeling choice* or a *fact about the world*? Write a short essay (one page) arguing for your position.
 
-**Exercise 1.11** is new, and asks the reader to think about what "like" is doing.
 
-The book's posture is now: *not correcting the textbook, completing it.*
+The book's posture is now: *not correcting the textbook, but exploring what its assumptions make possible.*
