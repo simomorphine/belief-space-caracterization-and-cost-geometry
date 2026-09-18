@@ -759,7 +759,7 @@ d =
 \end{pmatrix}.
 ```
 
-Compute the shortest-path metric $d^\*$ of the graph $G_d$. Is $d^\* = d$? If not, explain why.
+Construct the weighted directed graph $G_d$ and compute its shortest-path quasi-metric $d^\*$. Is $d^\*=d$? Explain why.
 
 **Exercise 2.7.** Show that the energy quasi-metric $d$ is the *largest* quasi-metric on $\mathcal{B}$ satisfying $d(b_i, b_j) \le \mathcal{C}(b_i, b_j)$ for all $(b_i, b_j) \in \mathcal{T}$. (Hint: use the triangle inequality.)
 
