@@ -252,13 +252,7 @@ $$
 Since the direct transition is a path from $b_i$ to $b_j$,
 
 $$
-d(b_i,b_j)
-=
-\inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma)
-\leq
-\mathcal{C}(b_i,b_j)
-=
-0.
+d(b_i,b_j) = \inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma) \leq \mathcal{C}(b_i,b_j) = 0.
 $$
 
 Because $d$ is non-negative,
