@@ -2,85 +2,160 @@
 
 ---
 
-In Chapter 2, we established that the energy quasi-metric $d$ captures the cost of transitions between beliefs. But cost alone does not capture the full structure of belief space. There is a second quantity—the **debt**—which measures the asymmetry of cost in a precise and canonical way.
-
-This chapter introduces the debt function, states its defining axioms, and derives its most immediate consequences. The central result—that debt is a potential difference—is deferred to Chapter 4. Here we establish what debt is and why it is the right object to study.
-
----
-
 ## 3.1 The asymmetry of cost
 
-Let us begin with a simple observation.
+Chapter 2 established the energy quasi-metric \(d\) as the cost of moving between states of the belief space. Because \(d\) is a quasi-metric, it need not be symmetric. In general,
 
-**Observation 3.1.** The energy quasi-metric $d$ need not be symmetric. There may exist $b_i, b_j \in \mathcal{B}$ with $d(b_i, b_j) \neq d(b_j, b_i)$.
+$$
+d(b_i,b_j) \neq d(b_j,b_i).
+$$
 
-This is not a defect. It is a feature. The asymmetry of $d$ is a genuine quantity, and it deserves a name.
+This asymmetry is not an error in the construction. It records the fact that moving from \(b_i\) to \(b_j\) may have a different cost from moving in the opposite direction.
 
-**Definition 3.2 (Asymmetry).** The *asymmetry* of the energy quasi-metric $d$ is the function $A : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$ defined by
+**Observation 3.1.** There may exist \(b_i,b_j\in\mathcal B\) such that
 
-$$A(b_i, b_j) := \tfrac{1}{2}\bigl(d(b_i, b_j) - d(b_j, b_i)\bigr).$$
+$$
+d(b_i,b_j)\neq d(b_j,b_i).
+$$
 
+The first task of this chapter is therefore to isolate the asymmetric part of the energy quasi-metric.
 
-**Proposition 3.3 (Properties of asymmetry).** The asymmetry $A$ satisfies:
+**Definition 3.2 (Symmetric and antisymmetric parts).** Assume that \(d(b_i,b_j)<+\infty\) for all \(b_i,b_j\in\mathcal B\). Define
 
-- **(i) Antisymmetry.** $A(b_i, b_j) = -A(b_j, b_i)$ for all $b_i, b_j$.
-- **(ii) Vanishing on the diagonal.** $A(b, b) = 0$ for all $b$.
-- **(iii) Boundedness.** $|A(b_i, b_j)| \le \tfrac{1}{2}\bigl(d(b_i, b_j) + d(b_j, b_i)\bigr)$.
-- **(iv) Sign.** $A(b_i, b_j) > 0$ if and only if $d(b_i, b_j) > d(b_j, b_i)$.
+$$
+S(b_i,b_j)
+:=
+\frac12\left(d(b_i,b_j)+d(b_j,b_i)\right)
+$$
 
-*Proof.* (i) $A(b_i, b_j) = \tfrac{1}{2}(d(b_i,b_j) - d(b_j,b_i)) = -\tfrac{1}{2}(d(b_j,b_i) - d(b_i,b_j)) = -A(b_j, b_i)$.
+and
 
-(ii) $A(b, b) = \tfrac{1}{2}(d(b,b) - d(b,b)) = 0$.
+$$
+A(b_i,b_j)
+:=
+\frac12\left(d(b_i,b_j)-d(b_j,b_i)\right).
+$$
 
-(iii) $|A(b_i, b_j)| = \tfrac{1}{2}|d(b_i,b_j) - d(b_j,b_i)| \le \tfrac{1}{2}(d(b_i,b_j) + d(b_j,b_i))$ by the triangle inequality on $\mathbb{R}$.
+We call \(S\) the **symmetric part** of the cost and \(A\) the **antisymmetric part** of the cost.
 
-(iv) Immediate. $\square$
+The function \(A\) measures the directional imbalance of the cost. It is positive when the transition from \(b_i\) to \(b_j\) is more expensive than the reverse transition, negative when it is cheaper, and zero when the two directions have equal cost.
 
-The asymmetry $A$ measures the *extent* to which the cost is asymmetric. It is positive when going from $b_i$ to $b_j$ is more expensive than going the other way, negative when it is cheaper, and zero when the two costs are equal.
+**Proposition 3.3.** The antisymmetric part \(A\) satisfies:
 
-**Remark 3.5.** The asymmetry $A$ is an *alternating 1-cochain* in the discrete sense: it is a function on ordered pairs that is antisymmetric and vanishes on the diagonal. This is the first hint of the cohomological structure that will be developed in §3.5.
+1. \(A(b_i,b_j)=-A(b_j,b_i)\);
+2. \(A(b,b)=0\);
+3. \(A(b_i,b_j)>0\) if and only if \(d(b_i,b_j)>d(b_j,b_i)\);
+4.
 
-**Remark 3.6.** The asymmetry $A$ is not the same as the debt. It is the *magnitude* of the debt, in a sense to be made precise. The debt itself is a potential difference—a derivative, not a magnitude. The relationship between $A$ and $D$ will be clarified in Chapter 11.
+$$
+|A(b_i,b_j)|
+\leq
+\frac12\left(d(b_i,b_j)+d(b_j,b_i)\right).
+$$
 
-**Proposition 3.7 (Canonical decomposition).** The energy quasi-metric $d$ decomposes uniquely as
+*Proof.*
 
-$$d = S + A,$$
+For antisymmetry,
 
-where $S$ is symmetric and $A$ is antisymmetric.
+$$
+A(b_j,b_i)
+=
+\frac12\left(d(b_j,b_i)-d(b_i,b_j)\right)
+=
+-A(b_i,b_j).
+$$
 
-*Proof.* Define $S$ and $A$ as above. Then
+On the diagonal,
 
-$$S(b_i, b_j) + A(b_i, b_j) = \tfrac{1}{2}(d_{ij} + d_{ji}) + \tfrac{1}{2}(d_{ij} - d_{ji}) = d_{ij} = d(b_i, b_j).$$
+$$
+A(b,b)
+=
+\frac12\left(d(b,b)-d(b,b)\right)
+=
+0.
+$$
 
-Uniqueness: if $d = S' + A'$ with $S'$ symmetric and $A'$ antisymmetric, then $S' = S$ and $A' = A$ by the standard decomposition of a function into symmetric and antisymmetric parts. $\square$
+The sign property follows directly from the definition. Finally,
 
----
+$$
+|A(b_i,b_j)|
+=
+\frac12
+\left|
+d(b_i,b_j)-d(b_j,b_i)
+\right|
+$$
 
-## 3.2 Why asymmetry is not enough
+and therefore
 
-The asymmetry $A$ captures the directional imbalance of cost, but it does not capture the *structure* of that imbalance. In particular, $A$ is not additive.
+$$
+|A(b_i,b_j)|
+\leq
+\frac12
+\left(
+d(b_i,b_j)+d(b_j,b_i)
+\right).
+$$
 
-**Example 3.8 (Asymmetry does not telescope).** Let $\mathcal{B} = \{b_1, b_2, b_3\}$, with
+\(\square\)
 
-$$d(b_1, b_2) = 2, \quad d(b_2, b_1) = 1,$$
-$$d(b_2, b_3) = 3, \quad d(b_3, b_2) = 1,$$
-$$d(b_1, b_3) = 5, \quad d(b_3, b_1) = 1.$$
+The symmetric and antisymmetric parts reconstruct the original cost.
 
-These values satisfy the triangle inequality (check: $d(b_1,b_3) = 5 = d(b_1,b_2) + d(b_2,b_3)$, and the reverse inequalities hold with room to spare). Compute:
+**Proposition 3.4 (Canonical decomposition).** The energy quasi-metric admits the decomposition
 
-$$A(b_1, b_2) = \tfrac{1}{2}(2 - 1) = \tfrac{1}{2},$$
-$$A(b_2, b_3) = \tfrac{1}{2}(3 - 1) = 1,$$
-$$A(b_1, b_3) = \tfrac{1}{2}(5 - 1) = 2.$$
+$$
+d=S+A,
+$$
 
-Then
+where \(S\) is symmetric and \(A\) is antisymmetric. This decomposition is unique.
 
-$$A(b_1, b_2) + A(b_2, b_3) = \tfrac{3}{2} \neq 2 = A(b_1, b_3).$$
+*Proof.*
 
-So the asymmetry of a composed transition is *not* the sum of the asymmetries of its parts. It does not telescope. It is not a coboundary.
+By definition,
 
-**Remark 3.9.** The failure of additivity is not an artifact of the normalization. It is structural: $A$ is the antisymmetric part of $d$, and $d$ itself is not additive (it satisfies the triangle inequality, not equality). So $A$ inherits the non-additivity of $d$.
+$$
+S(b_i,b_j)+A(b_i,b_j)
+=
+\frac12(d(b_i,b_j)+d(b_j,b_i))
++
+\frac12(d(b_i,b_j)-d(b_j,b_i)),
+$$
 
-**Remark 3.10.** This is precisely why we need a different object—the debt—which *is* additive and *does* telescope. The asymmetry $A$ is a 1-cochain; the debt $D$ will also be a 1-cochain, but one that is additionally a *cocycle* (additive). The relationship between them is developed in Chapter 11.
+so
+
+$$
+S(b_i,b_j)+A(b_i,b_j)=d(b_i,b_j).
+$$
+
+The function \(S\) is symmetric and \(A\) is antisymmetric by construction.
+
+For uniqueness, suppose
+
+$$
+d=S'+A',
+$$
+
+where \(S'\) is symmetric and \(A'\) is antisymmetric. Evaluating the same equation with \(b_i\) and \(b_j\) exchanged and adding and subtracting the two equations gives
+
+$$
+S'=S,\qquad A'=A.
+$$
+
+Thus the decomposition is unique. \(\square\)
+
+**Remark 3.5.** The antisymmetric component \(A\) should not be identified with the debt function introduced in this chapter. \(A\) is determined directly by the asymmetry of the energy quasi-metric. Debt is a separate object whose mathematical structure will be introduced independently.
+
+The distinction is important. Asymmetry tells us that the cost of a transition depends on its direction. It does not, by itself, tell us why this asymmetry exists, whether it can be represented by a potential, or whether it satisfies additional structural properties.
+
+The purpose of the following sections is to investigate this additional structure.
+
+In particular, Chapter 4 will ask whether the debt function can be represented as a difference of potentials,
+
+$$
+D(b_i,b_j)=\psi(b_j)-\psi(b_i),
+$$
+
+and what assumptions are required for such a representation to exist.
 
 ---
 
