@@ -235,7 +235,7 @@ The energy quasi-metric may also fail the identity of indiscernibles.
 
 **Example 2.27 (Gauge equivalence).** Let $\mathcal{B}$ be the set of states of a gauge theory, and let $b_i \sim b_j$ if they are related by a gauge transformation. Then $d(b_i, b_j) = 0$ for gauge-equivalent states.
 
-**Remark 2.28.** When the identity of indiscernibles fails, $d$ is a *pseudometric* rather than a metric. The equivalence classes of zero-cost transitions are the "true" states; the individual elements of $\mathcal{B}$ are representatives.
+**Remark 2.28.** When the identity of indiscernibles fails, $d$ is a *pseudoquasimetric* rather than a *quasimetric*. The equivalence classes of zero-cost transitions are the "true" states; the individual elements of $\mathcal{B}$ are representatives.
 
 **Definition 2.29 (Quotient belief space).** Let $\sim$ be the equivalence relation $b_i \sim b_j \iff d(b_i, b_j) = d(b_j, b_i) = 0$. The *quotient belief space* is $\mathcal{B}/{\sim}$.
 
