@@ -64,17 +64,17 @@ The elements of $\mathcal{B}$ are called *beliefs*.
 
 ---
 
-## 2.3 The energy quasi-metric
+## 2.3 The energy pseudo-quasi-metric
 
 The cost of moving between beliefs extends from paths to pairs by minimization.
 
-**Definition 2.14 (Energy quasi-metric).** The *energy quasi-metric* is the function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}$ defined by
+**Definition 2.14 (Energy pseudo-quasi-metric).** The *energy pseudo-quasi-metric* is the function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}$ defined by
 
 $$d(b_i, b_j) := \inf_{\gamma : b_i \to b_j} \mathcal{C}(\gamma),$$
 
 where the infimum is over all paths from $b_i$ to $b_j$. If no path exists, $d(b_i, b_j) := +\infty$.
 
-**Proposition 2.15.** The energy quasi-metric satisfies:
+**Proposition 2.15.** The energy pseudo-quasi-metric satisfies:
 
 - **(i) Identity.** $d(b, b) = 0$ for all $b \in \mathcal{B}$.
 - **(ii) Non-negativity.** $d(b_i, b_j) \ge 0$ for all $b_i, b_j \in \mathcal{B}$.
