@@ -408,6 +408,125 @@ The central remaining question is: does every debt function arise from a potenti
 
 ---
 
+### Cohomology Reminder
+
+Cohomology provides a language for detecting structure that is locally consistent but may or may not arise from a global potential. For the purposes of this book, we only need a small part of the general theory.
+
+The basic objects are **cochains**, **cocycles**, and **coboundaries**.
+
+A **cochain** is simply a function defined on geometric or combinatorial objects of a specified dimension.
+
+For example, given a set of states `B`:
+
+* a `0`-cochain assigns a number to each state;
+* a `1`-cochain assigns a number to each ordered pair of states;
+* a `2`-cochain assigns a number to each ordered triple of states.
+
+We denote these spaces by `C^0(B)`, `C^1(B)`, and `C^2(B)`.
+
+Thus, a function
+
+`ψ : B → R`
+
+is a `0`-cochain, while a function
+
+`D : B × B → R`
+
+is a `1`-cochain.
+
+The **coboundary operator** `δ` maps a `k`-cochain to a `(k+1)`-cochain. In the setting used in this chapter,
+
+`(δψ)(b_i,b_j) = ψ(b_j) − ψ(b_i)`
+
+and
+
+`(δD)(b_i,b_j,b_k) = D(b_j,b_k) − D(b_i,b_k) + D(b_i,b_j).`
+
+The fundamental property of the coboundary operator is
+
+`δ² = 0`.
+
+In other words, applying the coboundary operator twice always gives zero.
+
+A **cocycle** is a cochain whose coboundary vanishes.
+
+For a `1`-cochain `D`, this means
+
+`δD = 0`.
+
+Expanding the definition gives
+
+`D(b_i,b_k) = D(b_i,b_j) + D(b_j,b_k).`
+
+Thus, in our setting, the cocycle condition is exactly the additivity condition appearing in axiom (D1).
+
+A **coboundary** is a cochain that is itself obtained by applying `δ` to another cochain.
+
+For example, if
+
+`D = δψ,`
+
+then
+
+`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
+
+Every coboundary is automatically a cocycle because
+
+`δD = δ(δψ) = δ²ψ = 0.`
+
+Therefore,
+
+`coboundaries ⊆ cocycles.`
+
+The converse does not hold in general. A cocycle need not be a coboundary.
+
+This difference is what cohomology measures.
+
+Very roughly, the `k`-th cohomology group is the space of `k`-cocycles modulo the `k`-coboundaries:
+
+`H^k = ker(δ : C^k → C^{k+1}) / im(δ : C^{k-1} → C^k).`
+
+Thus, cohomology asks:
+
+Which locally consistent structures are not explained by a global potential?
+
+In the present framework, this question is particularly important for debt. If `D` is a `1`-cocycle, then it satisfies the local consistency condition
+
+`δD = 0`.
+
+If, in addition, `D` is a coboundary, then there exists a scalar potential `ψ` such that
+
+`D(b_i,b_j) = ψ(b_j) − ψ(b_i).`
+
+The distinction between these two possibilities is precisely where the potential interpretation of debt enters.
+
+For the complete state space considered in this chapter, the relevant first cohomology is trivial. Consequently, every `1`-cocycle is a coboundary. This means that once the debt satisfies the cocycle condition, a potential representation exists:
+
+`D = δψ.`
+
+The next section applies this language directly to the debt axioms.
+
+---
+
+### References
+
+The basic language of cochains, coboundaries, cocycles, and cohomology used in this section can be found in:
+
+Allen Hatcher, *Algebraic Topology*, Chapter 3: Cohomology. The chapter introduces cochain complexes, the coboundary operator, the identity `δ² = 0`, cocycles, coboundaries, and cohomology groups.
+
+[Hatcher — Algebraic Topology (free online edition)](https://pi.math.cornell.edu/~hatcher/AT/ATpage.html?utm_source=chatgpt.com)
+
+For the broader relationship between cohomology and differential forms, see:
+
+Raoul Bott and Loring W. Tu, *Differential Forms in Algebraic Topology*, Graduate Texts in Mathematics 82, Springer. The book develops de Rham theory as a concrete model for cohomology and discusses several related cohomological constructions.
+
+[Bott & Tu — Differential Forms in Algebraic Topology](https://link.springer.com/book/10.1007/978-1-4757-3951-0?utm_source=chatgpt.com)
+
+The construction used in this book is a discrete/cochain formulation adapted to the state space `B`. It should therefore be read as a discrete cohomological framework inspired by these standard constructions, rather than as a direct reproduction of the classical de Rham complex.
+
+
+---
+
 ## 3.10 Exercises
 
 **Exercise 3.1.** Verify that the function $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$ satisfies (D1) and (D2) for any $\psi : \mathcal{B} \to \mathbb{R}$.
