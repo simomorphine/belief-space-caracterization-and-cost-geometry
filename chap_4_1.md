@@ -336,17 +336,13 @@ $$
 for any constant $c$ gives the same debt:
 
 $$
-\psi'(b_j)-\psi'(b_i)
-=
-[\psi(b_j)+c]-[\psi(b_i)+c].
+\psi'(b_j)-\psi'(b_i) = [\psi(b_j)+c]-[\psi(b_i)+c].
 $$
 
 Therefore,
 
 $$
-\psi'(b_j)-\psi'(b_i)
-=
-\psi(b_j)-\psi(b_i).
+\psi'(b_j)-\psi'(b_i) = \psi(b_j)-\psi(b_i).
 $$
 
 The absolute level of the potential is irrelevant.
@@ -426,11 +422,7 @@ $$
 Then
 
 $$
-\boxed{
-\psi_{s_1}(b)
-=
-\psi_{s_0}(b)+D(s_1,s_0)
-}
+\boxed{ \psi_{s_1}(b) = \psi_{s_0}(b)+D(s_1,s_0) }
 $$
 
 for every $b\in\mathcal{B}$.
@@ -440,17 +432,13 @@ for every $b\in\mathcal{B}$.
 By additivity,
 
 $$
-D(s_1,b)
-=
-D(s_1,s_0)+D(s_0,b).
+D(s_1,b) = D(s_1,s_0)+D(s_0,b).
 $$
 
 Therefore,
 
 $$
-\psi_{s_1}(b)
-=
-D(s_1,s_0)+\psi_{s_0}(b).
+\psi_{s_1}(b) = D(s_1,s_0)+\psi_{s_0}(b).
 $$
 
 Since $D(s_1,s_0)$ does not depend on $b$, the two potentials differ only by a constant.
@@ -478,9 +466,7 @@ $$
 such that
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 The basepoint theorem therefore gives the following result.
@@ -500,9 +486,7 @@ $$
 satisfying
 
 $$
-D(b_i,b_j)
-=
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i).
+D(b_i,b_j) = \psi_{s_0}(b_j)-\psi_{s_0}(b_i).
 $$
 
 Therefore $D$ is exact.
