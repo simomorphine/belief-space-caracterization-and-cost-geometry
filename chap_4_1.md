@@ -710,13 +710,7 @@ $$
 Similarly,
 
 $$
-D(b_1,b_3)
-=
-\psi(b_3)-\psi(b_1)
-=
-5-0
-=
-5.
+D(b_1,b_3) = \psi(b_3)-\psi(b_1) = 5-0 = 5.
 $$
 
 The entire debt function has been reconstructed from the potential
@@ -737,7 +731,7 @@ $$
 Suppose
 
 $$
-\mathcal{B}=\{b_1,\ldots,b_n\}.
+\mathcal{B}=\lbrace b_1,\ldots,b_n\rbrace.
 $$
 
 Choose
@@ -766,17 +760,13 @@ determine the entire debt function.
 Indeed,
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i)
+D(b_i,b_j) = \psi(b_j)-\psi(b_i)
 $$
 
 gives
 
 $$
-D(b_i,b_j)
-=
-D(b_1,b_j)-D(b_1,b_i).
+D(b_i,b_j) = D(b_1,b_j)-D(b_1,b_i).
 $$
 
 Therefore, once the debt relative to one reference state is known, all pairwise debt values are determined.
@@ -820,9 +810,7 @@ $$
 The relationship is
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 The basepoint construction is
