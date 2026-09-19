@@ -621,21 +621,13 @@ $$
 For three states $b_i,b_j,b_k$, the corresponding 2-dimensional coboundary evaluates schematically as
 
 $$
-(\delta D)(b_i,b_j,b_k)
-=
-D(b_i,b_j)
-+
-D(b_j,b_k)
-+
-D(b_k,b_i).
+(\delta D)(b_i,b_j,b_k) = D(b_i,b_j) + D(b_j,b_k) + D(b_k,b_i).
 $$
 
 Substituting
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i),
+D(b_i,b_j) = \psi(b_j)-\psi(b_i),
 $$
 
 we obtain
@@ -709,13 +701,7 @@ The condition says that $D$ satisfies the appropriate local consistency relation
 In the triangle example,
 
 $$
-D(b_i,b_j)
-+
-D(b_j,b_k)
-+
-D(b_k,b_i)
-=
-0.
+D(b_i,b_j) + D(b_j,b_k) + D(b_k,b_i) = 0.
 $$
 
 This can be interpreted as zero circulation around the oriented boundary of the triangle.
@@ -733,9 +719,7 @@ $$
 Applying $\delta$ gives
 
 $$
-\delta D
-=
-\delta(\delta\psi).
+\delta D = \delta(\delta\psi).
 $$
 
 Because
@@ -769,7 +753,7 @@ $$
 where
 
 $$
-B^1=\operatorname{im}\delta
+B^1=\mathrm{im}\delta
 $$
 
 is the space of 1-coboundaries.
