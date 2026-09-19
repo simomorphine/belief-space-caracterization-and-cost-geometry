@@ -400,11 +400,8 @@ such that
 D(b_i,b_j)=\psi(b_j)-\psi(b_i)?
 ```
 
-
-
-
 ---
-## 3.6 The Debt of a Transition
+## 3.5 The Debt of a Transition
 
 Let us now interpret the debt function in the context of belief space.
 
@@ -481,7 +478,7 @@ The energy quasi-metric is endpoint-dependent in a different sense: `d(b_i,b_j)`
 
 ---
 
-## 3.8 Summary
+## 3.6 Summary
 
 This chapter introduced the debt function
 
@@ -514,7 +511,6 @@ $$
 * **Cycle invariance:** the total debt around every closed path is zero;
 * **Path independence:** every path between the same endpoints has the same total debt;
 * **Gauge invariance:** adding a constant to a potential does not change its differences;
-* **Cohomological characterization:** debt functions are exactly the alternating `1`-cocycles of the cochain structure introduced above.
 
 The central remaining question is whether every debt function arises from a potential.
 
