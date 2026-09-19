@@ -220,7 +220,7 @@ Debt is a separate function satisfying the stronger structural condition of addi
 
 The two axioms (D1) and (D2) have immediate consequences.
 
-**Proposition 3.9 (Identity).** For every `b\in B`,
+**Proposition 3.9 (Identity).** For every $b\in B$,
 
 ```math
 D(b,b)=0.
@@ -260,7 +260,7 @@ the total debt is zero:
 \sum_{k=1}^{n}D(b_k,b_{k+1})=0,
 ```
 
-where `b_{n+1}:=b_1`.
+where $b_{n+1}:=b_1$.
 
 **Proof.** By (D1),
 
@@ -270,7 +270,7 @@ D(b_k,b_{k+1})
 D(b_1,b_{k+1})-D(b_1,b_k).
 ```
 
-Summing over `k=1,\ldots,n` gives a telescoping sum:
+Summing over $k=1,\ldots,n$ gives a telescoping sum:
 
 ```math
 \sum_{k=1}^{n}D(b_k,b_{k+1})
@@ -278,7 +278,7 @@ Summing over `k=1,\ldots,n` gives a telescoping sum:
 D(b_1,b_{n+1})-D(b_1,b_1).
 ```
 
-Since `b_{n+1}=b_1` and Proposition 3.9 gives `D(b_1,b_1)=0`,
+Since $b_{n+1}=b_1$ and Proposition 3.9 gives $D(b_1,b_1)=0$,
 
 ```math
 \sum_{k=1}^{n}D(b_k,b_{k+1})=0.
@@ -288,7 +288,7 @@ Since `b_{n+1}=b_1` and Proposition 3.9 gives `D(b_1,b_1)=0`,
 
 ---
 
-**Proposition 3.11 (Path Independence).** If `\gamma_1` and `\gamma_2` are two paths from `b_i` to `b_j`, then
+**Proposition 3.11 (Path Independence).** If $\gamma_1$ and $\gamma_2$ are two paths from $b_i$ to $b_j$, then
 
 ```math
 \sum_{e\in\gamma_1}D(e)
@@ -336,7 +336,7 @@ This is stronger than the endpoint dependence of the energy quasi-metric. The en
 
 ---
 
-**Proposition 3.13 (Gauge Invariance of Potential Representations).** Let `\psi:B\to\mathbb R` and define
+**Proposition 3.13 (Gauge Invariance of Potential Representations).** Let $\psi:B\to\mathbb R$ and define
 
 ```math
 D(b_i,b_j):=\psi(b_j)-\psi(b_i).
