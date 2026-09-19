@@ -474,9 +474,7 @@ It forces every two-step path from $b_i$ to $b_k$ to have exactly the same debt 
 In particular,
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 for **every possible intermediate state** $b_j$.
@@ -552,17 +550,13 @@ be a directed path.
 Define its debt by
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}D(b_k,b_{k+1}).
+D(\gamma) = \sum_{k=0}^{n-1}D(b_k,b_{k+1}).
 $$
 
 A potential representation would require
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i)
+D(b_i,b_j) = \psi(b_j)-\psi(b_i)
 $$
 
 on every available edge.
@@ -570,9 +564,7 @@ on every available edge.
 Then every path would satisfy
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0).
+D(\gamma) = \psi(b_n)-\psi(b_0).
 $$
 
 Therefore, if two paths connect the same states, they must have the same total debt.
@@ -604,19 +596,13 @@ $$
 then
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0)
-=
-0.
+D(\gamma) = \psi(b_n)-\psi(b_0) = 0.
 $$
 
 Therefore, every exact debt function must satisfy
 
 $$
-\boxed{
-D(\gamma)=0
-}
+\boxed{ D(\gamma)=0 }
 $$
 
 for every closed path.
