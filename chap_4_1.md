@@ -250,33 +250,25 @@ This proves the existence of a potential representation.
 Suppose $\psi$ and $\phi$ are two potentials representing the same debt function:
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i)
+D(b_i,b_j) = \psi(b_j)-\psi(b_i)
 $$
 
 and
 
 $$
-D(b_i,b_j)
-=
-\phi(b_j)-\phi(b_i).
+D(b_i,b_j) = \phi(b_j)-\phi(b_i).
 $$
 
 Therefore,
 
 $$
-\psi(b_j)-\psi(b_i)
-=
-\phi(b_j)-\phi(b_i).
+\psi(b_j)-\psi(b_i) = \phi(b_j)-\phi(b_i).
 $$
 
 Rearranging,
 
 $$
-\psi(b_j)-\phi(b_j)
-=
-\psi(b_i)-\phi(b_i).
+\psi(b_j)-\phi(b_j) = \psi(b_i)-\phi(b_i).
 $$
 
 Since $b_i$ and $b_j$ are arbitrary,
