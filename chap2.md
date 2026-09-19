@@ -683,7 +683,7 @@ $$
 d_{G_d}(b_i,b_j)=d(b_i,b_j).
 $$
 
-### Example 2.37 — [Sparse Directed Graph](https://en.wikipedia.org/wiki/Dense_graph)
+### Example 2.37 — Sparse Directed Graph
 
 Suppose that
 
