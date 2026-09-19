@@ -196,9 +196,9 @@ for every $b_i,b_j,b_k\in B$, then:
 3. every closed path has zero total debt;
 4. $D$ is representable as
 
-   $$
-   D(b_i,b_j)=\psi(b_j)-\psi(b_i)
-   $$
+$$
+D(b_i,b_j)=\psi(b_j)-\psi(b_i)
+$$
 
    for some potential $\psi:B\to\mathbb{R}$.
 
@@ -300,9 +300,7 @@ where $\delta$ denotes the operation that converts a potential into pairwise dif
 Thus,
 
 $$
-(\delta\psi)(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+(\delta\psi)(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 The notation is useful because it separates two objects:
