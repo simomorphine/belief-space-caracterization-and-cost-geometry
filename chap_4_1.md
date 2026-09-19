@@ -48,9 +48,7 @@ $$
 is a path from $b_0$ to $b_n$, then its total debt is
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}D(b_k,b_{k+1}).
+D(\gamma) = \sum_{k=0}^{n-1}D(b_k,b_{k+1}).
 $$
 
 The path independence result tells us that
@@ -102,9 +100,7 @@ satisfy:
 **(D1) Additivity**
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 for all $b_i,b_j,b_k\in\mathcal{B}$.
@@ -112,9 +108,7 @@ for all $b_i,b_j,b_k\in\mathcal{B}$.
 **(D2) Antisymmetry**
 
 $$
-D(b_i,b_j)
-=
--D(b_j,b_i)
+D(b_i,b_j) = -D(b_j,b_i)
 $$
 
 for all $b_i,b_j\in\mathcal{B}$.
@@ -134,11 +128,7 @@ $$
 Then
 
 $$
-\boxed{
-D(b_i,b_j)
-=
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i)
-}
+\boxed{ D(b_i,b_j) = \psi_{s_0}(b_j)-\psi_{s_0}(b_i) }
 $$
 
 for all $b_i,b_j\in\mathcal{B}$.
@@ -212,9 +202,7 @@ The chosen basepoint therefore fixes the additive normalization of the potential
 For arbitrary $b_i,b_j\in\mathcal{B}$,
 
 $$
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i)
-=
-D(s_0,b_j)-D(s_0,b_i).
+\psi_{s_0}(b_j)-\psi_{s_0}(b_i) = D(s_0,b_j)-D(s_0,b_i).
 $$
 
 By antisymmetry,
@@ -226,9 +214,7 @@ $$
 Therefore,
 
 $$
-D(s_0,b_j)-D(s_0,b_i)
-=
-D(s_0,b_j)+D(b_i,s_0).
+D(s_0,b_j)-D(s_0,b_i) = D(s_0,b_j)+D(b_i,s_0).
 $$
 
 Now apply additivity to the triple
@@ -240,27 +226,19 @@ $$
 We obtain
 
 $$
-D(b_i,b_j)
-=
-D(b_i,s_0)+D(s_0,b_j).
+D(b_i,b_j) = D(b_i,s_0)+D(s_0,b_j).
 $$
 
 Hence,
 
 $$
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i)
-=
-D(b_i,b_j).
+\psi_{s_0}(b_j)-\psi_{s_0}(b_i) = D(b_i,b_j).
 $$
 
 Therefore,
 
 $$
-\boxed{
-D(b_i,b_j)
-=
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i)
-}.
+\boxed{ D(b_i,b_j) = \psi_{s_0}(b_j)-\psi_{s_0}(b_i) }.
 $$
 
 This proves the existence of a potential representation.
