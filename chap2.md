@@ -455,7 +455,7 @@ $$
 \mathcal{B}/\sim.
 $$
 
-This removes distinctions that are invisible to the bidirectional zero-cost structure and allows the resulting quasi-metric to satisfy the identity of indiscernibles.
+This removes distinctions that are invisible to the bidirectional zero-cost structure and allows the resulting quasi-metric to satisfy the identity of indiscernibles **under the assumption mentioned above**.
 
 
 ---
