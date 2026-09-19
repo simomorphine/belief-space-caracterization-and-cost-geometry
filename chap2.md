@@ -490,7 +490,9 @@ $$
 d(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}_{G_d}(\gamma),
 $$
 
-where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$. We denote this shortest-path distance by $d_{G_d}$.
+where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$.
+
+We denote this shortest-path distance by $d_{G_d}$.
 
 *Proof.*
 
@@ -532,7 +534,7 @@ d(b_i,b_j)
 \sum_{k=0}^{n-1}d(b_k,b_{k+1}).
 $$
 
-Since this holds for every path from $b_i$ to $b_j$,
+Since this holds for every path from $b_i$ to $b_j$, taking the infimum over all such paths gives
 
 $$
 d(b_i,b_j)\leq d_{G_d}(b_i,b_j).
@@ -544,7 +546,34 @@ $$
 d_{G_d}(b_i,b_j)=d(b_i,b_j).
 $$
 
-If no path exists, both quantities are $+\infty$.
+It remains to consider the case
+
+$$
+d(b_i,b_j)=+\infty
+$$
+
+Suppose there were a directed path from $b_i$ to $b_j$ with finite total cost. Repeated application of the triangle inequality would then give
+
+$$
+d(b_i,b_j)
+\leq
+\sum_{k=0}^{n-1}d(b_k,b_{k+1})
+<+\infty.
+$$
+
+which is a contradiction. Hence no finite-cost directed path from bi to bj exists, and therefore
+
+$$
+d_{G_d}(b_i,b_j)=+\infty.
+$$
+
+Thus, in all cases,
+
+$$
+d_{G_d}(b_i,b_j)=d(b_i,b_j).
+$$
+
+Therefore, the energy quasi-metric is exactly the shortest-path distance induced by the weighted directed graph Gd
 
 Therefore $d$ is exactly the shortest-path distance induced by $G_d$. $\square$
 
