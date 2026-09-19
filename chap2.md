@@ -438,7 +438,12 @@ d(b_i,b_j)=d(b_j,b_i)=0
 [b_i]=[b_j].
 $$
 
-Therefore the identity of indiscernibles holds on the quotient only if $d$ **satisfies the zero-symmetry property**. $\square$
+Therefore the identity of indiscernibles holds on the quotient only if $d$ **satisfies the zero-symmetry property**. 
+
+```math
+d(b_i,b_j)=0\Rightarrow d(b_j,b_i)=0
+```
+
 
 ### Convention 2.31
 
