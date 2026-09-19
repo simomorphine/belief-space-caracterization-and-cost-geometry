@@ -892,9 +892,7 @@ $$
 This notation is only an analogy unless a specific graph calculus has been defined. The rigorous object remains the finite sum
 
 $$
-D(\gamma)
-=
-\sum_{e\in\gamma}D(e).
+D(\gamma) = \sum_{e\in\gamma}D(e).
 $$
 
 ---
@@ -914,17 +912,13 @@ $$
 If $D$ is exact, then
 
 $$
-D(\gamma_1)
-=
-\psi(b_j)-\psi(b_i)
+D(\gamma_1) = \psi(b_j)-\psi(b_i)
 $$
 
 and
 
 $$
-D(\gamma_2)
-=
-\psi(b_j)-\psi(b_i).
+D(\gamma_2) = \psi(b_j)-\psi(b_i).
 $$
 
 Therefore,
@@ -960,9 +954,7 @@ $$
 from $s_0$ to $b$ and define
 
 $$
-\psi(b)
-=
-D(\gamma_{s_0\to b}).
+\psi(b) = D(\gamma_{s_0\to b}).
 $$
 
 At first this definition appears to depend on the chosen path.
