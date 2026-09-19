@@ -396,11 +396,7 @@ If $B$ is nonempty, $\psi$ must be constant.
 Thus the kernel consists exactly of constant functions:
 
 $$
-\boxed{
-\ker\delta
-=
-\{\text{constant functions}\}.
-}
+\boxed{ \ker\delta = \{\text{constant functions}\}. }
 $$
 
 This explains mathematically why potentials are unique only up to an additive constant.
@@ -412,7 +408,7 @@ This explains mathematically why potentials are unique only up to an additive co
 Suppose
 
 $$
-B=\{b_1,\ldots,b_n\}.
+B=\lbrace b_1,\ldots,b_n\rbrace.
 $$
 
 A potential is determined by the $n$ values
@@ -468,9 +464,7 @@ $$
 can be tested against the additivity relation
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k).
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k).
 $$
 
 This condition is extremely strong.
