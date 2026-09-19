@@ -224,9 +224,7 @@ $$
 For a debt function satisfying antisymmetry,
 
 $$
-D(b_j,b_i)
-=
--D(b_i,b_j).
+D(b_j,b_i) = -D(b_i,b_j).
 $$
 
 Thus reversing orientation reverses the sign.
@@ -242,9 +240,7 @@ $$
 we can write
 
 $$
-D([b_i,b_j])
-=
--D([b_j,b_i]).
+D([b_i,b_j]) = -D([b_j,b_i]).
 $$
 
 The orientation is therefore not merely graphical decoration.
@@ -266,9 +262,7 @@ $$
 define its coboundary by
 
 $$
-(\delta\psi)(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+(\delta\psi)(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Thus
@@ -290,17 +284,13 @@ It is exactly the potential representation of debt from Chapter 4.
 Therefore,
 
 $$
-\boxed{
-D=\delta\psi
-}
+\boxed{ D=\delta\psi }
 $$
 
 means
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 In other words:
@@ -447,37 +437,25 @@ $$
 Its total debt is
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}
-D(b_k,b_{k+1}).
+D(\gamma) = \sum_{k=0}^{n-1} D(b_k,b_{k+1}).
 $$
 
 Substituting
 
 $$
-D(b_k,b_{k+1})
-=
-\psi(b_{k+1})-\psi(b_k),
+D(b_k,b_{k+1}) = \psi(b_{k+1})-\psi(b_k),
 $$
 
 we obtain
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}
-\left[
-\psi(b_{k+1})-\psi(b_k)
-\right].
+D(\gamma) = \sum_{k=0}^{n-1} \left[ \psi(b_{k+1})-\psi(b_k) \right].
 $$
 
 The sum telescopes:
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0).
+D(\gamma) = \psi(b_n)-\psi(b_0).
 $$
 
 Therefore the path debt depends only on its endpoints.
@@ -497,9 +475,7 @@ $$
 If $D$ is exact, then
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0).
+D(\gamma) = \psi(b_n)-\psi(b_0).
 $$
 
 Since
