@@ -6,15 +6,15 @@ In Chapter 3, we introduced the debt function $D$ through two axioms:
 
 * **(D1) Additivity**
 
-  $$
-  D(b_i,b_k)=D(b_i,b_j)+D(b_j,b_k).
-  $$
+$$
+D(b_i,b_k)=D(b_i,b_j)+D(b_j,b_k).
+$$
 
 * **(D2) Antisymmetry**
 
-  $$
-  D(b_i,b_j)=-D(b_j,b_i).
-  $$
+$$
+D(b_i,b_j)=-D(b_j,b_i).
+$$
 
 In Chapter 4, we showed that these axioms imply a stronger structural result: every debt function can be written as the difference of a potential,
 
@@ -56,9 +56,7 @@ $$
 satisfies the additivity axiom
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 for every
@@ -102,9 +100,7 @@ $$
 Then D1 gives
 
 $$
-D(b,b_k)
-=
-D(b,b)+D(b,b_k).
+D(b,b_k) = D(b,b)+D(b,b_k).
 $$
 
 Subtracting $D(b,b_k)$ from both sides gives
@@ -148,9 +144,7 @@ $$
 Then D1 gives
 
 $$
-D(b_i,b_i)
-=
-D(b_i,b_j)+D(b_j,b_i).
+D(b_i,b_i) = D(b_i,b_j)+D(b_j,b_i).
 $$
 
 By Proposition 5.1,
@@ -162,17 +156,13 @@ $$
 Therefore,
 
 $$
-0
-=
-D(b_i,b_j)+D(b_j,b_i),
+0 = D(b_i,b_j)+D(b_j,b_i),
 $$
 
 and hence
 
 $$
-\boxed{
-D(b_i,b_j)=-D(b_j,b_i).
-}
+\boxed{ D(b_i,b_j)=-D(b_j,b_i). }
 $$
 
 $\square$
@@ -196,9 +186,7 @@ $$
 If D satisfies
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 for every $b_i,b_j,b_k\in B$, then:
@@ -229,9 +217,7 @@ be a closed path with $b_n=b_0$.
 Repeated application of D1 gives
 
 $$
-D(b_0,b_n)
-=
-\sum_{k=0}^{n-1}D(b_k,b_{k+1}).
+D(b_0,b_n) = \sum_{k=0}^{n-1}D(b_k,b_{k+1}).
 $$
 
 Since $b_n=b_0$,
