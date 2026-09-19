@@ -324,6 +324,86 @@ Thus adding a constant to the potential does not change the debt.
 
 ---
 
+## 3.4 Why Debt?
+
+The energy quasi-metric `d` describes the cost associated with moving between states of the belief space. Its asymmetry records the fact that the cost of moving from `b_i` to `b_j` may differ from the cost of moving from `b_j` to `b_i`.
+
+But cost asymmetry alone does not provide a complete description of what happens during an information-processing transition.
+
+An information-processing system does not merely move between states. As it moves, it accumulates information, changes its internal state, makes decisions, and carries the consequences of previous transitions into future states. This motivates introducing a second quantity that is distinct from energetic cost.
+
+We call this quantity **debt**.
+
+The purpose of the debt function is not to measure how expensive a transition is. Instead, it records a directed quantity that accumulates along transitions and cancels when a closed cycle is completed.
+
+This distinction is fundamental.
+
+The cost function answers a question such as:
+
+> **How much does it cost to move from one state to another?**
+
+The debt function answers a different question:
+
+> **What directed quantity is carried from one state to another?**
+
+These quantities need not coincide.
+
+In particular, the antisymmetric part of the energy quasi-metric,
+
+```math
+A(b_i,b_j)=\frac12\left(d(b_i,b_j)-d(b_j,b_i)\right),
+```
+
+measures the directional imbalance of cost. There is no reason, in general, for this quantity to satisfy the additivity required of a debt function.
+
+Debt is therefore introduced as an independent mathematical object rather than being defined as a transformation of the energy quasi-metric.
+
+The two axioms imposed on debt express the structure we require.
+
+**Additivity** means that debt accumulated over successive transitions is the sum of the debts of the individual transitions. Thus, for
+
+```math
+b_i\to b_j\to b_k,
+```
+
+the total debt is
+
+```math
+D(b_i,b_k)=D(b_i,b_j)+D(b_j,b_k).
+```
+
+**Antisymmetry** means that reversing a transition reverses the sign of its debt:
+
+```math
+D(b_i,b_j)=-D(b_j,b_i).
+```
+
+Together, these properties imply that debt is path-independent and that the total debt around every closed path is zero.
+
+This gives debt a structure fundamentally different from the energy cost.
+
+A path may have different energetic costs depending on how it is traversed, and the energy quasi-metric may therefore require a minimization over possible paths. Debt behaves differently: once the two endpoints are fixed, the total debt is already determined.
+
+This observation leads to the central mathematical question of the next chapter.
+
+If the debt between two states depends only on their endpoints, can the debt always be represented by assigning a scalar potential to each state?
+
+That is, does there necessarily exist a function
+
+```math
+\psi:B\to\mathbb{R}
+```
+
+such that
+
+```math
+D(b_i,b_j)=\psi(b_j)-\psi(b_i)?
+```
+
+
+
+
+---
 ## 3.6 The Debt of a Transition
 
 Let us now interpret the debt function in the context of belief space.
