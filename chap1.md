@@ -2,7 +2,7 @@
 
 ---
 
-Textbooks say cost is *like* a metric. They do not say cost *is* a metric.
+Textbooks say [cost](https://en.wikipedia.org/wiki/Cost) is *like* a metric. They do not say cost *is* a metric.
 
 The distinction matters. "Like a metric" means: we will use the metric apparatus as a model, knowing it is an approximation, and we will not be held responsible for the cases where it breaks. "Is a metric" means: the four axioms hold, and any failure is an error in your analysis.
 
