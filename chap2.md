@@ -460,7 +460,7 @@ This removes distinctions that are invisible to the bidirectional zero-cost stru
 
 ---
 
-## 2.6 The Energy Quasi-Metric as a Directed Graph
+## 2.6 The Energy Quasi-Metric as a [Directed Graph](https://en.wikipedia.org/wiki/Directed_graph)
 
 The energy quasi-metric has a natural representation as a weighted directed graph.
 
