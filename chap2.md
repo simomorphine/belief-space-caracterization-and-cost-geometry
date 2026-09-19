@@ -573,9 +573,7 @@ $$
 d_{G_d}(b_i,b_j)=d(b_i,b_j).
 $$
 
-Therefore, the energy quasi-metric is exactly the shortest-path distance induced by the weighted directed graph Gd
-
-Therefore $d$ is exactly the shortest-path distance induced by $G_d$. $\square$
+Therefore, the energy quasi-metric $d$ is exactly the shortest-path distance induced by the weighted directed graph $G_d$.
 
 ### Remark 2.34
 
