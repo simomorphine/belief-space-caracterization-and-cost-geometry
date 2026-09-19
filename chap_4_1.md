@@ -900,11 +900,7 @@ This distinction matters for the logical structure of the theory.
 We can summarize it as
 
 $$
-\boxed{
-\text{D1 + D2}
-\Longrightarrow
-\text{potential representation}
-}
+\boxed{ \text{D1 + D2} \Longrightarrow \text{potential representation} }
 $$
 
 rather than
@@ -972,11 +968,7 @@ Consequently, every closed path has zero total debt.
 The main structural result of the chapter can therefore be summarized as
 
 $$
-\boxed{
-\text{Debt}
-=
-\text{difference of a potential}.
-}
+\boxed{ \text{Debt} = \text{difference of a potential}. }
 $$
 
 In the next chapter, we will investigate this structure more deeply. In particular, we will study its cohomological interpretation and ask an important logical question:
