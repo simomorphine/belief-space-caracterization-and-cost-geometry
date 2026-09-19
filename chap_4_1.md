@@ -922,17 +922,13 @@ The latter would introduce unnecessary redundancy.
 Chapter 3 introduced the debt function through two axioms:
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 and
 
 $$
-D(b_i,b_j)
-=
--D(b_j,b_i).
+D(b_i,b_j) = -D(b_j,b_i).
 $$
 
 Chapter 4 established the converse relationship between debt and potential.
@@ -952,11 +948,7 @@ $$
 Then
 
 $$
-\boxed{
-D(b_i,b_j)
-=
-\psi_{s_0}(b_j)-\psi_{s_0}(b_i)
-}.
+\boxed{ D(b_i,b_j) = \psi_{s_0}(b_j)-\psi_{s_0}(b_i) }.
 $$
 
 Therefore every debt function is exact.
@@ -972,11 +964,7 @@ Changing the basepoint produces precisely such a constant shift.
 The potential representation also makes path independence transparent:
 
 $$
-D(\gamma)
-=
-\psi(b_{\mathrm{final}})
--
-\psi(b_{\mathrm{initial}}).
+D(\gamma) = \psi(b_{\mathrm{final}}) - \psi(b_{\mathrm{initial}}).
 $$
 
 Consequently, every closed path has zero total debt.
