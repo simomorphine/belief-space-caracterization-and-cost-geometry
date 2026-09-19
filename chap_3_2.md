@@ -159,9 +159,9 @@ We now introduce the central object of the chapter.
 
 **Definition 3.6 (Debt Function).** Let `B` be a belief space. A **debt function** is a function
 
-```math
+$$
 D:B\times B\to\mathbb R
-```
+$$
 
 satisfying:
 
@@ -173,7 +173,7 @@ D(b_i,b_k)
 D(b_i,b_j)+D(b_j,b_k)
 ```
 
-for all `b_i,b_j,b_k\in B`.
+for all $b_i,b_j,b_k\in B$.
 
 * **(D2) Antisymmetry.**
 
@@ -183,11 +183,11 @@ D(b_i,b_j)
 -D(b_j,b_i)
 ```
 
-for all `b_i,b_j\in B`.
+for all $b_i,b_j\in B$.
 
 These are the only axioms. Everything else in this chapter will be derived from them.
 
-**Remark 3.7.** The axioms (D1) and (D2) are satisfied by every potential difference. If `\psi:B\to\mathbb R` is any function and
+**Remark 3.7.** The axioms (D1) and (D2) are satisfied by every potential difference. If $\psi:B\to\mathbb R$ is any function and
 
 ```math
 D(b_i,b_j):=\psi(b_j)-\psi(b_i),
