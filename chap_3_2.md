@@ -348,7 +348,7 @@ Then `D` satisfies (D1) and (D2). Moreover, if
 \psi'=\psi+c
 ```
 
-for a constant `c\in\mathbb R`, then
+for a constant $c\in\mathbb R$, then
 
 ```math
 D_{\psi'}=D_\psi.
