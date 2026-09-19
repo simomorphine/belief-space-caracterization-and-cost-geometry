@@ -1,4 +1,4 @@
-# Chapter 5: Cohomology and Minimality
+# Chapter 5: Minimality
 
 ---
 
@@ -318,9 +318,7 @@ The debt function therefore contains information about **changes**, while the po
 Suppose
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Let $c\in\mathbb{R}$ and define
@@ -332,17 +330,13 @@ $$
 Then
 
 $$
-\widetilde{\psi}(b_j)-\widetilde{\psi}(b_i)
-=
-(\psi(b_j)+c)-(\psi(b_i)+c).
+\widetilde{\psi}(b_j)-\widetilde{\psi}(b_i) = (\psi(b_j)+c)-(\psi(b_i)+c).
 $$
 
 Therefore,
 
 $$
-\widetilde{\psi}(b_j)-\widetilde{\psi}(b_i)
-=
-\psi(b_j)-\psi(b_i).
+\widetilde{\psi}(b_j)-\widetilde{\psi}(b_i) = \psi(b_j)-\psi(b_i).
 $$
 
 Hence
@@ -372,9 +366,7 @@ $$
 defined by
 
 $$
-(\delta\psi)(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+(\delta\psi)(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Suppose
