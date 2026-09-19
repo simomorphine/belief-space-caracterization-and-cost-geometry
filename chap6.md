@@ -831,22 +831,13 @@ We can now define the first cohomology group.
 The first cohomology group is
 
 $$
-\boxed{
-H^1
-=
-\frac{Z^1}{B^1}.
-}
+\boxed{ H^1 = \frac{Z^1}{B^1}. }
 $$
 
 Equivalently,
 
 $$
-\boxed{
-H^1
-=
-\frac{\ker\delta:C^1\to C^2}
-{\operatorname{im}\delta:C^0\to C^1}.
-}
+\boxed{ H^1 = \frac{\ker\delta:C^1\to C^2} {\mathrm{im}\delta:C^0\to C^1}. }
 $$
 
 The numerator consists of cocycles.
@@ -1004,9 +995,7 @@ $$
 Then
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Thus every debt function satisfying the Chapter 3 structure is exact.
