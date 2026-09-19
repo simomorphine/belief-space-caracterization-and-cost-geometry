@@ -430,7 +430,7 @@ $$
 d(b_i,b_j)=0.
 $$
 
-Because $\bar d$ is a quasi-metric on equivalence classes, the corresponding reverse distance is also zero exactly when the two classes are equivalent. By the definition of $\sim$,
+Because $\bar d$ is a quasi-metric on equivalence classes, the corresponding reverse distance is also zero **only under mutual zero distance assumption** when the two classes are equivalent. By the definition of $\sim$,
 
 $$
 d(b_i,b_j)=d(b_j,b_i)=0
@@ -438,7 +438,7 @@ d(b_i,b_j)=d(b_j,b_i)=0
 [b_i]=[b_j].
 $$
 
-Therefore the identity of indiscernibles holds on the quotient. $\square$
+Therefore the identity of indiscernibles holds on the quotient only if $d$ **satisfies the zero-symmetry property**. $\square$
 
 ### Convention 2.31
 
