@@ -651,7 +651,7 @@ Symmetry is not required, since the graph is directed. Identity of indiscernible
 
 Hence $d_G$ is an energy pseudo-quasi-metric. $\square$
 
-### Example 2.36 — Directed Graph Representation
+### Example 2.36 — [Complete Directed Graph](https://en.wikipedia.org/wiki/Complete_graph) 
 
 Suppose
 
@@ -661,7 +661,7 @@ $$
 
 for every pair $b_i,b_j\in\mathcal{B}$.
 
-Then $G_d$ is a directed graph.
+Then $G_d$ is a complete directed graph.
 
 Every pair of vertices has a direct edge whose weight is
 
