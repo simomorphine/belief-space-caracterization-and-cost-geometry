@@ -1,4 +1,4 @@
-# Chapter 6: An Introduction to Cohomology
+# Chapter 6: We Continue with Cohomology.
 
 ---
 
@@ -7,25 +7,19 @@ In the previous chapters, we studied the structure of the debt function.
 We began with the two conceptual axioms
 
 $$
-D(b_i,b_k)
-=
-D(b_i,b_j)+D(b_j,b_k)
+D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
 $$
 
 and
 
 $$
-D(b_i,b_j)
-=
--D(b_j,b_i).
+D(b_i,b_j) = -D(b_j,b_i).
 $$
 
 We then showed that, on a complete state space, the debt function can be represented by a potential:
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 This representation made several properties transparent:
@@ -70,9 +64,7 @@ Only after introducing these concepts will we return to debt and interpret the p
 Consider again the potential representation
 
 $$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
+D(b_i,b_j) = \psi(b_j)-\psi(b_i).
 $$
 
 Suppose we are given only the transition values $D$.
