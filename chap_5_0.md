@@ -270,6 +270,7 @@ There is no contradiction between these statements.
 The first describes the structure we want to study.
 
 The second describes the logical redundancy inside that structure.
+(The main reason is that I'm still discovering this, so I will keep (D2) for now. Maybe we will remove it in a future version of the book if we find out that it is unnecessary.)
 
 ---
 
