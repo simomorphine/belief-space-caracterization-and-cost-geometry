@@ -526,47 +526,31 @@ be a path.
 Its total debt is
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}
-D(b_k,b_{k+1}).
+D(\gamma) = \sum_{k=0}^{n-1} D(b_k,b_{k+1}).
 $$
 
 Using the potential representation,
 
 $$
-D(b_k,b_{k+1})
-=
-\psi(b_{k+1})-\psi(b_k).
+D(b_k,b_{k+1}) = \psi(b_{k+1})-\psi(b_k).
 $$
 
 Therefore,
 
 $$
-D(\gamma)
-=
-\sum_{k=0}^{n-1}
-\left[
-\psi(b_{k+1})-\psi(b_k)
-\right].
+D(\gamma) = \sum_{k=0}^{n-1} \left[ \psi(b_{k+1})-\psi(b_k) \right].
 $$
 
 The sum telescopes:
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0).
+D(\gamma) = \psi(b_n)-\psi(b_0).
 $$
 
 Hence,
 
 $$
-\boxed{
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0)
-}.
+\boxed{ D(\gamma) = \psi(b_n)-\psi(b_0) }.
 $$
 
 The total debt of a path depends only on its endpoints.
@@ -626,13 +610,7 @@ $$
 Then
 
 $$
-D(\gamma)
-=
-\psi(b_n)-\psi(b_0)
-=
-\psi(b_0)-\psi(b_0)
-=
-0.
+D(\gamma) = \psi(b_n)-\psi(b_0) = \psi(b_0)-\psi(b_0) = 0.
 $$
 
 Therefore:
@@ -658,7 +636,7 @@ It also shows why cycle invariance and potential representation are closely conn
 Consider the state space
 
 $$
-\mathcal{B}=\{b_1,b_2,b_3\}.
+\mathcal{B}=\lbrace b_1,b_2,b_3\rbrace.
 $$
 
 Suppose
@@ -676,9 +654,7 @@ $$
 By additivity,
 
 $$
-D(b_1,b_3)
-=
-D(b_1,b_2)+D(b_2,b_3),
+D(b_1,b_3) = D(b_1,b_2)+D(b_2,b_3),
 $$
 
 so
@@ -728,13 +704,7 @@ $$
 Therefore,
 
 $$
-D(b_2,b_3)
-=
-\psi(b_3)-\psi(b_2)
-=
-5-2
-=
-3.
+D(b_2,b_3) = \psi(b_3)-\psi(b_2) = 5-2 = 3.
 $$
 
 Similarly,
