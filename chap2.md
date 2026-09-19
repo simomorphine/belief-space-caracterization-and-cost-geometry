@@ -490,7 +490,7 @@ $$
 d(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}_{G_d}(\gamma),
 $$
 
-where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$.
+where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$. We denote this shortest-path distance by $d_{G_d}$.
 
 *Proof.*
 
