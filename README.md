@@ -1,4 +1,5 @@
 # Humble Systems Theory — Cost Geometry & Belief Space Characterisation
+hey! ive stopped at chap6 & chap7 still working on them but if you want to continue the developement of the theory ive uploaded my conversation with deepseek and i will upload more conversations later enjoy reading and please dont develop it in the dark engage with us
 
 Hello, and welcome to **Humble Systems Theory: Cost Geometry & Belief Space Characterisation**.
 
