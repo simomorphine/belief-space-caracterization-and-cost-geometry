@@ -49,7 +49,7 @@ Not all of the metric axioms fail equally. Three of them survive almost everywhe
 
 So the situation is this: cost satisfies non-negativity and identity, but not symmetry and not the triangle inequality.
 
-A function satisfying non-negativity, identity, and the triangle inequality—but not symmetry—is called a **quasi-metric**. A function satisfying non-negativity, identity, and symmetry—but allowing distinct points at zero distance—is called a **pseudometric**. A function satisfying non-negativity, identity, and the triangle inequality, but with the triangle inequality holding only *up to a correction*, is a **pseudo-quasi-metric with defect**.
+A function satisfying non-negativity, identity, and the triangle inequality—but not symmetry—is called a **quasi-metric**. A function satisfying non-negativity, identity, and symmetry—but allowing distinct points at zero distance—is called a **pseudo-quasi-metric**. A function satisfying non-negativity, identity, and the triangle inequality, but with the triangle inequality holding only *up to a correction*, is a **pseudo-quasi-metric with defect**.
 
 That defect is what this book is about.
 
