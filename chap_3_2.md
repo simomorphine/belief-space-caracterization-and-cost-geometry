@@ -491,7 +491,7 @@ The path-independence result allows us to define the total debt accumulated alon
 \gamma=(b_0,b_1,\ldots,b_n)
 ```
 
-be a path in `B`. The **total debt** along `\gamma` is defined by
+be a path in `B`. The **total debt** along $\gamma$ is defined by
 
 ```math
 D(\gamma)
@@ -499,7 +499,7 @@ D(\gamma)
 \sum_{k=0}^{n-1}D(b_k,b_{k+1}).
 ```
 
-The quantity `D(\gamma)` is the accumulated debt along the sequence of transitions making up the path.
+The quantity $D(\gamma)$ is the accumulated debt along the sequence of transitions making up the path.
 
 **Proposition 3.16 (Endpoint Determination).** For any path
 
