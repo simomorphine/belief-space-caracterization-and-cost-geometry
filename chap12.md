@@ -346,6 +346,4 @@ The polar decomposition is the foundation for the topology lattice of Chapters 1
 
 
 
----
 
-**End of Chapter 12.**
