@@ -1,4 +1,4 @@
-# Chapter 17: On the Nature of Cost
+# Chapter 18: On the Nature of Cost
 
 ---
 
@@ -17,7 +17,7 @@ This chapter develops the two stances, their relationship, and their implication
 
 ---
 
-## 17.1 The designer stance
+## 18.1 The designer stance
 
 We begin with the designer stance.
 
@@ -34,13 +34,13 @@ We begin with the designer stance.
 
 **The designer's responsibility.** The designer is responsible for the consequences of their choices. If the cost function is asymmetric, the designer must accept the resulting bitopological structure. If the debt is not exact, the designer must accept the resulting holonomy. The designer cannot blame the structure on the world; the structure is their creation.
 
-**Remark 17.1.** The designer stance is the stance of engineering. It is the stance of someone who builds a system and is accountable for its behavior. It is a stance of *authority*: the designer has the authority to impose the axioms, and the responsibility to accept the consequences.
+**Remark 18.1.** The designer stance is the stance of engineering. It is the stance of someone who builds a system and is accountable for its behavior. It is a stance of *authority*: the designer has the authority to impose the axioms, and the responsibility to accept the consequences.
 
-**Remark 17.2.** The designer stance is not the only stance. It is one of two. The other is the describer stance.
+**Remark 18.2.** The designer stance is not the only stance. It is one of two. The other is the describer stance.
 
 ---
 
-## 17.2 The describer stance
+## 18.2 The describer stance
 
 We now turn to the describer stance.
 
@@ -57,13 +57,13 @@ We now turn to the describer stance.
 
 **The describer's humility.** The describer is humble about what they claim. They do not say "the cost *is* a metric"; they say "the cost *behaves as if* it were a metric in certain regimes." They do not say "the debt *is* a potential difference"; they say "the debt *is observable as* a potential difference." The describer names the pattern, not the substance.
 
-**Remark 17.3.** The describer stance is the stance of science. It is the stance of someone who encounters a system and tries to understand it. It is a stance of *humility*: the describer does not claim to know the underlying structure, only the observable differences.
+**Remark 18.3.** The describer stance is the stance of science. It is the stance of someone who encounters a system and tries to understand it. It is a stance of *humility*: the describer does not claim to know the underlying structure, only the observable differences.
 
-**Remark 17.4.** The describer stance is not the only stance. It is one of two. The other is the designer stance.
+**Remark 18.4.** The describer stance is not the only stance. It is one of two. The other is the designer stance.
 
 ---
 
-## 17.3 The two stances compared
+## 18.3 The two stances compared
 
 We now compare the two stances.
 
@@ -78,15 +78,15 @@ We now compare the two stances.
 | Failure mode | Over-constraining | Under-explaining |
 | Correct when | You built it | You found it |
 
-**Remark 17.5.** The two stances are not contradictory. They are answers to different questions. The designer asks "what shall I build?" The describer asks "what have I found?" The same mathematical structure can be described from both stances, with different vocabularies.
+**Remark 18.5.** The two stances are not contradictory. They are answers to different questions. The designer asks "what shall I build?" The describer asks "what have I found?" The same mathematical structure can be described from both stances, with different vocabularies.
 
-**Remark 17.6.** The two stances are related by a *translation*. The designer's "tolerance" is the describer's "potential difference." The designer's "constraint" is the describer's "axiom." The translation is not perfect (the stances have different emphases), but it is systematic.
+**Remark 18.6.** The two stances are related by a *translation*. The designer's "tolerance" is the describer's "potential difference." The designer's "constraint" is the describer's "axiom." The translation is not perfect (the stances have different emphases), but it is systematic.
 
-**Remark 17.7.** The choice of stance is not a matter of truth. It is a matter of *perspective*. The same system can be viewed from either stance. The choice depends on the relationship between the observer and the system.
+**Remark 18.7.** The choice of stance is not a matter of truth. It is a matter of *perspective*. The same system can be viewed from either stance. The choice depends on the relationship between the observer and the system.
 
 ---
 
-## 17.4 The debt: tolerance or potential difference?
+## 18.4 The debt: tolerance or potential difference?
 
 We now apply the two stances to the debt.
 
@@ -96,15 +96,15 @@ We now apply the two stances to the debt.
 
 **The relationship.** The two interpretations are not contradictory. They are two ways of describing the same mathematical object. The designer's "tolerance" and the describer's "potential difference" are the same function $D(b_i, b_j) = \psi(b_j) - \psi(b_i)$, viewed from two different perspectives.
 
-**Remark 17.8.** The designer's "tolerance" is a *choice*: the designer chooses how much non-metricity to accept. The describer's "potential difference" is an *observation*: the describer observes the potential difference, but does not choose it. The same function is a choice from one stance and an observation from the other.
+**Remark 18.8.** The designer's "tolerance" is a *choice*: the designer chooses how much non-metricity to accept. The describer's "potential difference" is an *observation*: the describer observes the potential difference, but does not choose it. The same function is a choice from one stance and an observation from the other.
 
-**Remark 17.9.** The two stances give different *feelings* about the debt. From the designer stance, the debt is a concession: the designer would prefer a metric, but tolerates the debt. From the describer stance, the debt is a discovery: the describer finds a potential difference, and names it. The designer apologizes for the debt; the describer celebrates it.
+**Remark 18.9.** The two stances give different *feelings* about the debt. From the designer stance, the debt is a concession: the designer would prefer a metric, but tolerates the debt. From the describer stance, the debt is a discovery: the describer finds a potential difference, and names it. The designer apologizes for the debt; the describer celebrates it.
 
-**Remark 17.10.** The choice of stance matters for *what questions you ask*. The designer asks "how much debt should I tolerate?" The describer asks "what is the potential that generates this debt?" The same mathematical structure answers both questions, but the questions are different.
+**Remark 18.10.** The choice of stance matters for *what questions you ask*. The designer asks "how much debt should I tolerate?" The describer asks "what is the potential that generates this debt?" The same mathematical structure answers both questions, but the questions are different.
 
 ---
 
-## 17.5 Gauge invariance and the two stances
+## 18.5 Gauge invariance and the two stances
 
 We now apply the two stances to gauge invariance.
 
@@ -114,13 +114,13 @@ We now apply the two stances to gauge invariance.
 
 **The relationship.** The two interpretations are again two ways of describing the same mathematical fact. The designer's "gauge freedom" and the describer's "unobservability of the absolute potential" are the same statement: the potential is defined only up to a constant.
 
-**Remark 17.11.** The designer's "gauge freedom" is a *convenience*: the designer chooses a gauge for computational ease. The describer's "unobservability" is an *epistemic fact*: the describer cannot observe the absolute potential. The same mathematical fact is a convenience from one stance and a limitation from the other.
+**Remark 18.11.** The designer's "gauge freedom" is a *convenience*: the designer chooses a gauge for computational ease. The describer's "unobservability" is an *epistemic fact*: the describer cannot observe the absolute potential. The same mathematical fact is a convenience from one stance and a limitation from the other.
 
-**Remark 17.12.** The two stances give different *attitudes* toward gauge invariance. From the designer stance, gauge invariance is a feature to be exploited: the designer chooses the most convenient gauge. From the describer stance, gauge invariance is a limitation to be respected: the describer does not claim to know the absolute potential.
+**Remark 18.12.** The two stances give different *attitudes* toward gauge invariance. From the designer stance, gauge invariance is a feature to be exploited: the designer chooses the most convenient gauge. From the describer stance, gauge invariance is a limitation to be respected: the describer does not claim to know the absolute potential.
 
 ---
 
-## 17.6 The basepoint theorem and the two stances
+## 18.6 The basepoint theorem and the two stances
 
 We now apply the two stances to the basepoint theorem.
 
@@ -130,13 +130,13 @@ We now apply the two stances to the basepoint theorem.
 
 **The relationship.** The basepoint theorem is the same theorem in both stances. What differs is the *attitude*: the designer sees it as a consequence of their choices, the describer sees it as a discovery about the world.
 
-**Remark 17.13.** The basepoint theorem is the central result of the theory, and it is the point at which the two stances most clearly diverge. For the designer, the theorem is *trivial*: they imposed the axioms, and the theorem is a consequence. For the describer, the theorem is *profound*: they did not impose the axioms, yet the structure emerged.
+**Remark 18.13.** The basepoint theorem is the central result of the theory, and it is the point at which the two stances most clearly diverge. For the designer, the theorem is *trivial*: they imposed the axioms, and the theorem is a consequence. For the describer, the theorem is *profound*: they did not impose the axioms, yet the structure emerged.
 
-**Remark 17.14.** This divergence is a general feature of mathematical theories. From the designer stance, a theorem is a consequence of axioms; from the describer stance, a theorem is a discovery about the world. The same theorem is both, depending on the stance.
+**Remark 18.14.** This divergence is a general feature of mathematical theories. From the designer stance, a theorem is a consequence of axioms; from the describer stance, a theorem is a discovery about the world. The same theorem is both, depending on the stance.
 
 ---
 
-## 17.7 Why cost was under-theorized
+## 18.7 Why cost was under-theorized
 
 We now ask: why was cost under-theorized before this book?
 
@@ -148,13 +148,13 @@ We now ask: why was cost under-theorized before this book?
 
 **The correction.** This book corrects the oversight by developing the theory of non-metric cost. It shows that non-metricity is not a defect, but a feature: it has structure (the debt), and the structure is rich (the complex quasi-metric, the gauge group, the $\gamma$-family, the topology lattice, the $\mathbb{Z}/2$-grading).
 
-**Remark 17.15.** The under-theorization of cost is a case study in the danger of the designer stance. The designer imposes the metric assumption for convenience, and the describer inherits the assumption without question. The result is a theory that is precise but not general: it applies only to the systems the designer built, not to the systems the describer encounters.
+**Remark 18.15.** The under-theorization of cost is a case study in the danger of the designer stance. The designer imposes the metric assumption for convenience, and the describer inherits the assumption without question. The result is a theory that is precise but not general: it applies only to the systems the designer built, not to the systems the describer encounters.
 
-**Remark 17.16.** The correction is to *distinguish the stances*. The designer may impose the metric assumption; the describer must not. The two stances give different theories: the designer's metric theory and the describer's complex quasi-metric theory. Both are valid; they answer different questions.
+**Remark 18.16.** The correction is to *distinguish the stances*. The designer may impose the metric assumption; the describer must not. The two stances give different theories: the designer's metric theory and the describer's complex quasi-metric theory. Both are valid; they answer different questions.
 
 ---
 
-## 17.8 The role of mathematics
+## 18.8 The role of mathematics
 
 We now ask: what is the role of mathematics in the theory of cost?
 
@@ -164,13 +164,13 @@ We now ask: what is the role of mathematics in the theory of cost?
 
 **The relationship.** The two roles are not contradictory. Mathematics is both a language and a tool. It describes what is, and it constructs what could be. The same theorem can be a description (from the describer stance) or a constraint (from the designer stance).
 
-**Remark 17.17.** The dual role of mathematics is a general feature of mathematical theories. In physics, mathematics describes the world (from the describer stance) and constructs models (from the designer stance). In engineering, mathematics constructs systems (from the designer stance) and describes their behavior (from the describer stance). The same mathematics plays both roles.
+**Remark 18.17.** The dual role of mathematics is a general feature of mathematical theories. In physics, mathematics describes the world (from the describer stance) and constructs models (from the designer stance). In engineering, mathematics constructs systems (from the designer stance) and describes their behavior (from the describer stance). The same mathematics plays both roles.
 
-**Remark 17.18.** The complex quasi-metric is a mathematical object with both roles. It describes the observed structure of cost and debt (describer stance), and it constructs a model of cost and debt (designer stance). The two roles are complementary.
+**Remark 18.18.** The complex quasi-metric is a mathematical object with both roles. It describes the observed structure of cost and debt (describer stance), and it constructs a model of cost and debt (designer stance). The two roles are complementary.
 
 ---
 
-## 17.9 The ethics of the two stances
+## 18.9 The ethics of the two stances
 
 We now address the ethical dimension of the two stances.
 
@@ -180,13 +180,13 @@ We now address the ethical dimension of the two stances.
 
 **The relationship.** The two responsibilities are different. The designer is responsible for what they build; the describer is responsible for what they claim. The same mathematical structure can be the subject of both responsibilities: the designer builds it, the describer describes it.
 
-**Remark 17.19.** The ethical dimension is often overlooked in mathematical theories. But it is important: mathematical structures are used to build systems and to describe the world, and both uses have consequences. The designer's choices affect the system's behavior; the describer's claims affect our understanding.
+**Remark 18.19.** The ethical dimension is often overlooked in mathematical theories. But it is important: mathematical structures are used to build systems and to describe the world, and both uses have consequences. The designer's choices affect the system's behavior; the describer's claims affect our understanding.
 
-**Remark 17.20.** The complex quasi-metric is a mathematical structure with ethical implications. If it is used to model a real system, the choice of stance matters: the designer's choices and the describer's claims have different consequences. The theory does not resolve the ethical question; it clarifies it.
+**Remark 18.20.** The complex quasi-metric is a mathematical structure with ethical implications. If it is used to model a real system, the choice of stance matters: the designer's choices and the describer's claims have different consequences. The theory does not resolve the ethical question; it clarifies it.
 
 ---
 
-## 17.10 Summary
+## 18.10 Summary
 
 We have reflected on the nature of cost and debt.
 
@@ -214,32 +214,29 @@ The reflection is not a conclusion; it is an *opening*. The theory of the comple
 
 ---
 
-## 17.11 Exercises
+## 18.11 Exercises
 
-**Exercise 17.1.** Give an example of an information processing system from the designer stance. Identify the designer's choices and responsibilities.
+**Exercise 18.1.** Give an example of an information processing system from the designer stance. Identify the designer's choices and responsibilities.
 
-**Exercise 17.2.** Give an example of an information processing system from the describer stance. Identify the describer's observations and claims.
+**Exercise 18.2.** Give an example of an information processing system from the describer stance. Identify the describer's observations and claims.
 
-**Exercise 17.3.** Translate the designer's "tolerance" into the describer's "potential difference" for a specific system.
+**Exercise 18.3.** Translate the designer's "tolerance" into the describer's "potential difference" for a specific system.
 
-**Exercise 17.4.** Discuss the ethical implications of the two stances for a real-world system (e.g., a recommendation algorithm, a transportation network, a market).
+**Exercise 18.4.** Discuss the ethical implications of the two stances for a real-world system (e.g., a recommendation algorithm, a transportation network, a market).
 
-**Exercise 17.5.** Argue for or against the following claim: "The metric assumption is always legitimate from the designer stance."
+**Exercise 18.5.** Argue for or against the following claim: "The metric assumption is always legitimate from the designer stance."
 
-**Exercise 17.6.** Argue for or against the following claim: "The basepoint theorem is a discovery, not a consequence."
+**Exercise 18.6.** Argue for or against the following claim: "The basepoint theorem is a discovery, not a consequence."
 
-**Exercise 17.7.** Reflect on the following question: is the distinction between the designer and describer stances a *mathematical* distinction, a *philosophical* distinction, or both? Write a short essay (one page) arguing for your position.
+**Exercise 18.7.** Reflect on the following question: is the distinction between the designer and describer stances a *mathematical* distinction, a *philosophical* distinction, or both? Write a short essay (one page) arguing for your position.
 
-**Exercise 17.8.** Discuss the role of mathematics as description and as construction, using the complex quasi-metric as an example.
+**Exercise 18.8.** Discuss the role of mathematics as description and as construction, using the complex quasi-metric as an example.
 
-**Exercise 17.9.** Identify a case in the history of science or engineering where the confusion between the designer and describer stances led to an error.
+**Exercise 18.9.** Identify a case in the history of science or engineering where the confusion between the designer and describer stances led to an error.
 
-**Exercise 17.10.** Reflect on the following question: what is the *right* stance for the theory of the complex quasi-metric? Write a short essay (one page) arguing for your position.
+**Exercise 18.10.** Reflect on the following question: what is the *right* stance for the theory of the complex quasi-metric? Write a short essay (one page) arguing for your position.
 
----
-
-*In the final chapter, we close the argument. We return to the three unforced elegances identified in Chapter 1, and we reflect on what the theory has become.*
 
 ---
 
-**End of Chapter 17.**
+**End of Chapter 18.**
