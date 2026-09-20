@@ -34,7 +34,7 @@ We equip $C^k$ with the structure of a real vector space by pointwise addition a
 - A **1-cochain** is a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$. This is a debt function.
 - A **2-cochain** is a function $\Omega : \mathcal{B} \times \mathcal{B} \times \mathcal{B} \to \mathbb{R}$. This will measure the failure of additivity.
 
-**Remark 6.3.** In a simplicial complex, the space $C^k$ consists of functions on *oriented $k$-simplices*, and the coboundary operator involves sign conventions. Here we work with the full Cartesian product $\mathcal{B}^{k+1}$, which is the cochain complex of the complete simplex on $\mathcal{B}$. This is the simplest setting and is sufficient for our purposes. The extension to sparse graphs requires restricting to the edges that exist, which we treat in §6.6.
+**Remark 6.3.** In a simplicial complex, the space $C^k$ consists of functions on *oriented* $k$-*simplices*, and the coboundary operator involves sign conventions. Here we work with the full Cartesian product $\mathcal{B}^{k+1}$, which is the cochain complex of the complete simplex on $\mathcal{B}$. This is the simplest setting and is sufficient for our purposes. The extension to sparse graphs requires restricting to the edges that exist, which we treat in §6.6.
 
 ---
 
