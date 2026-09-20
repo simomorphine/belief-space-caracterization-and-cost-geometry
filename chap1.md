@@ -96,7 +96,7 @@ A natural question: why $i$? Why not simply treat cost and debt as two real numb
 
 There are three answers, and they are the same three that will recur throughout the book.
 
-**First: the failure has a sign.** Debt is not just a magnitude. When the triangle inequality fails, it fails in one of two directions. It can fail *subadditively*—the direct path is more expensive than the detour, $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$—or *superadditively*—the direct path is cheaper than the detour, $d(b_i, b_k) < d(b_i, b_j) + d(b_j, b_k)$. These are not the same failure. They have opposite signs. Debt must be a signed quantity, and the sign must be meaningful.
+**First: the failure has a sign.** Debt is not just a magnitude. When the triangle inequality fails, it fails in one of two directions. It can fail *subadditively*—the direct path is more expensive than the detour, $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$—or *superadditively*—the direct path is cheaper than the detour, $d(b_i, b_k) ≪ d(b_i, b_j) + d(b_j, b_k)$. These are not the same failure. They have opposite signs. Debt must be a signed quantity, and the sign must be meaningful.
 
 **Second: the correction is antisymmetric.** Debt is not a symmetric relation. If going from $b_i$ to $b_j$ incurs debt $D(b_i, b_j)$, then going from $b_j$ to $b_i$ incurs debt $-D(b_i, b_j)$. This antisymmetry is not an arbitrary convention; it is forced by the requirement that debt be *additive around cycles*, which will be stated as an axiom in Chapter 3. The intuition is that if you traverse a cycle and return to your starting point, the debts incurred along the way must cancel. This is exactly the defining property of the imaginary unit: $i$ changes sign under complex conjugation, and the imaginary part of $Q$ is antisymmetric whenever the real part is symmetric.
 
@@ -187,7 +187,7 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 **Exercise 1.2.** Give an example of a cost function that violates the triangle inequality in the subadditive direction. Verify that $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$ for some triple.
 
-**Exercise 1.3.** Give an example of a cost function that violates the triangle inequality in the superadditive direction. Verify that $d(b_i, b_k) <<< d(b_i, b_j) + d(b_j, b_k)$ for some triple.
+**Exercise 1.3.** Give an example of a cost function that violates the triangle inequality in the superadditive direction. Verify that $d(b_i, b_k) ≪ d(b_i, b_j) + d(b_j, b_k)$ for some triple.
 
 **Exercise 1.4.** Give an example of a pseudometric that is not a metric.
 
@@ -211,7 +211,7 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 Let $d$ be a quasi-metric on a set of states $B$. Consider three states $b_i, b_j, b_k$ such that
 
-$$d(b_i, b_k) < d(b_i, b_j) + d(b_j, b_k).$$
+$$d(b_i, b_k) ≪ d(b_i, b_j) + d(b_j, b_k).$$
 
 1. Notice that the triangle inequality is satisfied (strictly).
 2. Define the path-cost gap
