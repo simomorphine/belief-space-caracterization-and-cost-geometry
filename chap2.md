@@ -4,7 +4,7 @@
 
 A theory needs a stage. For the theory of cost and debt, the stage is **belief space**: the set of configurations that an information processing system can occupy, together with the transitions between them.
 
-This chapter defines belief space, introduces the energy quasi-metric, and establishes the conventions that will be used throughout the book. It is deliberately spare. The interesting structure—debt, the complex quasi-metric, the γ-family—comes later. Here we set the stage.
+This chapter defines belief space, introduces the energy quasi-metric, and establishes the conventions that will be used throughout the book. It is deliberately spare. The interesting structure—debt, the complex quasi-metric, the $\gamma$-family—comes later. Here we set the stage.
 
 ---
 
@@ -18,7 +18,7 @@ Let us begin with the primitive notion.
 - A set $\mathcal{T} \subseteq \mathcal{S} \times \mathcal{S}$ of *transitions*;
 - A function $\mathcal{C} : \mathcal{T} \to \mathbb{R}_{\ge 0}$ assigning a *cost* to each transition.
 
-A *state* $s \in \mathcal{S}$ is a complete specification of the system's configuration at a moment in time. A *transition* $(s_i, s_j) \in \mathcal{T}$ is a permissible move from state $s_i$ to state $s_j$. The *cost* $\mathcal{C}(s_i, s_j)$ is the resource—energy, time, money, information—required to perform the transition.
+A *state* $s \in \mathcal{S}$ is a specification of the system's configuration at a moment in time. A *transition* $(s_i, s_j) \in \mathcal{T}$ is a permissible move from state $s_i$ to state $s_j$. The *cost* $\mathcal{C}(s_i, s_j)$ is the resource—energy, time, money, information—required to perform the transition.
 
 **Remark 2.2.** The set $\mathcal{T}$ need not be symmetric. If $(s_i, s_j) \in \mathcal{T}$, it does not follow that $(s_j, s_i) \in \mathcal{T}$. Transitions may be irreversible. This is the first place where the metric assumption fails.
 
@@ -46,7 +46,7 @@ with $(s_k, s_{k+1}) \in \mathcal{T}$ for all $k = 0, \dots, n-1$. The *length* 
 
 $$\mathcal{C}(\gamma) := \sum_{k=0}^{n-1} \mathcal{C}(s_k, s_{k+1}).$$
 
-**Definition 2.8 (Reachability).** A state $s_j$ is *reachable* from a state $s_i$ if there exists at least a path from $s_i$ to $s_j$. The *reachability relation* is the transitive closure of $\mathcal{T}$.
+**Definition 2.8 (Reachability).** A state $s_j$ is *reachable* from a state $s_i$ if there exists at least one path from $s_i$ to $s_j$. The *reachability relation* is the transitive closure of $\mathcal{T}$.
 
 **Definition 2.9 (Bounded reachability).** A state $s_j$ is *reachable from* $s_i$ with budget $B$ if there exists a path from $s_i$ to $s_j$ with cost at most $B$.
 
@@ -68,146 +68,79 @@ The elements of $\mathcal{B}$ are called *beliefs*.
 
 The cost of moving between beliefs extends from paths to pairs by minimization.
 
-**Definition 2.14 (Energy pseudo-quasi-metric).**
-The *energy pseudo-quasi-metric* is the function
+**Definition 2.14 (Energy pseudo-quasi-metric).** The *energy pseudo-quasi-metric* is the function
 
-$$
-d:\mathcal{B}\times\mathcal{B}\to\mathbb{R}_{\geq0}\cup\{+\infty\}
-$$
+$$d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}$$
 
 defined by
 
-$$
-d(b_i,b_j):=\inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma),
-$$
+$$d(b_i, b_j) := \inf_{\gamma : b_i \to b_j} \mathcal{C}(\gamma),$$
 
 where the infimum is taken over all paths from $b_i$ to $b_j$. If no path exists, we define
 
-$$
-d(b_i,b_j):=+\infty.
-$$
+$$d(b_i, b_j) := +\infty.$$
 
 We assume that path costs are non-negative and subadditive under concatenation:
 
-$$
-\mathcal{C}(\gamma_1\cdot\gamma_2)
-\leq
-\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
-$$
+$$\mathcal{C}(\gamma_1 \cdot \gamma_2) \le \mathcal{C}(\gamma_1) + \mathcal{C}(\gamma_2).$$
 
-This allows the cost of a composed path to be strictly smaller than the sum of the costs of its constituent paths, for example when the composition produces an efficiency or shared computational cost.
+This allows the cost of a composed path to be strictly smaller than the sum of the costs of its constituent paths—for example, when the composition produces an efficiency or a shared computational cost.
 
-**Proposition 2.15.**
-The energy pseudo-quasi-metric satisfies:
+**Proposition 2.15.** The energy pseudo-quasi-metric satisfies:
 
-* **(i) Identity:** $d(b,b)=0$ for all $b\in\mathcal{B}$.
-* **(ii) Non-negativity:** $d(b_i,b_j)\geq0$ for all $b_i,b_j\in\mathcal{B}$.
-* **(iii) Triangle inequality:**
-
-$$
-d(b_i,b_k)
-\leq
-d(b_i,b_j)+d(b_j,b_k)
-$$
-
-for all $b_i,b_j,b_k\in\mathcal{B}$.
+- **(i) Identity:** $d(b, b) = 0$ for all $b \in \mathcal{B}$.
+- **(ii) Non-negativity:** $d(b_i, b_j) \ge 0$ for all $b_i, b_j \in \mathcal{B}$.
+- **(iii) Triangle inequality:** $d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k)$ for all $b_i, b_j, b_k \in \mathcal{B}$.
 
 *Proof.*
 
 **(i)** The empty path from $b$ to itself has cost zero. Since all path costs are non-negative,
 
-$$
-d(b,b)=0.
-$$
+$$d(b, b) = 0.$$
 
-**(ii)** Since $\mathcal{C}(\gamma)\geq0$ for every path $\gamma$, its infimum is also non-negative. If no path exists, $d(b_i,b_j)=+\infty$, which also belongs to the extended non-negative real numbers.
+**(ii)** Since $\mathcal{C}(\gamma) \ge 0$ for every path $\gamma$, its infimum is also non-negative. If no path exists, $d(b_i, b_j) = +\infty$, which also belongs to the extended non-negative reals. (The infimum of the empty set is $+\infty$ by convention, consistent with the definition.)
 
-**(iii)** Let $\gamma_1:b_i\to b_j$ and $\gamma_2:b_j\to b_k$ be paths. Their concatenation
+**(iii)** Let $\gamma_1 : b_i \to b_j$ and $\gamma_2 : b_j \to b_k$ be paths. Their concatenation
 
-$$
-\gamma_1\cdot\gamma_2:b_i\to b_k
-$$
+$$\gamma_1 \cdot \gamma_2 : b_i \to b_k$$
 
 is a path from $b_i$ to $b_k$. By subadditivity of the path cost,
 
-$$
-\mathcal{C}(\gamma_1\cdot\gamma_2)
-\leq
-\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
-$$
+$$\mathcal{C}(\gamma_1 \cdot \gamma_2) \le \mathcal{C}(\gamma_1) + \mathcal{C}(\gamma_2).$$
 
-Since $d(b_i,b_k)$ is the infimum over all paths from $b_i$ to $b_k$,
+Since $d(b_i, b_k)$ is the infimum over all paths from $b_i$ to $b_k$,
 
-$$
-d(b_i,b_k)
-\leq
-\mathcal{C}(\gamma_1\cdot\gamma_2)
-\leq
-\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
-$$
+$$d(b_i, b_k) \le \mathcal{C}(\gamma_1 \cdot \gamma_2) \le \mathcal{C}(\gamma_1) + \mathcal{C}(\gamma_2).$$
 
-This holds for every pair of paths $\gamma_1$ and $\gamma_2$. Taking the infimum independently over all paths from $b_i$ to $b_j$ and from $b_j$ to $b_k$ gives
+This holds for every pair of paths $\gamma_1$ and $\gamma_2$. Taking the infimum over all such pairs,
 
-$$
-d(b_i,b_k)
-\leq
-d(b_i,b_j)+d(b_j,b_k).
-$$
+$$d(b_i, b_k) \le \inf_{\gamma_1, \gamma_2} \bigl[\mathcal{C}(\gamma_1) + \mathcal{C}(\gamma_2)\bigr] = \inf_{\gamma_1} \mathcal{C}(\gamma_1) + \inf_{\gamma_2} \mathcal{C}(\gamma_2) = d(b_i, b_j) + d(b_j, b_k).$$
 
-Therefore, $d$ satisfies the triangle inequality. $\square$
+The middle equality is the standard fact that the infimum of a sum of independent quantities equals the sum of the infima (with the convention $+\infty + c = +\infty$). Therefore, $d$ satisfies the triangle inequality. $\square$
 
+**Remark 2.16.** The triangle inequality for $d$ follows from the definition of $d$ as an infimum over paths together with the subadditivity of $\mathcal{C}$ under concatenation. Thus, the induced energy pseudo-quasi-metric satisfies the triangle inequality by construction. What is not implied by this construction is symmetry. In general,
 
-**Remark 2.16.** The triangle inequality for $d$ follows from the definition of $d$ as an infimum over paths together with the subadditivity of $\mathcal{C}$ under concatenation:
+$$d(b_i, b_j) \neq d(b_j, b_i).$$
 
-$$
-\mathcal{C}(\gamma_1\cdot\gamma_2)
-\leq
-\mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
-$$
+**Remark 2.17.** The terminology "pseudo-quasi-metric" reflects two possible failures of the usual metric structure. The function $d$ need not be symmetric, and distinct states may have zero distance. If $d$ is symmetric, it becomes a pseudometric; if, in addition, $d(b_i, b_j) = 0 \Longrightarrow b_i = b_j$, then $d$ is a metric.
 
-Thus, the induced energy pseudo-quasi-metric satisfies the triangle inequality by construction. What is not implied by this construction is symmetry. In general,
+**Remark 2.18.** By definition, $d(b_i, b_j)$ depends only on the endpoints $b_i$ and $b_j$: it is the infimum of the costs of all paths connecting them. In particular, for every path $\gamma : b_i \to b_j$,
 
-$$
-d(b_i,b_j)\neq d(b_j,b_i).
-$$
+$$d(b_i, b_j) \le \mathcal{C}(\gamma),$$
 
-**Remark 2.17.** The terminology "pseudo-quasi-metric" reflects two possible failures of the usual metric structure. The function $d$ need not be symmetric, and distinct states may have zero distance. If $d$ is symmetric, it becomes a pseudometric; if, in addition,
-
-$$
-d(b_i,b_j)=0\Longrightarrow b_i=b_j,
-$$
-
-then $d$ is a metric.
-
-**Proposition 2.18 (Endpoint dependence of $d$).**
-The quantity $d(b_i,b_j)$ depends only on the endpoints $b_i$ and $b_j$, because it is defined as the infimum of the costs of all paths connecting them. In particular, for every path $\gamma:b_i\to b_j$,
-
-$$
-d(b_i,b_j)\leq\mathcal{C}(\gamma).
-$$
-
-Moreover,
-
-$$
-d(b_i,b_j)=\mathcal{C}(\gamma)
-$$
-
-if and only if $\gamma$ attains the infimum and is therefore an optimal path.
-
-*Proof.* Immediate from the definition of $d$ as the infimum of the costs of all paths from $b_i$ to $b_j$. $\square$
+with equality if and only if $\gamma$ attains the infimum and is therefore an optimal path.
 
 **Remark 2.19.** The energy pseudo-quasi-metric $d$ is an *emergent* quantity. It is not given independently; it is derived from the underlying path-cost function $\mathcal{C}$ by minimization. The construction converts a path-dependent cost into an endpoint-dependent quantity by retaining only the least-cost path between each pair of states.
-
 
 ---
 
 ## 2.4 The failure of symmetry
 
-We now come to the central point.
+We now come to the first central point.
 
-**Proposition 2.20.** The energy quasi-metric $d$ need not be symmetric. That is, there may exist $b_i, b_j \in \mathcal{B}$ with $d(b_i, b_j) \neq d(b_j, b_i)$.
+**Proposition 2.20.** The energy pseudo-quasi-metric $d$ need not be symmetric. That is, there may exist $b_i, b_j \in \mathcal{B}$ with $d(b_i, b_j) \neq d(b_j, b_i)$.
 
-*Proof.* By construction. Consider an information processing system in which the transition $(s_i, s_j)$ is permitted but $(s_j, s_i)$ is not. Then $d(s_i, s_j)$ is finite but $d(s_j, s_i) = +\infty$. More subtly, even if both transitions are permitted, their costs may differ.
+*Proof.* By construction. Consider an information processing system in which the transition $(s_i, s_j)$ is permitted but $(s_j, s_i)$ is not. Then $d(s_i, s_j)$ is finite but $d(s_j, s_i) = +\infty$. More subtly, even if both transitions are permitted, their costs may differ. $\square$
 
 **Example 2.21 (Asymmetric network).** Let $\mathcal{B}$ be a set of nodes in a directed graph, with edge weights representing transmission costs. Let $d(b_i, b_j)$ be the shortest-path cost from $b_i$ to $b_j$. If the graph is directed and the weights are asymmetric, then $d$ is asymmetric.
 
@@ -223,146 +156,105 @@ Since KL divergence is asymmetric, so is $d$.
 
 ---
 
-## 2.5 The Failure of Identity
+## 2.5 The failure of the identity of indiscernibles
 
-The energy quasi-metric need not satisfy the identity of indiscernibles.
+The energy pseudo-quasi-metric need not satisfy the identity of indiscernibles.
 
 Recall that the identity of indiscernibles requires
 
-$$
-d(b_i,b_j)=0 \quad \Longrightarrow \quad b_i=b_j.
-$$
+$$d(b_i, b_j) = 0 \quad \Longrightarrow \quad b_i = b_j.$$
 
 For an energy pseudo-quasi-metric, distinct states may instead be connected by transitions of zero cost.
 
-**Proposition 2.25.** There may exist distinct $b_i,b_j\in\mathcal{B}$ such that
+**Proposition 2.25.** There may exist distinct $b_i, b_j \in \mathcal{B}$ such that
 
-$$
-b_i\neq b_j
-\qquad\text{and}\qquad
-d(b_i,b_j)=0.
-$$
+$$b_i \neq b_j \qquad \text{and} \qquad d(b_i, b_j) = 0.$$
 
-*Proof.* Suppose that $(b_i,b_j)\in\mathcal{T}$ is a permitted transition with
+*Proof.* Suppose that $(b_i, b_j) \in \mathcal{T}$ is a permitted transition with
 
-$$
-\mathcal{C}(b_i,b_j)=0.
-$$
+$$\mathcal{C}(b_i, b_j) = 0.$$
 
 Since the direct transition is a path from $b_i$ to $b_j$,
 
-$$
-d(b_i,b_j) = \inf_{\gamma:b_i\to b_j}\mathcal{C}(\gamma) \leq \mathcal{C}(b_i,b_j) = 0.
-$$
+$$d(b_i, b_j) = \inf_{\gamma : b_i \to b_j} \mathcal{C}(\gamma) \le \mathcal{C}(b_i, b_j) = 0.$$
 
 Because $d$ is non-negative,
 
-$$
-d(b_i,b_j)=0.
-$$
+$$d(b_i, b_j) = 0.$$
 
-If $b_i\neq b_j$, the identity of indiscernibles fails. $\square$
+If $b_i \neq b_j$, the identity of indiscernibles fails. $\square$
 
 The important point is that zero cost does not necessarily mean that two states are literally the same state. It means only that, under the chosen cost model, moving between them may require no computational or energetic expenditure.
 
-### Example 2.26 — Computational Equivalence
+### Example 2.26 — Computational equivalence
 
 Let $\mathcal{B}$ be a set of computational configurations.
 
 Suppose that the cost model assigns zero cost to transformations that change the representation of a computation without changing the computation itself. For example, assume that two configurations representing the same computational operation can be transformed into one another at zero cost.
 
-Then distinct configurations $b_i\neq b_j$ may satisfy
+Then distinct configurations $b_i \neq b_j$ may satisfy
 
-$$
-d(b_i,b_j)=d(b_j,b_i)=0.
-$$
+$$d(b_i, b_j) = d(b_j, b_i) = 0.$$
 
 Thus the cost structure cannot distinguish these configurations through energy expenditure alone.
 
 This is not a theorem about computation in general. It is a consequence of the particular cost model being used.
 
-### Example 2.27 — Gauge Equivalence
+### Example 2.27 — Gauge equivalence
 
 Let $\mathcal{B}$ be a set of states in a model with a gauge symmetry.
 
 Suppose that gauge-related states are assigned zero transition cost in both directions. If
 
-$$
-b_i\neq b_j
-$$
+$$b_i \neq b_j$$
 
 but $b_i$ and $b_j$ are related by a gauge transformation, then
 
-$$
-d(b_i,b_j)=d(b_j,b_i)=0.
-$$
+$$d(b_i, b_j) = d(b_j, b_i) = 0.$$
 
 Again, the conclusion depends on the chosen cost model: gauge equivalence does not by itself imply zero computational or energetic cost.
 
-### Remark 2.28
-
-When distinct states can have zero cost in both directions, the original state space contains distinctions that are invisible to the cost structure.
+**Remark 2.28.** When distinct states can have zero cost in both directions, the original state space contains distinctions that are invisible to the cost structure.
 
 This motivates the relation
 
-$$
-b_i\sim b_j
-\quad\Longleftrightarrow\quad
-d(b_i,b_j)=d(b_j,b_i)=0.
-$$
+$$b_i \sim b_j \quad \Longleftrightarrow \quad d(b_i, b_j) = d(b_j, b_i) = 0.$$
 
 The relation identifies states that are mutually indistinguishable with respect to zero cost.
 
-Under the assumptions that $d(b,b)=0$ and that $d$ satisfies the triangle inequality, $\sim$ is an equivalence relation:
+Under the assumptions that $d(b, b) = 0$ and that $d$ satisfies the triangle inequality, $\sim$ is an equivalence relation:
 
-* **Reflexivity:** $d(b,b)=0$.
-* **Symmetry:** built into the definition of $\sim$.
-* **Transitivity:** if $b_i\sim b_j$ and $b_j\sim b_k$, then
+- **Reflexivity:** $d(b, b) = 0$.
+- **Symmetry:** built into the definition of $\sim$.
+- **Transitivity:** if $b_i \sim b_j$ and $b_j \sim b_k$, then
 
-$$
-d(b_i,b_k)
-\leq
-d(b_i,b_j)+d(b_j,b_k)
-=0,
-$$
+$$d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k) = 0,$$
 
-and non-negativity gives $d(b_i,b_k)=0$. The reverse direction follows in the same way.
+and non-negativity gives $d(b_i, b_k) = 0$. The reverse direction follows in the same way.
 
 The resulting equivalence classes should not be interpreted automatically as metaphysically "true" states. They are simply the states that the chosen cost structure identifies at zero cost.
 
-### Definition 2.29 — Quotient Belief Space
+**Definition 2.29 (Quotient belief space).** Let $\sim$ be the equivalence relation defined by
 
-Let $\sim$ be the equivalence relation defined by
+$$b_i \sim b_j \quad \Longleftrightarrow \quad d(b_i, b_j) = d(b_j, b_i) = 0.$$
 
-$$
-b_i\sim b_j
-\quad\Longleftrightarrow\quad
-d(b_i,b_j)=d(b_j,b_i)=0.
-$$
+The *quotient belief space* is
 
-The **quotient belief space** is
+$$\mathcal{B}/{\sim}.$$
 
-$$
-\mathcal{B}/\sim.
-$$
+An element of $\mathcal{B}/{\sim}$ is therefore an equivalence class of states that are mutually zero-cost.
 
-An element of $\mathcal{B}/\sim$ is therefore an equivalence class of states that are mutually zero-cost.
+**Proposition 2.30 (Induced quasi-metric on the quotient).** Let $d$ be an energy pseudo-quasi-metric on $\mathcal{B}$. Then $d$ induces a well-defined quasi-metric $\bar{d}$ on $\mathcal{B}/{\sim}$ by
 
-### Proposition 2.30 — Induced Quasi-Metric on the Quotient
+$$\bar{d}([b_i], [b_j]) = d(b_i, b_j).$$
 
-Let $d$ be an energy pseudo-quasi-metric on $\mathcal{B}$. Then $d$ induces a well-defined quasi-metric $\bar d$ on $\mathcal{B}/\sim$ by
+Moreover, $\bar{d}$ satisfies the identity of indiscernibles *provided $d$ satisfies the zero-symmetry property*
 
-$$
-\bar d([b_i],[b_j])=d(b_i,b_j).
-$$
+$$d(b_i, b_j) = 0 \quad \Longrightarrow \quad d(b_j, b_i) = 0.$$
 
-Moreover,
+Under this additional assumption,
 
-$$
-\bar d([b_i],[b_j])=0
-\quad\Longleftrightarrow\quad
-[b_i]=[b_j].
-$$
+$$\bar{d}([b_i], [b_j]) = 0 \quad \Longleftrightarrow \quad [b_i] = [b_j].$$
 
 *Proof.*
 
@@ -370,354 +262,125 @@ First we show that the definition is independent of the representatives.
 
 Suppose
 
-$$
-b_i\sim b_i'
-\qquad\text{and}\qquad
-b_j\sim b_j'.
-$$
+$$b_i \sim b_i' \qquad \text{and} \qquad b_j \sim b_j'.$$
 
 By the triangle inequality,
 
-$$
-d(b_i,b_j)
-\leq
-d(b_i,b_i')
-+
-d(b_i',b_j')
-+
-d(b_j',b_j).
-$$
+$$d(b_i, b_j) \le d(b_i, b_i') + d(b_i', b_j') + d(b_j', b_j).$$
 
-Since $b_i\sim b_i'$ and $b_j\sim b_j'$,
+Since $b_i \sim b_i'$ and $b_j \sim b_j'$,
 
-$$
-d(b_i,b_i')=0
-\qquad\text{and}\qquad
-d(b_j',b_j)=0.
-$$
+$$d(b_i, b_i') = 0 \qquad \text{and} \qquad d(b_j', b_j) = 0.$$
 
 Therefore,
 
-$$
-d(b_i,b_j)\leq d(b_i',b_j').
-$$
+$$d(b_i, b_j) \le d(b_i', b_j').$$
 
 Interchanging the primed and unprimed representatives gives
 
-$$
-d(b_i',b_j')\leq d(b_i,b_j).
-$$
+$$d(b_i', b_j') \le d(b_i, b_j).$$
 
 Hence
 
-$$
-d(b_i,b_j)=d(b_i',b_j').
-$$
+$$d(b_i, b_j) = d(b_i', b_j').$$
 
-Thus $\bar d$ is well-defined.
+Thus $\bar{d}$ is well-defined.
 
-The non-negativity and triangle inequality of $\bar d$ are inherited directly from $d$.
+The non-negativity and triangle inequality of $\bar{d}$ are inherited directly from $d$.
 
-Finally, suppose
+Finally, suppose $\bar{d}([b_i], [b_j]) = 0$. Then $d(b_i, b_j) = 0$. Under the zero-symmetry property, this implies $d(b_j, b_i) = 0$, so $b_i \sim b_j$, and therefore $[b_i] = [b_j]$. Conversely, if $[b_i] = [b_j]$, then $b_i \sim b_j$, so $d(b_i, b_j) = 0$ by definition of $\sim$. $\square$
 
-$$
-\bar d([b_i],[b_j])=0.
-$$
+**Remark 2.31.** Without the zero-symmetry property, the identity of indiscernibles may fail on the quotient: it is possible to have $\bar{d}([b_i], [b_j]) = 0$ with $[b_i] \neq [b_j]$. This is the "pseudo" part of "pseudo-quasi-metric" surviving the quotient.
 
-Then
+**Convention 2.32.** When the quotient is taken, we adopt the zero-symmetry property as an assumption unless otherwise stated. This ensures that the resulting object is a genuine quasi-metric (satisfying the identity of indiscernibles) rather than a pseudo-quasi-metric. Whether zero-symmetry holds in a given application is a modeling question, not a mathematical one.
 
-$$
-d(b_i,b_j)=0.
-$$
-
-Because $\bar d$ is a quasi-metric on equivalence classes, the corresponding reverse distance is also zero **only under mutual zero distance assumption** when the two classes are equivalent. By the definition of $\sim$,
-
-$$
-d(b_i,b_j)=d(b_j,b_i)=0
-\quad\Longleftrightarrow\quad
-[b_i]=[b_j].
-$$
-
-Therefore the identity of indiscernibles holds on the quotient only if $d$ **satisfies the zero-symmetry property**. 
-
-```math
-d(b_i,b_j)=0\Rightarrow d(b_j,b_i)=0
-```
-
-
-### Convention 2.31
-
-For the remainder of the book, we work on the quotient whenever zero-cost equivalence is present.
-
-Thus, when necessary, $\mathcal{B}$ is understood to mean
-
-$$
-\mathcal{B}/\sim.
-$$
-
-This removes distinctions that are invisible to the bidirectional zero-cost structure and allows the resulting quasi-metric to satisfy the identity of indiscernibles **under the assumption mentioned above**.
-
+When zero-cost equivalence is present but we do not wish to quotient—for example, because the distinction between zero-cost-equivalent states carries information—we work directly on $\mathcal{B}$ and treat $d$ as a pseudo-quasi-metric.
 
 ---
 
-## 2.6 The Energy Quasi-Metric as a [Directed Graph](https://en.wikipedia.org/wiki/Directed_graph)
+## 2.6 The energy quasi-metric as a [directed graph](https://en.wikipedia.org/wiki/Directed_graph)
 
 The energy quasi-metric has a natural representation as a weighted directed graph.
 
 The connection is important because the graph makes the directional and compositional structure of energy cost explicit. A transition from $b_i$ to $b_j$ need not have the same cost as the reverse transition, and some states may not be reachable from one another at all.
 
-**Construction 2.32.** Let $\mathcal{B}$ be a belief space equipped with an energy quasi-metric
+**Construction 2.33.** Let $\mathcal{B}$ be a belief space equipped with an energy quasi-metric
 
-$$
-d:\mathcal{B}\times\mathcal{B}\rightarrow\mathbb{R}_{\geq 0}\cup\{+\infty\}.
-$$
+$$d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}.$$
 
 Define a weighted directed graph $G_d$ by:
 
-* Vertex set $\mathcal{B}$;
-* Directed edge $(b_i,b_j)$ whenever $d(b_i,b_j)<+\infty$;
-* Edge weight $d(b_i,b_j)$.
+- Vertex set $\mathcal{B}$;
+- Directed edge $(b_i, b_j)$ whenever $d(b_i, b_j) < +\infty$;
+- Edge weight $d(b_i, b_j)$.
 
 Thus, every finite value of the quasi-metric is represented by a directed edge.
 
-### Proposition 2.33 — Graph Representation
+**Proposition 2.34 (Graph representation).** The energy quasi-metric $d$ is equal to the shortest-path distance induced by the weighted directed graph $G_d$. More precisely,
 
-The energy quasi-metric $d$ is equal to the shortest-path distance induced by the weighted directed graph $G_d$.
+$$d(b_i, b_j) = \inf_{\gamma : b_i \to b_j} \mathcal{C}_{G_d}(\gamma),$$
 
-More precisely,
-
-$$ 
-d(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}_{G_d}(\gamma),
-$$
-
-where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$.
-
-We denote this shortest-path distance by $d_{G_d}$.
+where $\mathcal{C}_{G_d}(\gamma)$ is the sum of the edge weights along the path $\gamma$. We denote this shortest-path distance by $d_{G_d}$.
 
 *Proof.*
 
-Consider first a pair $(b_i,b_j)$ for which
+Consider first a pair $(b_i, b_j)$ for which $d(b_i, b_j) < +\infty$. By construction, $G_d$ contains the direct edge $b_i \to b_j$ with weight $d(b_i, b_j)$. Therefore the shortest-path distance satisfies
 
-$$
-d(b_i,b_j)<+\infty.
-$$
-
-By construction, $G_d$ contains the direct edge
-
-$$
-b_i\rightarrow b_j
-$$
-
-with weight $d(b_i,b_j)$. Therefore the shortest-path distance satisfies
-
-$$
-d_{G_d}(b_i,b_j)\leq d(b_i,b_j).
-$$
+$$d_{G_d}(b_i, b_j) \le d(b_i, b_j).$$
 
 Now consider any path
 
-$$
-b_i=b_0\rightarrow b_1\rightarrow\cdots\rightarrow b_n=b_j.
-$$
+$$b_i = b_0 \to b_1 \to \cdots \to b_n = b_j.$$
 
 Its total cost is
 
-$$
-\sum_{k=0}^{n-1}d(b_k,b_{k+1}).
-$$
+$$\sum_{k=0}^{n-1} d(b_k, b_{k+1}).$$
 
 Repeated application of the triangle inequality gives
 
-$$
-d(b_i,b_j)
-\leq
-\sum_{k=0}^{n-1}d(b_k,b_{k+1}).
-$$
+$$d(b_i, b_j) \le \sum_{k=0}^{n-1} d(b_k, b_{k+1}).$$
 
 Since this holds for every path from $b_i$ to $b_j$, taking the infimum over all such paths gives
 
-$$
-d(b_i,b_j)\leq d_{G_d}(b_i,b_j).
-$$
+$$d(b_i, b_j) \le d_{G_d}(b_i, b_j).$$
 
 Combining the two inequalities,
 
-$$
-d_{G_d}(b_i,b_j)=d(b_i,b_j).
-$$
+$$d_{G_d}(b_i, b_j) = d(b_i, b_j).$$
 
-It remains to consider the case
+It remains to consider the case $d(b_i, b_j) = +\infty$. Suppose there were a directed path from $b_i$ to $b_j$ with finite total cost. Repeated application of the triangle inequality would then give
 
-$$
-d(b_i,b_j)=+\infty
-$$
+$$d(b_i, b_j) \le \sum_{k=0}^{n-1} d(b_k, b_{k+1}) < +\infty,$$
 
-Suppose there were a directed path from $b_i$ to $b_j$ with finite total cost. Repeated application of the triangle inequality would then give
+which is a contradiction. Hence no finite-cost directed path from $b_i$ to $b_j$ exists, and therefore $d_{G_d}(b_i, b_j) = +\infty$.
 
-$$
-d(b_i,b_j)
-\leq
-\sum_{k=0}^{n-1}d(b_k,b_{k+1})
-<+\infty.
-$$
+Thus, in all cases, $d_{G_d}(b_i, b_j) = d(b_i, b_j)$. $\square$
 
-which is a contradiction. Hence no finite-cost directed path from bi to bj exists, and therefore
+**Remark 2.35.** The graph $G_d$ provides a canonical *representation* of the energy quasi-metric. It is not, however, a unique representation: different weighted directed graphs can have the same shortest-path distance. The graph representation is a tool for visualizing and reasoning about $d$, not an alternative definition of it.
 
-$$
-d_{G_d}(b_i,b_j)=+\infty.
-$$
+**Proposition 2.36 (Graphs induce energy pseudo-quasi-metrics).** Let $G = (V, E, w)$ be a directed graph with non-negative edge weights. Define
 
-Thus, in all cases,
+$$d_G(b_i, b_j) = \inf_{\gamma : b_i \to b_j} \mathcal{C}(\gamma),$$
 
-$$
-d_{G_d}(b_i,b_j)=d(b_i,b_j).
-$$
+where $\mathcal{C}(\gamma)$ is the sum of the edge weights along $\gamma$, and set $d_G(b_i, b_j) = +\infty$ when no path from $b_i$ to $b_j$ exists. Then $d_G$ is an energy pseudo-quasi-metric on $V$.
 
-Therefore, the energy quasi-metric $d$ is exactly the shortest-path distance induced by the weighted directed graph $G_d$.
+*Proof.* Non-negativity follows from the non-negative edge weights. The empty path gives $d_G(b_i, b_i) = 0$. For any paths $\gamma_1 : b_i \to b_j$ and $\gamma_2 : b_j \to b_k$, their concatenation is a path from $b_i$ to $b_k$ with cost $\mathcal{C}(\gamma_1 \cdot \gamma_2) = \mathcal{C}(\gamma_1) + \mathcal{C}(\gamma_2)$. Therefore,
 
-### Remark 2.34
+$$d_G(b_i, b_k) \le d_G(b_i, b_j) + d_G(b_j, b_k).$$
 
-The graph $G_d$ provides a canonical **representation** of the energy quasi-metric.
+Thus the triangle inequality holds. Symmetry is not required, since the graph is directed. The identity of indiscernibles may also fail when distinct vertices can be connected by paths of zero total cost in both directions. Hence $d_G$ is an energy pseudo-quasi-metric. $\square$
 
-It is not, however, a unique representation: different weighted directed graphs can have the same shortest-path distance.
+**Example 2.37 (Complete directed graph).** Suppose $d(b_i, b_j) < +\infty$ for every pair $b_i, b_j \in \mathcal{B}$. Then $G_d$ is a complete directed graph. Every pair of vertices has a direct edge whose weight is $d(b_i, b_j)$. The triangle inequality guarantees that no indirect path can have lower cost:
 
-The important correspondence is therefore not a one-to-one equivalence between graphs and quasi-metrics. Rather, a weighted directed graph generates an energy quasi-metric through shortest-path minimization, while an energy quasi-metric can itself be represented by a weighted directed graph.
+$$d(b_i, b_j) \le d(b_i, b_k) + d(b_k, b_j).$$
 
-This gives two complementary viewpoints:
+Therefore the shortest-path distance is exactly the original edge weight: $d_{G_d}(b_i, b_j) = d(b_i, b_j)$.
 
-$$
-\text{local transitions}
-\longrightarrow
-\text{weighted directed graph}
-\longrightarrow
-\text{shortest-path cost}.
-$$
+**Example 2.38 (Sparse directed graph).** Suppose that $d(b_i, b_j) = +\infty$ for many pairs of states. Then many directed edges are absent from $G_d$. A state $b_j$ may nevertheless be reachable from $b_i$ through intermediate states: $b_i \to b_k \to b_j$. In this case,
 
-and
+$$d(b_i, b_j) \le d(b_i, b_k) + d(b_k, b_j).$$
 
-$$
-\text{energy quasi-metric}
-\longrightarrow
-\text{canonical graph representation}.
-$$
-
-### Proposition 2.35 — Graphs Induce Energy Pseudo-Quasi-Metrics
-
-Let $G=(V,E,w)$ be a directed graph with non-negative edge weights.
-
-Define
-
-$$
-d_G(b_i,b_j) = \inf_{\gamma:b_i\to b_j} \mathcal{C}(\gamma),
-$$
-
-where $\mathcal{C}(\gamma)$ is the sum of the edge weights along $\gamma$, and set
-
-$$
-d_G(b_i,b_j)=+\infty
-$$
-
-when no path from $b_i$ to $b_j$ exists.
-
-Then $d_G$ is an energy pseudo-quasi-metric on $V$.
-
-*Proof.*
-
-Non-negativity follows from the non-negative edge weights.
-
-The empty path gives
-
-$$
-d_G(b_i,b_i)=0.
-$$
-
-For any paths $\gamma_1:b_i\to b_j$ and $\gamma_2:b_j\to b_k$, their concatenation is a path from $b_i$ to $b_k$ with cost
-
-$$
-\mathcal{C}(\gamma_1\cdot\gamma_2) = \mathcal{C}(\gamma_1)+\mathcal{C}(\gamma_2).
-$$
-
-Therefore,
-
-$$
-d_G(b_i,b_k)
-\leq
-d_G(b_i,b_j)+d_G(b_j,b_k).
-$$
-
-Thus the triangle inequality holds.
-
-Symmetry is not required, since the graph is directed. Identity of indiscernibles may also fail when distinct vertices can be connected by paths of zero total cost.
-
-Hence $d_G$ is an energy pseudo-quasi-metric. $\square$
-
-### Example 2.36 — [Complete Directed Graph](https://en.wikipedia.org/wiki/Complete_graph) 
-
-Suppose
-
-$$
-d(b_i,b_j)<+\infty
-$$
-
-for every pair $b_i,b_j\in\mathcal{B}$.
-
-Then $G_d$ is a complete directed graph.
-
-Every pair of vertices has a direct edge whose weight is
-
-$$
-d(b_i,b_j).
-$$
-
-The triangle inequality guarantees that no indirect path can have lower cost:
-
-$$
-d(b_i,b_j)
-\leq
-d(b_i,b_k)+d(b_k,b_j).
-$$
-
-Therefore the shortest-path distance is exactly the original edge weight:
-
-$$
-d_{G_d}(b_i,b_j)=d(b_i,b_j).
-$$
-
-### Example 2.37 — Sparse Directed Graph
-
-Suppose that
-
-$$
-d(b_i,b_j)=+\infty
-$$
-
-for many pairs of states.
-
-Then many directed edges are absent from $G_d$.
-
-A state $b_j$ may nevertheless be reachable from $b_i$ through intermediate states:
-
-$$
-b_i\rightarrow b_k\rightarrow b_j.
-$$
-
-In this case,
-
-$$
-d(b_i,b_j)
-\leq
-d(b_i,b_k)+d(b_k,b_j).
-$$
-
-The cost between the two states therefore depends on path composition.
-
-If no path exists at all, then
-
-$$
-d(b_i,b_j)=+\infty.
-$$
-
-The sparse case makes the reachability structure of the belief space explicit: finite energy cost corresponds to reachability, while infinite cost corresponds to the absence of a path.
+The cost between the two states therefore depends on path composition. If no path exists at all, then $d(b_i, b_j) = +\infty$. The sparse case makes the reachability structure of the belief space explicit: finite energy cost corresponds to reachability, while infinite cost corresponds to the absence of a path.
 
 ---
 
@@ -729,17 +392,18 @@ Let us summarize the assumptions and non-assumptions of the theory.
 
 - **(A1) Belief space.** There is a set $\mathcal{B}$ of beliefs, equipped with a distinguished initial state $s_0$.
 - **(A2) Energy quasi-metric.** There is a function $d : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0} \cup \{+\infty\}$ satisfying identity, non-negativity, and the triangle inequality.
-- **(A3) Identity of indiscernibles.** Distinct beliefs have positive distance: $d(b_i, b_j) > 0$ for $b_i \neq b_j$.
-- **(A4) Finiteness.** $d(b_i, b_j) < +\infty$ for all $b_i, b_j \in \mathcal{B}$. (This is automatic if $\mathcal{B}$ is defined by bounded reachability from $s_0$.)
+- **(A3) Finiteness.** $d(b_i, b_j) < +\infty$ for all $b_i, b_j \in \mathcal{B}$. (This is automatic if $\mathcal{B}$ is defined by bounded reachability from $s_0$.)
 
 **We do not assume:**
 
 - **Symmetry.** $d(b_i, b_j) \neq d(b_j, b_i)$ in general.
-- **Metric structure.** $d$ need not satisfy any additional properties beyond (A2)–(A4).
+- **The identity of indiscernibles.** Distinct beliefs may have zero distance. When they do, we either quotient by the resulting equivalence relation (Definition 2.29) or work directly on $\mathcal{B}$ and accept that $d$ is a pseudo-quasi-metric.
+- **Zero-symmetry.** $d(b_i, b_j) = 0$ does not imply $d(b_j, b_i) = 0$ unless we explicitly assume it (as in Convention 2.32).
+- **Metric structure.** $d$ need not satisfy any additional properties beyond (A2)–(A3).
 - **Path-independence of $\mathcal{C}$.** The underlying cost function may be path-dependent; only the minimization $d$ is path-independent.
 - **A topology.** $\mathcal{B}$ is a bare set. Topologies are induced by $d$ (and by its asymmetry), not assumed.
 
-**Remark 2.37.** The assumptions (A1)–(A4) are minimal. They are satisfied by every information processing system with bounded reachability. The theory developed in this book applies to all such systems.
+**Remark 2.39.** The assumptions (A1)–(A3) are minimal. They are satisfied by every information processing system with bounded reachability. The theory developed in this book applies to all such systems.
 
 ---
 
@@ -753,7 +417,7 @@ The cost and debt together form a complex object:
 
 $$Q(b_i, b_j) = d(b_i, b_j) + i \cdot D(b_i, b_j),$$
 
-where $D$ is the debt. The modulus $|Q|$ is a metric; the argument $\arg Q$ is a phase. The complex structure is a $\mathbb{Z}/2$-grading, and the gauge group is the group of real-valued functions on $\mathcal{B}$.
+where $D$ is the debt. The modulus $|Q|$ will be shown to be a metric; the argument $\arg Q$ is a phase. The complex structure is a $\mathbb{Z}/2$-grading, and the gauge group is the group of real-valued functions on $\mathcal{B}$.
 
 This is the central object of the book. Everything else is a consequence.
 
