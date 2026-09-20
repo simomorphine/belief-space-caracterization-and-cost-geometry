@@ -327,7 +327,7 @@ which rearranges to $D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$.
 
 This cohomological framing will be the starting point of Chapter 5.
 
-**Remark 4.10 (Poincaré lemma, not the fundamental theorem of calculus).** The basepoint theorem is sometimes compared to the fundamental theorem of calculus. The analogy is suggestive but not quite right. The fundamental theorem of calculus relates differentiation and integration—two operations that are inverses of each other. The basepoint theorem relates a function on pairs (debt) to a function on points (potential) via a difference operator. There is no integration involved.
+**Remark 4.10 (Poincaré lemma).** The basepoint theorem is sometimes compared to the fundamental theorem of calculus. The analogy is suggestive but not quite right. The fundamental theorem of calculus relates differentiation and integration—two operations that are inverses of each other. The basepoint theorem relates a function on pairs (debt) to a function on points (potential) via a difference operator. There is no integration involved.
 
 A better analogy is the **Poincaré lemma** for 1-forms on a simply connected space: every closed 1-form is exact. In the discrete setting, additivity is the "closed" condition ($\delta D = 0$), and the basepoint theorem says that on a connected graph, every closed 1-cochain is exact ($D = \delta\psi$). The state space $\mathcal{B}$ plays the role of a simply connected space; the additivity axiom guarantees that there are no "holes" in the cochain complex.
 
