@@ -237,6 +237,4 @@ The reflection is not a conclusion; it is an *opening*. The theory of the comple
 **Exercise 18.10.** Reflect on the following question: what is the *right* stance for the theory of the complex quasi-metric? Write a short essay (one page) arguing for your position.
 
 
----
 
-**End of Chapter 18.**
