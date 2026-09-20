@@ -324,4 +324,4 @@ The $\gamma$-geometry is the study of how the geometry of belief space depends o
 
 
 
-**End of Chapter 11.**
+
