@@ -118,7 +118,7 @@ The transition is represented by the point $(x, y)$: the horizontal coordinate i
 
 The pair $(d, D)$ can also be written in polar coordinates $(\rho, \theta)$, where
 
-$$\rho = \sqrt{d^2 + D^2}, \qquad \theta = \operatorname{atan2}(D, d).$$
+$$\rho = \sqrt{d^2 + D^2}, \qquad \theta = \mathrm{atan2}(D, d).$$
 
 Conversely,
 
