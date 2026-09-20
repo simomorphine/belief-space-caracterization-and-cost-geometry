@@ -1,1668 +1,405 @@
-# Chapter 6: We Continue with Cohomology.
+# Chapter 6: The Full Cohomology of Debt
 
 ---
 
-In the previous chapters, we studied the structure of the debt function.
+Chapter 5 introduced the cohomological framework informally. It defined 0-cochains, 1-cochains, the coboundary operator $\delta$, cocycles, coboundaries, and the first cohomology group $H^1$. It proved that on a complete state space, additivity alone implies exactness, and it sketched the extension to strongly connected directed graphs.
 
-We began with the two conceptual axioms
+This chapter does three things that Chapter 5 did not do:
 
-$$
-D(b_i,b_k) = D(b_i,b_j)+D(b_j,b_k)
-$$
+1. **It develops the full cochain complex** $\delta : C^k \to C^{k+1}$ for all $k \geq 0$, not just the first two levels.
+2. **It proves $\delta^2 = 0$ in general**, not only for 0-cochains.
+3. **It computes $H^1(G; \mathbb{R})$ for several concrete graphs**, so that the reader can see what the cohomology group actually measures.
+
+The chapter also proves the **discrete Poincaré lemma** in full generality: on a strongly connected directed graph with antisymmetric edge data, $H^1(G; \mathbb{R}) = 0$. This is the graph analogue of the basepoint theorem.
+
+**Remark 6.0 (Relation to Chapter 5).** Chapter 5 established that on a complete pairwise state space, every debt function is exact. This chapter extends that result to more general structures by developing the cohomological machinery in full. The reader who wants only the main result of Part II can read Chapter 4 and skip this chapter. The reader who wants to understand the global structure of debt should read both.
+
+---
+
+## 6.1 The cochain complex
+
+Let $\mathcal{B}$ be a set of states. We build a sequence of vector spaces and linear maps.
+
+**Definition 6.1 (Cochain complex).** For each integer $k \geq 0$, the space of **$k$-cochains** on $\mathcal{B}$ is
+
+$$C^k(\mathcal{B}; \mathbb{R}) := \lbrace \text{functions } \omega : \mathcal{B}^{k+1} \to \mathbb{R} \rbrace,$$
+
+where $\mathcal{B}^{k+1} = \mathcal{B} \times \cdots \times \mathcal{B}$ ($k+1$ factors). A $k$-cochain is thus a real-valued function of $k+1$ variables.
+
+We equip $C^k$ with the structure of a real vector space by pointwise addition and scalar multiplication.
+
+**Example 6.2.** 
+
+- A **0-cochain** is a function $\psi : \mathcal{B} \to \mathbb{R}$. This is a potential.
+- A **1-cochain** is a function $D : \mathcal{B} \times \mathcal{B} \to \mathbb{R}$. This is a debt function.
+- A **2-cochain** is a function $\Omega : \mathcal{B} \times \mathcal{B} \times \mathcal{B} \to \mathbb{R}$. This will measure the failure of additivity.
+
+**Remark 6.3.** In a simplicial complex, the space $C^k$ consists of functions on *oriented $k$-simplices*, and the coboundary operator involves sign conventions. Here we work with the full Cartesian product $\mathcal{B}^{k+1}$, which is the cochain complex of the complete simplex on $\mathcal{B}$. This is the simplest setting and is sufficient for our purposes. The extension to sparse graphs requires restricting to the edges that exist, which we treat in §6.6.
+
+---
+
+## 6.2 The coboundary operator
+
+We now define the operator that connects consecutive cochain spaces.
+
+**Definition 6.4 (Coboundary operator).** For each $k \geq 0$, the **coboundary operator** $\delta : C^k \to C^{k+1}$ is defined by
+
+$$(\delta \omega)(b_0, b_1, \ldots, b_{k+1}) := \sum_{j=0}^{k+1} (-1)^j \, \omega(b_0, \ldots, \widehat{b_j}, \ldots, b_{k+1}),$$
+
+where the hat $\widehat{b_j}$ means that $b_j$ is omitted.
+
+The alternating signs $(-1)^j$ are the standard convention of simplicial cohomology. They ensure that $\delta^2 = 0$ (Theorem 6.7 below).
+
+**Example 6.5.** Let us write out the first few cases.
+
+- For $k = 0$: $\delta : C^0 \to C^1$ is given by
+$$(\delta\psi)(b_0, b_1) = \psi(b_1) - \psi(b_0).$$
+
+- For $k = 1$: $\delta : C^1 \to C^2$ is given by
+$$(\delta D)(b_0, b_1, b_2) = D(b_1, b_2) - D(b_0, b_2) + D(b_0, b_1).$$
+
+- For $k = 2$: $\delta : C^2 \to C^3$ is given by
+$$(\delta \Omega)(b_0, b_1, b_2, b_3) = \Omega(b_1, b_2, b_3) - \Omega(b_0, b_2, b_3) + \Omega(b_0, b_1, b_3) - \Omega(b_0, b_1, b_2).$$
+
+The pattern is clear: each term omits one argument, and the signs alternate.
+
+**Remark 6.6.** The formula for $(\delta D)(b_0, b_1, b_2)$ is exactly the failure of additivity:
+
+$$(\delta D)(b_0, b_1, b_2) = 0 \quad \Longleftrightarrow \quad D(b_0, b_2) = D(b_0, b_1) + D(b_1, b_2).$$
+
+This will be the key observation connecting the coboundary operator to the debt axioms.
+
+---
+
+## 6.3 The fundamental identity $\delta^2 = 0$
+
+We now prove the central algebraic identity of the cochain complex.
+
+**Theorem 6.7 ($\delta^2 = 0$).** For every $k \geq 0$, the composition
+
+$$C^k \xrightarrow{\delta} C^{k+1} \xrightarrow{\delta} C^{k+2}$$
+
+is zero. That is, $\delta \circ \delta = 0$ as a map $C^k \to C^{k+2}$.
+
+*Proof.* Let $\omega \in C^k$. We must show that $(\delta(\delta\omega))(b_0, \ldots, b_{k+2}) = 0$ for all $(b_0, \ldots, b_{k+2}) \in \mathcal{B}^{k+3}$.
+
+By Definition 6.4 applied twice,
+
+$$(\delta(\delta\omega))(b_0, \ldots, b_{k+2}) = \sum_{j=0}^{k+2} (-1)^j (\delta\omega)(b_0, \ldots, \widehat{b_j}, \ldots, b_{k+2}).$$
+
+Now expand each $(\delta\omega)(b_0, \ldots, \widehat{b_j}, \ldots, b_{k+2})$ using Definition 6.4:
+
+$$(\delta\omega)(b_0, \ldots, \widehat{b_j}, \ldots, b_{k+2}) = \sum_{\substack{i=0 \\ i \neq j}}^{k+2} (-1)^{i'} \omega(b_0, \ldots, \widehat{b_i}, \ldots, \widehat{b_j}, \ldots, b_{k+2}),$$
+
+where $i' = i$ if $i < j$ and $i' = i - 1$ if $i > j$ (accounting for the fact that $b_j$ has already been omitted).
+
+Substituting and exchanging the order of summation:
+
+$$(\delta(\delta\omega))(b_0, \ldots, b_{k+2}) = \sum_{0 \leq i < j \leq k+2} \left[ (-1)^j (-1)^i + (-1)^i (-1)^{j-1} \right] \omega(\ldots, \widehat{b_i}, \ldots, \widehat{b_j}, \ldots).$$
+
+For each pair $i < j$, the two terms in the bracket have opposite signs:
+
+$$(-1)^j (-1)^i + (-1)^i (-1)^{j-1} = (-1)^{i+j} + (-1)^{i+j-1} = (-1)^{i+j} - (-1)^{i+j} = 0.$$
+
+Therefore, the entire sum vanishes, and $(\delta(\delta\omega))(b_0, \ldots, b_{k+2}) = 0$. $\square$
+
+**Remark 6.8.** The proof is a standard computation. The key idea is that each $(k+2)$-simplex is counted twice, with opposite signs, once for each ordering of the two omitted vertices. The alternating signs are designed precisely to make this cancellation happen.
+
+**Corollary 6.9.** For any 0-cochain $\psi \in C^0$,
+
+$$\delta(\delta\psi) = 0.$$
+
+That is, the 2-cochain $\delta D$ vanishes when $D = \delta\psi$.
+
+*Proof.* Immediate from Theorem 6.7 with $k = 0$. $\square$
+
+**Corollary 6.10.** The image of $\delta : C^k \to C^{k+1}$ is contained in the kernel of $\delta : C^{k+1} \to C^{k+2}$.
+
+*Proof.* If $\omega' = \delta\omega$ for some $\omega \in C^k$, then $\delta\omega' = \delta(\delta\omega) = 0$ by Theorem 6.7. $\square$
+
+---
+
+## 6.4 Cocycles, coboundaries, and cohomology
+
+We can now define the cohomological objects precisely.
+
+**Definition 6.11 (Cocycles).** A $k$-cochain $\omega \in C^k$ is a **$k$-cocycle** if $\delta\omega = 0$. The space of $k$-cocycles is
+
+$$Z^k(\mathcal{B}; \mathbb{R}) := \ker(\delta : C^k \to C^{k+1}).$$
+
+**Definition 6.12 (Coboundaries).** A $k$-cochain $\omega \in C^k$ is a **$k$-coboundary** if $\omega = \delta\eta$ for some $(k-1)$-cochain $\eta \in C^{k-1}$. The space of $k$-coboundaries is
+
+$$B^k(\mathcal{B}; \mathbb{R}) := \mathrm{im}(\delta : C^{k-1} \to C^k).$$
+
+For $k = 0$, we define $B^0 := 0$ (there is no $C^{-1}$).
+
+**Definition 6.13 (Cohomology).** The **$k$-th cohomology group** of $\mathcal{B}$ with coefficients in $\mathbb{R}$ is
+
+$$H^k(\mathcal{B}; \mathbb{R}) := \frac{Z^k(\mathcal{B}; \mathbb{R})}{B^k(\mathcal{B}; \mathbb{R})} = \frac{\ker(\delta : C^k \to C^{k+1})}{\mathrm{im}(\delta : C^{k-1} \to C^k)}.$$
+
+**Remark 6.14.** By Corollary 6.10, $B^k \subseteq Z^k$, so the quotient is well-defined. In general, the inclusion may be strict, and the extent to which it is strict is what $H^k$ measures.
+
+**Remark 6.15.** The cochain complex is
+
+$$0 \to C^0 \xrightarrow{\delta} C^1 \xrightarrow{\delta} C^2 \xrightarrow{\delta} C^3 \to \cdots$$
+
+The condition $\delta^2 = 0$ means that this is a complex (the image of each map is contained in the kernel of the next). The cohomology groups $H^k$ measure the failure of the complex to be exact at each stage.
+
+---
+
+## 6.5 Additivity is the cocycle condition
+
+We now connect the cochain complex to the debt axioms.
+
+**Proposition 6.16.** Let $D \in C^1$ be a 1-cochain. Then $D$ is a 1-cocycle if and only if $D$ satisfies additivity:
+
+$$D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k)$$
+
+for all $b_i, b_j, b_k \in \mathcal{B}$.
+
+*Proof.* By Definition 6.4, for any triple $(b_0, b_1, b_2)$,
+
+$$(\delta D)(b_0, b_1, b_2) = D(b_1, b_2) - D(b_0, b_2) + D(b_0, b_1).$$
+
+Setting this equal to zero and rearranging,
+
+$$D(b_0, b_2) = D(b_0, b_1) + D(b_1, b_2).$$
+
+Renaming $b_0 = b_i$, $b_1 = b_j$, $b_2 = b_k$, this is exactly additivity. Therefore, $\delta D = 0$ if and only if $D$ is additive. $\square$
+
+**Corollary 6.17.** A 1-cochain $D$ is a 1-cocycle if and only if it satisfies (D1).
+
+**Proposition 6.18.** Let $D \in C^1$ be a 1-coboundary. Then $D$ is antisymmetric:
+
+$$D(b_i, b_j) = -D(b_j, b_i).$$
+
+*Proof.* If $D = \delta\psi$ for some $\psi \in C^0$, then
+
+$$D(b_i, b_j) = \psi(b_j) - \psi(b_i),$$
 
 and
 
-$$
-D(b_i,b_j) = -D(b_j,b_i).
-$$
+$$D(b_j, b_i) = \psi(b_i) - \psi(b_j) = -(\psi(b_j) - \psi(b_i)) = -D(b_i, b_j).$$
 
-We then showed that, on a complete state space, the debt function can be represented by a potential:
+So $D$ is antisymmetric. $\square$
 
-$$
-D(b_i,b_j) = \psi(b_j)-\psi(b_i).
-$$
+**Remark 6.19.** The converse of Proposition 6.18 is not true in general: an antisymmetric 1-cochain need not be a coboundary. But if $D$ is also a cocycle, then (by the basepoint theorem, applied to the complete space) $D$ is a coboundary. This is the content of the exactness theorem.
 
-This representation made several properties transparent:
-
-* debt is path independent;
-* debt around a closed path is zero;
-* potentials are unique up to an additive constant;
-* the debt function is determined by potential differences.
-
-Chapter 5 then examined the logical structure of the axioms and showed that, on the complete pairwise domain, additivity alone already implies antisymmetry.
-
-We now have a new mathematical question.
-
-> **What mathematical language organizes the distinction between potential differences, closed structures, and obstructions to global potentials?**
-
-The answer is **cohomology**.
-
-The purpose of this chapter is not to assume cohomology as known.
-
-Instead, we will build the basic vocabulary step by step:
-
-$$
-\boxed{
-\text{cochain}
-\rightarrow
-\text{coboundary}
-\rightarrow
-\text{cocycle}
-\rightarrow
-\text{exactness}
-\rightarrow
-\text{cohomology}
-}
-$$
-
-Only after introducing these concepts will we return to debt and interpret the previous chapters in cohomological language.
+**Remark 6.20.** Combining Propositions 6.16 and 6.18: a 1-coboundary is both a cocycle (by $\delta^2 = 0$) and antisymmetric. Conversely, a 1-cocycle that is antisymmetric is a 1-coboundary (on a complete space). The content of the basepoint theorem is that the antisymmetry condition is automatic from additivity, so every 1-cocycle is a 1-coboundary.
 
 ---
 
-# 6.1 Why Do We Need Cohomology?
+## 6.6 The cochain complex of a directed graph
 
-Consider again the potential representation
+For applications to sparse transition structures, we need a version of the cochain complex adapted to a directed graph.
 
-$$
-D(b_i,b_j) = \psi(b_j)-\psi(b_i).
-$$
+**Definition 6.21 (Cochain complex of a directed graph).** Let $G = (V, E)$ be a directed graph. For each $k \geq 0$, define $C^k(G; \mathbb{R})$ to be the space of functions on *oriented $k$-paths* in $G$:
 
-Suppose we are given only the transition values $D$.
+- $C^0(G; \mathbb{R})$: functions $\psi : V \to \mathbb{R}$.
+- $C^1(G; \mathbb{R})$: functions $D : E \to \mathbb{R}$ (with the convention that $D(v, u) = -D(u, v)$ when both edges exist).
+- $C^k(G; \mathbb{R})$ for $k \geq 2$: functions on ordered $(k+1)$-tuples of vertices that form a directed path in $G$, with the alternating convention.
 
-We want to know whether there exists some function $\psi$ such that
+The coboundary operator $\delta : C^k(G) \to C^{k+1}(G)$ is defined by the same formula as in Definition 6.4, restricted to the paths that exist in $G$.
 
-$$
-D=\delta\psi.
-$$
+**Remark 6.22.** In the graph case, the formula for $\delta D$ on a directed triangle $(b_0, b_1, b_2)$ requires the edges $(b_0, b_1)$, $(b_1, b_2)$, and $(b_0, b_2)$ to exist. If the edge $(b_0, b_2)$ does not exist, then $(\delta D)(b_0, b_1, b_2)$ is undefined. This is the key difference between the complete case and the sparse case.
 
-This is an **existence problem**.
-
-The question is not merely:
-
-> Can we calculate the debt of a particular transition?
-
-It is:
-
-> **Can all the transition debts be generated consistently from a single global potential?**
-
-This distinction becomes important when the state space has a nontrivial transition structure.
-
-For a complete pairwise space, Chapter 4 gave us a direct construction.
-
-For a more general graph or simplicial structure, we need a language for discussing:
-
-* local consistency;
-* global consistency;
-* potential-generated quantities;
-* closed structures;
-* obstructions to exactness.
-
-Cohomology provides precisely such a language.
+**Remark 6.23.** There are two conventions in the literature for the cochain complex of a directed graph. The one adopted here treats $D(v, u) = -D(u, v)$ whenever both edges exist, which corresponds to working with the **symmetric closure** of the graph. An alternative convention works only with the edges that exist and does not impose antisymmetry. We adopt the antisymmetric convention because it matches the debt axioms.
 
 ---
 
-# 6.2 From States to Transitions
+## 6.7 The discrete Poincaré lemma
 
-Let
+We now prove the main theorem of the chapter: on a strongly connected directed graph, $H^1(G; \mathbb{R}) = 0$.
 
-$$
-B
-$$
+**Theorem 6.24 (Discrete Poincaré lemma).** Let $G = (V, E)$ be a strongly connected directed graph, and let $D \in C^1(G; \mathbb{R})$ be a 1-cochain satisfying:
 
-be a set of states.
+1. **Antisymmetry:** $D(v, u) = -D(u, v)$ whenever both $(u, v)$ and $(v, u)$ are edges.
+2. **Zero circulation:** $\sum_{e \in \gamma} D(e) = 0$ for every closed directed path $\gamma$ in $G$.
 
-A potential is a function
+Then $D$ is a 1-coboundary: there exists a potential $\psi \in C^0(G; \mathbb{R})$ such that
 
-$$
-\psi:B\to\mathbb{R}.
-$$
+$$D(u, v) = \psi(v) - \psi(u)$$
 
-It assigns one number to every state.
+for every edge $(u, v) \in E$.
 
-The debt function, however, is associated with pairs of states or transitions.
+*Proof.* Choose a basepoint $s_0 \in V$. Since $G$ is strongly connected, for every $v \in V$ there exists a directed path from $s_0$ to $v$. Define
 
-For a directed transition
+$$\psi(v) := D(\gamma_{s_0 \to v}),$$
 
-$$
-b_i\to b_j,
-$$
+where $\gamma_{s_0 \to v}$ is any directed path from $s_0$ to $v$, and $D(\gamma) := \sum_{e \in \gamma} D(e)$.
 
-we assign
+We first show that $\psi$ is well-defined, i.e., independent of the choice of path. Let $\gamma_1$ and $\gamma_2$ be two paths from $s_0$ to $v$. Since $G$ is strongly connected, there exists a path $\gamma_2^{-1}$ from $v$ to $s_0$. Consider the closed path $\gamma_1 \cdot \gamma_2^{-1}$. By hypothesis 2,
 
-$$
-D(b_i,b_j).
-$$
+$$D(\gamma_1 \cdot \gamma_2^{-1}) = 0.$$
 
-Thus the two objects live at different structural levels:
+By additivity of path debt,
 
-$$
-\psi:
-\text{states}\to\mathbb{R},
-$$
+$$D(\gamma_1) + D(\gamma_2^{-1}) = 0.$$
 
-while
+Similarly, the closed path $\gamma_2 \cdot \gamma_2^{-1}$ gives
 
-$$
-D:
-\text{transitions}\to\mathbb{R}.
-$$
+$$D(\gamma_2) + D(\gamma_2^{-1}) = 0.$$
 
-This suggests that we need different spaces for objects defined on states and objects defined on transitions.
+Subtracting the two equations, $D(\gamma_1) = D(\gamma_2)$. So $\psi$ is well-defined.
 
-That is the beginning of the cochain viewpoint.
+Now let $(u, v) \in E$. Choose a path $\gamma_{s_0 \to u}$ from $s_0$ to $u$. Then $\gamma_{s_0 \to u} \cdot (u, v)$ is a path from $s_0$ to $v$. By definition of $\psi$,
 
----
+$$\psi(v) = D(\gamma_{s_0 \to u} \cdot (u, v)) = D(\gamma_{s_0 \to u}) + D(u, v) = \psi(u) + D(u, v).$$
 
-# 6.3 Cochains
+Therefore, $D(u, v) = \psi(v) - \psi(u)$. So $D = \delta\psi$ is a coboundary. $\square$
 
-A **cochain** is, roughly speaking, a function that assigns values to geometric or combinatorial objects of a specified dimension.
+**Corollary 6.25.** On a strongly connected directed graph, every 1-cocycle is a 1-coboundary. That is,
 
-For our purposes, the first two levels are enough to begin.
+$$H^1(G; \mathbb{R}) = 0.$$
 
-A **0-cochain** assigns values to states.
+*Proof.* A 1-cocycle satisfies zero circulation around every closed path (this is the cocycle condition in the graph setting). By Theorem 6.24, it is a 1-coboundary. Therefore, $Z^1(G) = B^1(G)$, and $H^1(G; \mathbb{R}) = 0$. $\square$
 
-Thus a potential
+**Remark 6.26.** Theorem 6.24 is the graph analogue of the basepoint theorem (Theorem 4.1). The basepoint construction is the same: choose a reference state and define the potential as the debt along any path from the reference. The difference is that in the graph case, we must verify that the construction is well-defined (using strong connectivity and zero circulation), whereas in the complete case, the construction is automatic.
 
-$$
-\psi:B\to\mathbb{R}
-$$
-
-can be regarded as a 0-cochain.
-
-We may write
-
-$$
-\psi\in C^0.
-$$
-
-A **1-cochain** assigns values to transitions or oriented edges.
-
-Thus a debt function can be regarded as a 1-cochain:
-
-$$
-D\in C^1.
-$$
-
-So we have the correspondence
-
-$$
-\boxed{
-\psi\in C^0
-}
-$$
-
-and
-
-$$
-\boxed{
-D\in C^1.
-}
-$$
-
-This is already a useful change in viewpoint.
-
-The potential lives on states.
-
-The debt lives on transitions.
+**Remark 6.27.** The theorem requires the graph to be **strongly connected** so that every state is reachable from the basepoint and every path can be reversed (via some path, not necessarily the edge-reverse). If the graph is not strongly connected, the construction can be applied to each strongly connected component separately, and the potential is unique up to a constant on each component.
 
 ---
 
-# 6.4 Why Orientation Matters
+## 6.8 Computations of $H^1$
 
-Suppose an edge connects two states:
+We now compute $H^1(G; \mathbb{R})$ for several concrete graphs.
 
-$$
-b_i\longrightarrow b_j.
-$$
+### Example 6.28 (Triangle with zero circulation)
 
-The reverse transition is
+Let $G$ be the directed triangle with vertices $b_1, b_2, b_3$ and edges $b_1 \to b_2$, $b_2 \to b_3$, $b_3 \to b_1$.
 
-$$
-b_j\longrightarrow b_i.
-$$
+The space $C^0(G)$ is $\mathbb{R}^3$ (one value per vertex). The space $C^1(G)$ is $\mathbb{R}^3$ (one value per edge). The coboundary $\delta : C^0 \to C^1$ is
 
-For a debt function satisfying antisymmetry,
+$$(\delta\psi)(b_1, b_2) = \psi(b_2) - \psi(b_1),$$
+$$(\delta\psi)(b_2, b_3) = \psi(b_3) - \psi(b_2),$$
+$$(\delta\psi)(b_3, b_1) = \psi(b_1) - \psi(b_3).$$
 
-$$
-D(b_j,b_i) = -D(b_i,b_j).
-$$
+The image $B^1 = \mathrm{im}(\delta)$ is the subspace of $\mathbb{R}^3$ consisting of triples $(D_{12}, D_{23}, D_{31})$ with $D_{12} + D_{23} + D_{31} = 0$. This is a 2-dimensional subspace.
 
-Thus reversing orientation reverses the sign.
+The space $C^2(G)$ is $\mathbb{R}$ (one value on the triangle). The coboundary $\delta : C^1 \to C^2$ is
 
-This is exactly the behavior expected of an oriented 1-cochain.
+$$(\delta D)(b_1, b_2, b_3) = D(b_2, b_3) - D(b_1, b_3) + D(b_1, b_2).$$
 
-For an oriented edge
+But in the directed triangle, the edge $(b_1, b_3)$ does not exist! So we must use the antisymmetry convention: $D(b_1, b_3) = -D(b_3, b_1)$. Then
 
-$$
-[b_i,b_j],
-$$
+$$(\delta D)(b_1, b_2, b_3) = D_{23} + D_{31} + D_{12}.$$
 
-we can write
+The kernel $Z^1 = \ker(\delta)$ is the subspace of $\mathbb{R}^3$ where $D_{12} + D_{23} + D_{31} = 0$. This is also a 2-dimensional subspace.
 
-$$
-D([b_i,b_j]) = -D([b_j,b_i]).
-$$
+Therefore, $Z^1 = B^1$, and
 
-The orientation is therefore not merely graphical decoration.
+$$H^1(G; \mathbb{R}) = 0.$$
 
-It is part of the algebraic structure.
+This is consistent with Corollary 6.25: the triangle is strongly connected, so $H^1 = 0$.
 
----
+### Example 6.29 (Triangle with nonzero circulation)
 
-# 6.5 The Coboundary Operator
+Now let $G$ be the same triangle, but suppose we only consider 1-cochains that are *not* required to be cocycles. For example, the 1-cochain $(1, 2, 1)$ has circulation $1 + 2 + 1 = 4 \neq 0$. This 1-cochain is not a cocycle, so it does not represent a class in $H^1$. It is simply not in $Z^1$.
 
-We now introduce the central operator.
+The point is that $H^1$ measures the obstruction *after* imposing the cocycle condition. A 1-cochain with nonzero circulation is not even a candidate for cohomology—it fails the local consistency condition.
 
-Given a 0-cochain
+### Example 6.30 (Two vertices with parallel edges)
 
-$$
-\psi,
-$$
+Let $G$ have vertices $u, v$ and two parallel edges $e_1, e_2$ from $u$ to $v$. There is no edge from $v$ to $u$.
 
-define its coboundary by
+The space $C^0(G)$ is $\mathbb{R}^2$. The space $C^1(G)$ is $\mathbb{R}^2$ (one value per edge, with no antisymmetry constraint since no reverse edges exist).
 
-$$
-(\delta\psi)(b_i,b_j) = \psi(b_j)-\psi(b_i).
-$$
+The coboundary $\delta : C^0 \to C^1$ is
 
-Thus
+$$(\delta\psi)(e_1) = \psi(v) - \psi(u), \qquad (\delta\psi)(e_2) = \psi(v) - \psi(u).$$
 
-$$
-\delta:C^0\to C^1.
-$$
+So $B^1$ is the diagonal subspace $\lbrace (a, a) : a \in \mathbb{R} \rbrace$, which is 1-dimensional.
 
-The expression
-
-$$
-\psi(b_j)-\psi(b_i)
-$$
-
-should look familiar.
-
-It is exactly the potential representation of debt from Chapter 4.
+The space $C^2(G)$ is trivial (there are no 2-simplices, since no closed paths of length 3 exist). So $Z^1 = C^1 = \mathbb{R}^2$.
 
 Therefore,
 
-$$
-\boxed{ D=\delta\psi }
-$$
+$$H^1(G; \mathbb{R}) = \frac{\mathbb{R}^2}{\lbrace (a, a) \rbrace} \cong \mathbb{R}.$$
 
-means
+This is the simplest example where $H^1 \neq 0$. The obstruction is the "parallel edge" structure: two edges between the same vertices can carry different debts, and no potential can account for both.
 
-$$
-D(b_i,b_j) = \psi(b_j)-\psi(b_i).
-$$
+**Remark 6.31.** This example shows that $H^1 \neq 0$ is possible even on a graph that is not strongly connected. The failure of strong connectivity is what allows the parallel edges to carry independent debt values.
 
-In other words:
+### Example 6.32 (Square with zero circulation)
 
-> **An exact debt function is a coboundary of a potential.**
+Let $G$ be the directed square with vertices $b_1, b_2, b_3, b_4$ and edges $b_1 \to b_2$, $b_2 \to b_3$, $b_3 \to b_4$, $b_4 \to b_1$. The square is strongly connected, so by Corollary 6.25, $H^1(G; \mathbb{R}) = 0$.
 
----
+Let us verify this by computation. The space $C^1(G)$ is $\mathbb{R}^4$. The cocycle condition is $D_{12} + D_{23} + D_{34} + D_{41} = 0$, which is 1 equation, so $Z^1$ is 3-dimensional. The coboundary $B^1$ is the image of $\delta : \mathbb{R}^4 \to \mathbb{R}^4$, which has rank 3 (the kernel is the constant functions, dimension 1). So $B^1$ is 3-dimensional. Therefore, $H^1 = 0$.
 
-# 6.6 Why Is It Called a Coboundary?
+### Example 6.33 (Complete graph on $n$ vertices)
 
-The terminology comes from the general structure of cochain complexes.
+Let $G$ be the complete directed graph on $n$ vertices. Then $G$ is strongly connected (for $n \geq 1$), so $H^1(G; \mathbb{R}) = 0$.
 
-A boundary usually moves from a higher-dimensional object to a lower-dimensional one.
+Let us verify this for $n = 3$ (the triangle), which we already did. For general $n$, the argument is the same: strong connectivity implies $H^1 = 0$.
 
-The coboundary operator goes in the opposite direction.
-
-Schematically,
-
-$$
-C^0
-\xrightarrow{\delta}
-C^1
-\xrightarrow{\delta}
-C^2
-\xrightarrow{\delta}
-C^3
-\rightarrow\cdots
-$$
-
-The precise construction depends on the underlying graph, simplicial complex, or other combinatorial structure.
-
-For the moment, the important part is the first map:
-
-$$
-C^0\xrightarrow{\delta}C^1.
-$$
-
-It converts a potential on states into differences on transitions.
+**Remark 6.34.** The pattern is clear: $H^1(G; \mathbb{R}) = 0$ whenever $G$ is strongly connected. The cohomology is nontrivial only when the graph has "holes" in the appropriate sense—parallel edges, disconnected components, or more general obstructions to strong connectivity.
 
 ---
 
-# 6.7 Example of a Coboundary
+## 6.9 Higher cohomology
 
-Let
+The cochain complex does not stop at $C^1$. The higher cohomology groups $H^k$ for $k \geq 2$ measure higher-dimensional obstructions.
 
-$$
-B=\{b_1,b_2,b_3\}
-$$
+**Definition 6.35.** The **$k$-th cohomology group** of $\mathcal{B}$ is
 
-and define
+$$H^k(\mathcal{B}; \mathbb{R}) := \frac{Z^k(\mathcal{B}; \mathbb{R})}{B^k(\mathcal{B}; \mathbb{R})}.$$
 
-$$
-\psi(b_1)=0,
-\qquad
-\psi(b_2)=2,
-\qquad
-\psi(b_3)=5.
-$$
+**Proposition 6.36.** For the complete cochain complex on a set $\mathcal{B}$, we have $H^k(\mathcal{B}; \mathbb{R}) = 0$ for all $k \geq 1$.
 
-Then
+*Proof.* The complete cochain complex on $\mathcal{B}$ is the cochain complex of the complete simplex on $\mathcal{B}$, which is contractible. By the standard computation of simplicial cohomology, $H^k = 0$ for $k \geq 1$ and $H^0 = \mathbb{R}$ (the constant functions). $\square$
 
-$$
-D=\delta\psi
-$$
+**Remark 6.37.** Proposition 6.36 says that on the complete state space, there are no higher obstructions. Every $k$-cocycle is a $k$-coboundary for $k \geq 1$. This is the cohomological statement of the fact that the complete space is "rigid"—there are no holes of any dimension.
 
-gives
-
-$$
-D(b_1,b_2)=2,
-$$
-
-$$
-D(b_2,b_3)=3,
-$$
-
-and
-
-$$
-D(b_1,b_3)=5.
-$$
-
-Reversing the edges gives
-
-$$
-D(b_2,b_1)=-2,
-$$
-
-$$
-D(b_3,b_2)=-3,
-$$
-
-and
-
-$$
-D(b_3,b_1)=-5.
-$$
-
-The entire transition structure was generated from the three potential values.
-
-Because adding a constant to $\psi$ changes none of these differences, only potential differences matter.
+**Remark 6.38.** On a sparse graph, the higher cohomology groups $H^k(G; \mathbb{R})$ for $k \geq 2$ can be nontrivial. These measure higher-dimensional obstructions—for example, the failure of a 2-cocycle to be a 2-coboundary. We do not develop the higher theory in detail here; the reader is referred to the standard literature on simplicial cohomology.
 
 ---
 
-# 6.8 Exact Cochains
+## 6.10 Summary
 
-A 1-cochain $D$ is called **exact** if there exists a 0-cochain $\psi$ such that
+This chapter developed the full cohomological framework for debt.
 
-$$
-D=\delta\psi.
-$$
+**The cochain complex.** For each $k \geq 0$, the space $C^k(\mathcal{B}; \mathbb{R})$ consists of real-valued functions on $(k+1)$-tuples of states. The coboundary operator $\delta : C^k \to C^{k+1}$ is defined by the alternating sum formula.
 
-Thus,
+**The fundamental identity.** $\delta^2 = 0$ (Theorem 6.7). This is the algebraic foundation of the entire theory.
 
-$$
-\boxed{
-D\text{ exact}
-\iff
-\exists\psi\text{ such that }D=\delta\psi.
-}
-$$
+**Cocycles, coboundaries, cohomology.** A $k$-cocycle is a $k$-cochain with $\delta\omega = 0$. A $k$-coboundary is a $k$-cochain of the form $\delta\eta$. The $k$-th cohomology group is $H^k = Z^k / B^k$.
 
-For HST, this means:
+**Additivity is the cocycle condition.** A 1-cochain $D$ satisfies additivity if and only if $\delta D = 0$ (Proposition 6.16). This connects the debt axioms to the cochain complex.
 
-> Debt is exact when it can be generated globally from a scalar potential over the state space.
+**The discrete Poincaré lemma.** On a strongly connected directed graph, every 1-cocycle is a 1-coboundary, so $H^1(G; \mathbb{R}) = 0$ (Theorem 6.24).
 
-This is precisely the property established in Chapter 4 for the complete pairwise setting.
+**Computations.** We computed $H^1$ for the triangle ($0$), the square ($0$), the complete graph ($0$), and the graph with parallel edges ($\mathbb{R}$).
+
+**Higher cohomology.** On the complete space, $H^k = 0$ for all $k \geq 1$. On sparse graphs, the higher cohomology groups can be nontrivial.
+
+The central idea of the chapter can be summarized as:
+
+$$\boxed{\text{Debt is a 1-cochain; exactness is the statement } D = \delta\psi; \text{ the obstruction is } H^1.}$$
 
 ---
 
-# 6.9 Why Exactness Matters
+## 6.11 Exercises
 
-Suppose
+**Exercise 6.1 — The coboundary operator.** Write out the formula for $\delta : C^2 \to C^3$ explicitly. Verify that $(\delta\Omega)(b_0, b_1, b_2, b_3)$ is an alternating function of its arguments.
 
-$$
-D=\delta\psi.
-$$
+**Exercise 6.2 — Verify $\delta^2 = 0$ for $k = 1$.** Let $D \in C^1$. Compute $(\delta(\delta D))(b_0, b_1, b_2, b_3)$ explicitly and verify that it equals zero.
 
-Consider a path
+**Exercise 6.3 — Additivity and cocycles.** Prove that a 1-cochain $D$ satisfies additivity if and only if $(\delta D)(b_0, b_1, b_2) = 0$ for all triples $(b_0, b_1, b_2)$.
 
-$$
-\gamma=(b_0,b_1,\ldots,b_n).
-$$
+**Exercise 6.4 — Antisymmetry and coboundaries.** Prove that if $D = \delta\psi$ for some $\psi \in C^0$, then $D$ is antisymmetric.
 
-Its total debt is
+**Exercise 6.5 — The triangle.** Let $G$ be the directed triangle. Compute $Z^1(G)$, $B^1(G)$, and $H^1(G; \mathbb{R})$ explicitly.
 
-$$
-D(\gamma) = \sum_{k=0}^{n-1} D(b_k,b_{k+1}).
-$$
+**Exercise 6.6 — Parallel edges.** Let $G$ have two vertices and two parallel edges from $u$ to $v$. Compute $H^1(G; \mathbb{R})$ explicitly. Give an example of a 1-cocycle that is not a 1-coboundary.
 
-Substituting
+**Exercise 6.7 — The square.** Let $G$ be the directed square with vertices $b_1, b_2, b_3, b_4$ and edges $b_1 \to b_2 \to b_3 \to b_4 \to b_1$. Compute $Z^1(G)$, $B^1(G)$, and $H^1(G; \mathbb{R})$.
 
-$$
-D(b_k,b_{k+1}) = \psi(b_{k+1})-\psi(b_k),
-$$
+**Exercise 6.8 — Strong connectivity.** Prove that if $G$ is strongly connected, then for every $u, v \in V$, there exists a path from $u$ to $v$. Use this to complete the proof of Theorem 6.24.
 
-we obtain
+**Exercise 6.9 — Disconnected graphs.** Let $G$ have two strongly connected components with no edges between them. Compute $H^1(G; \mathbb{R})$. What is the dimension of $H^1$ in terms of the number of components?
 
-$$
-D(\gamma) = \sum_{k=0}^{n-1} \left[ \psi(b_{k+1})-\psi(b_k) \right].
-$$
+**Exercise 6.10 — Higher cohomology.** Prove that on the complete state space with $n$ states, $H^k = 0$ for all $k \geq 1$. (Hint: use the fact that the complete simplex is contractible.)
 
-The sum telescopes:
+**Exercise 6.11 — Conceptual question.** Explain why $H^1$ measures the obstruction to exactness. Why is it a quotient, rather than just the kernel of $\delta$?
 
-$$
-D(\gamma) = \psi(b_n)-\psi(b_0).
-$$
-
-Therefore the path debt depends only on its endpoints.
-
-This is the cohomological language behind the path-independence result of Chapter 4.
-
----
-
-# 6.10 Closed Paths
-
-Now consider a closed path:
-
-$$
-b_0\to b_1\to\cdots\to b_n=b_0.
-$$
-
-If $D$ is exact, then
-
-$$
-D(\gamma) = \psi(b_n)-\psi(b_0).
-$$
-
-Since
-
-$$
-b_n=b_0,
-$$
-
-we obtain
-
-$$
-D(\gamma)=0.
-$$
-
-Therefore,
-
-$$
-\boxed{
-\text{exact}
-\Longrightarrow
-\text{zero debt around closed paths}.
-}
-$$
-
-This is one of the most important structural consequences of exactness.
-
----
-
-# 6.11 From Paths to Higher-Dimensional Structures
-
-So far we have discussed states and edges.
-
-But cohomology becomes interesting when we also consider higher-dimensional objects.
-
-For example, suppose we have three states
-
-$$
-b_i,\quad b_j,\quad b_k.
-$$
-
-They can form a triangle:
-
-$$
-[b_i,b_j,b_k].
-$$
-
-The three oriented edges form its boundary.
-
-Schematically,
-
-$$
-[b_i,b_j,b_k]
-\longrightarrow
-[b_i,b_j]
-+
-[b_j,b_k]
-+
-[b_k,b_i].
-$$
-
-The precise sign convention depends on the chosen orientation.
-
-The important idea is that a 2-dimensional object has a boundary consisting of 1-dimensional objects.
-
-This allows us to define a second coboundary operator
-
-$$
-\delta:C^1\to C^2.
-$$
-
-Now the cochain sequence becomes
-
-$$
-C^0
-\xrightarrow{\delta}
-C^1
-\xrightarrow{\delta}
-C^2.
-$$
-
-This is where the relation between local consistency and global exactness becomes clearer.
-
----
-
-# 6.12 The Fundamental Identity $\delta^2=0$
-
-A central property of the coboundary operator is
-
-$$
-\boxed{
-\delta^2=0.
-}
-$$
-
-This means that if we start with a 0-cochain,
-
-$$
-\psi\in C^0,
-$$
-
-then
-
-$$
-\delta\psi\in C^1,
-$$
-
-and applying $\delta$ again gives
-
-$$
-\delta(\delta\psi)=0.
-$$
-
-Symbolically,
-
-$$
-C^0
-\xrightarrow{\delta}
-C^1
-\xrightarrow{\delta}
-C^2
-$$
-
-satisfies
-
-$$
-\boxed{
-\delta\circ\delta=0.
-}
-$$
-
-This identity is the algebraic foundation of cohomology.
-
----
-
-# 6.13 Verifying $\delta^2=0$ for a Potential
-
-Let
-
-$$
-D=\delta\psi.
-$$
-
-For three states $b_i,b_j,b_k$, the corresponding 2-dimensional coboundary evaluates schematically as
-
-$$
-(\delta D)(b_i,b_j,b_k) = D(b_i,b_j) + D(b_j,b_k) + D(b_k,b_i).
-$$
-
-Substituting
-
-$$
-D(b_i,b_j) = \psi(b_j)-\psi(b_i),
-$$
-
-we obtain
-
-$$
-\begin{aligned}
-(\delta D)(b_i,b_j,b_k)
-&=
-[\psi(b_j)-\psi(b_i)]
-\\
-&\quad+
-[\psi(b_k)-\psi(b_j)]
-\\
-&\quad+
-[\psi(b_i)-\psi(b_k)].
-\end{aligned}
-$$
-
-Everything cancels:
-
-$$
-(\delta D)(b_i,b_j,b_k)=0.
-$$
-
-Therefore,
-
-$$
-\delta(\delta\psi)=0.
-$$
-
-This is the concrete meaning of
-
-$$
-\delta^2=0
-$$
-
-in this setting.
-
----
-
-# 6.14 Cocycles
-
-We can now define a **cocycle**.
-
-A 1-cochain $D$ is a 1-cocycle if
-
-$$
-\delta D=0.
-$$
-
-Thus,
-
-$$
-\boxed{
-D\in Z^1
-\iff
-\delta D=0.
-}
-$$
-
-The notation
-
-$$
-Z^1
-$$
-
-is commonly used for the space of 1-cocycles.
-
-The condition says that $D$ satisfies the appropriate local consistency relation.
-
-In the triangle example,
-
-$$
-D(b_i,b_j) + D(b_j,b_k) + D(b_k,b_i) = 0.
-$$
-
-This can be interpreted as zero circulation around the oriented boundary of the triangle.
-
----
-
-# 6.15 Every Exact Cochain Is a Cocycle
-
-We have already established
-
-$$
-D=\delta\psi.
-$$
-
-Applying $\delta$ gives
-
-$$
-\delta D = \delta(\delta\psi).
-$$
-
-Because
-
-$$
-\delta^2=0,
-$$
-
-we obtain
-
-$$
-\delta D=0.
-$$
-
-Therefore,
-
-$$
-\boxed{
-\text{exact}
-\Longrightarrow
-\text{cocycle}.
-}
-$$
-
-In symbols,
-
-$$
-B^1\subseteq Z^1,
-$$
-
-where
-
-$$
-B^1=\mathrm{im}\delta
-$$
-
-is the space of 1-coboundaries.
-
-This inclusion is automatic.
-
-The interesting question is whether the inclusion is strict.
-
----
-
-# 6.16 Exact Versus Closed
-
-We can now introduce the basic distinction.
-
-An exact 1-cochain has the form
-
-$$
-D=\delta\psi.
-$$
-
-A cocycle satisfies
-
-$$
-\delta D=0.
-$$
-
-Therefore,
-
-$$
-\boxed{
-\text{exact}\Rightarrow\text{closed}.
-}
-$$
-
-But in general,
-
-$$
-\boxed{
-\text{closed}\not\Rightarrow\text{exact}.
-}
-$$
-
-This is the central phenomenon that cohomology measures.
-
-A structure may satisfy every local consistency condition while still failing to arise globally from a single potential.
-
-The failure of the converse is where topology and global structure enter.
-
----
-
-# 6.17 A Simple Intuition
-
-Imagine walking around a complicated space.
-
-At each local step, everything appears consistent.
-
-You measure a quantity along every edge.
-
-Every elementary consistency condition is satisfied.
-
-Yet after traveling around a large loop, you may return to the starting point with a nonzero accumulated quantity.
-
-Then the local data cannot be represented globally by a single-valued potential.
-
-This is the basic intuition behind a nontrivial cohomology class.
-
-The exact mathematical behavior depends on the underlying structure.
-
----
-
-# 6.18 Cohomology
-
-We can now define the first cohomology group.
-
-The first cohomology group is
-
-$$
-\boxed{ H^1 = \frac{Z^1}{B^1}. }
-$$
-
-Equivalently,
-
-$$
-\boxed{ H^1 = \frac{\ker\delta:C^1\to C^2} {\mathrm{im}\delta:C^0\to C^1}. }
-$$
-
-The numerator consists of cocycles.
-
-The denominator consists of exact 1-cochains.
-
-Thus two cocycles are considered equivalent when they differ by an exact cochain.
-
----
-
-# 6.19 What Does $H^1$ Measure?
-
-The most useful interpretation for our purposes is:
-
-> **$H^1$ measures the obstruction to turning a closed 1-cochain into a global potential difference.**
-
-If
-
-$$
-H^1=0,
-$$
-
-then every 1-cocycle is exact.
-
-Therefore,
-
-$$
-\delta D=0
-\quad\Longrightarrow\quad
-D=\delta\psi.
-$$
-
-If
-
-$$
-H^1\neq0,
-$$
-
-then there exist cocycles that are not coboundaries.
-
-Those structures satisfy the local consistency condition but cannot be globally generated by a potential.
-
-This is the mathematical distinction between **closed** and **exact**.
-
----
-
-# 6.20 Why the Quotient Appears
-
-Suppose
-
-$$
-D_1
-$$
-
-and
-
-$$
-D_2
-$$
-
-are two cocycles.
-
-Suppose their difference is exact:
-
-$$
-D_1-D_2=\delta\psi.
-$$
-
-Then they differ only by something generated from a potential.
-
-Cohomology regards them as belonging to the same cohomology class.
-
-Thus $H^1$ does not keep track of every possible representative.
-
-It keeps track of the part that cannot be removed by changing the potential.
-
-Symbolically,
-
-$$
-[D_1]=[D_2]
-$$
-
-when
-
-$$
-D_1-D_2\in B^1.
-$$
-
----
-
-# 6.21 Relation to Gauge Freedom
-
-There is a useful connection with the gauge freedom already encountered.
-
-If
-
-$$
-\psi
-$$
-
-is replaced by
-
-$$
-\psi+c,
-$$
-
-then
-
-$$
-\delta(\psi+c)=\delta\psi.
-$$
-
-Therefore, the potential itself is not uniquely observable through debt.
-
-The debt sees only differences.
-
-This is a simple gauge freedom.
-
-Cohomology goes further.
-
-It asks whether the entire transition structure can be explained by **any** potential at all.
-
-Thus there are two different questions:
-
-### Gauge question
-
-How many potentials produce the same exact debt?
-
-Answer:
-
-$$
-\psi\sim\psi+c.
-$$
-
-### Cohomological question
-
-Does a potential exist that generates the debt?
-
-Answer:
-
-This depends on whether the relevant cocycle is exact.
-
----
-
-# 6.22 Complete Spaces Revisited
-
-We can now reinterpret the previous chapters.
-
-On the complete pairwise state space, we constructed
-
-$$
-\psi(b)=D(s_0,b).
-$$
-
-Then
-
-$$
-D(b_i,b_j) = \psi(b_j)-\psi(b_i).
-$$
-
-Thus every debt function satisfying the Chapter 3 structure is exact.
-
-The cohomological language does not replace the basepoint theorem.
-
-It explains the theorem from a broader structural perspective.
-
-The basepoint theorem gives an explicit construction.
-
-Cohomology gives a language for asking when such a construction is possible in more general spaces.
-
----
-
-# 6.23 Sparse Structures
-
-Now consider a directed graph
-
-$$
-G=(V,E).
-$$
-
-Suppose the debt is defined only on edges:
-
-$$
-D:E\to\mathbb{R}.
-$$
-
-The potential question becomes:
-
-> Does there exist $\psi:V\to\mathbb{R}$ such that
-
-$$
-D(u,v)=\psi(v)-\psi(u)
-$$
-
-for every edge $(u,v)\in E$?
-
-This is no longer automatically true.
-
-The answer depends on the structure of the graph and on the consistency of the edge values.
-
-In particular, cycles become important.
-
----
-
-# 6.24 A Cycle as an Obstruction
-
-Consider the directed cycle
-
-$$
-b_1\to b_2\to b_3\to b_1.
-$$
-
-Suppose
-
-$$
-D(b_1,b_2)=1,
-$$
-
-$$
-D(b_2,b_3)=2,
-$$
-
-and
-
-$$
-D(b_3,b_1)=-3.
-$$
-
-Then
-
-$$
-1+2-3=0.
-$$
-
-The cycle has zero total debt.
-
-This is consistent with a potential representation.
-
-Indeed, choose
-
-$$
-\psi(b_1)=0.
-$$
-
-Then
-
-$$
-\psi(b_2)=1,
-$$
-
-and
-
-$$
-\psi(b_3)=3.
-$$
-
-The final edge requires
-
-$$
-\psi(b_1)-\psi(b_3)
-=
--3,
-$$
-
-which is satisfied.
-
-Now change the final debt to
-
-$$
-D(b_3,b_1)=1.
-$$
-
-Then
-
-$$
-1+2+1=4.
-$$
-
-The cycle has nonzero debt.
-
-A global potential cannot satisfy all three edge equations simultaneously.
-
-The cycle therefore detects the obstruction.
-
----
-
-# 6.25 Local and Global Consistency
-
-This suggests an important distinction.
-
-A condition may hold locally without guaranteeing global exactness.
-
-For example, every small piece of a structure may satisfy a consistency relation, while a larger loop may still carry a nontrivial obstruction.
-
-Cohomology is designed to capture this distinction.
-
-Very roughly:
-
-$$
-\boxed{
-\text{local consistency}
-\neq
-\text{global potential}
-}
-$$
-
-in general.
-
-The precise relationship depends on the topology and combinatorial structure under consideration.
-
----
-
-# 6.26 A Word About Topology
-
-Cohomology is closely related to topology because the existence of global potentials can depend on the shape of the underlying space.
-
-Two spaces can have locally similar structures but different global properties.
-
-For example, a space containing a genuine loop that cannot be continuously contracted away can support global structures that have no global potential representation.
-
-We do not need to develop algebraic topology in full here.
-
-For the purposes of HST, the important idea is:
-
-> **Global structure can create obstructions that are invisible from purely local equations.**
-
-This is precisely the kind of phenomenon that motivates the use of cohomology.
-
----
-
-# 6.27 Cohomological Vocabulary for HST
-
-We can now translate our previous terminology.
-
-| HST object                  | Cohomological language                 |
-| --------------------------- | -------------------------------------- |
-| Potential $\psi$            | 0-cochain                              |
-| Debt $D$                    | 1-cochain                              |
-| $D=\delta\psi$              | $D$ is exact                           |
-| $\delta D=0$                | $D$ is a cocycle                       |
-| $\delta^2=0$                | Coboundaries are cocycles              |
-| $H^1$                       | Obstruction classes modulo exact terms |
-| Additive constant in $\psi$ | Gauge freedom                          |
-
-This table is not intended to replace the definitions.
-
-It is a dictionary between the language developed in previous chapters and the new language introduced here.
-
----
-
-# 6.28 What Cohomology Adds
-
-The previous chapters already gave us a powerful result:
-
-$$
-D(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
-$$
-
-Why introduce all this additional machinery?
-
-Because the potential representation answers the problem only when exactness is available.
-
-Cohomology lets us ask a broader class of questions:
-
-* What if the state space is sparse?
-* What if only certain transitions exist?
-* What if there are nontrivial cycles?
-* What if local consistency holds but global exactness fails?
-* How many distinct obstructions exist?
-* Can different debt structures differ only by an exact correction?
-* What information is genuinely global rather than potential-generated?
-
-These questions cannot be answered merely by writing down a potential in advance.
-
----
-
-# 6.29 The Role of $H^1$
-
-The first cohomology group therefore becomes a diagnostic object.
-
-If
-
-$$
-H^1=0,
-$$
-
-then there are no nontrivial first-order cohomological obstructions.
-
-Every cocycle is exact.
-
-If
-
-$$
-H^1\neq0,
-$$
-
-then there are nontrivial classes.
-
-Some closed structures cannot be reduced to global potential differences.
-
-Thus the transition
-
-$$
-H^1=0
-\quad\longrightarrow\quad
-H^1\neq0
-$$
-
-marks a qualitative change in the mathematical structure.
-
----
-
-# 6.30 What We Should Not Conclude Yet
-
-It is important not to overinterpret the cohomological language.
-
-We have not yet developed:
-
-* a complete theory of graph cohomology;
-* the precise relationship between directed graphs and simplicial complexes;
-* relative cohomology;
-* homology;
-* higher-dimensional cochains;
-* computational methods for $H^1$;
-* the conditions under which zero circulation is sufficient for exactness in every directed setting.
-
-Those are separate mathematical questions.
-
-For now, we have introduced the basic language needed to investigate them rigorously.
-
----
-
-# 6.31 Summary
-
-We introduced the basic cohomological framework.
-
-A potential is a 0-cochain:
-
-$$
-\psi\in C^0.
-$$
-
-A debt function is naturally represented as a 1-cochain:
-
-$$
-D\in C^1.
-$$
-
-The coboundary operator maps potentials to transition differences:
-
-$$
-\delta:C^0\to C^1,
-$$
-
-with
-
-$$
-(\delta\psi)(b_i,b_j)
-=
-\psi(b_j)-\psi(b_i).
-$$
-
-A debt function is exact when
-
-$$
-D=\delta\psi.
-$$
-
-The next coboundary operator gives
-
-$$
-\delta:C^1\to C^2.
-$$
-
-The fundamental identity is
-
-$$
-\boxed{\delta^2=0}.
-$$
-
-Therefore every exact 1-cochain is a cocycle:
-
-$$
-\boxed{
-\text{exact}\Rightarrow\text{cocycle}.
-}
-$$
-
-The first cohomology group is
-
-$$
-\boxed{
-H^1=\frac{Z^1}{B^1}.
-}
-$$
-
-It measures, in a precise algebraic sense, the difference between closed and exact structures.
-
-For HST, the central interpretation is:
-
-$$
-\boxed{
-\text{Debt is a 1-cochain.}
-}
-$$
-
-When
-
-$$
-D=\delta\psi,
-$$
-
-the debt is generated by a global potential and is therefore exact.
-
-When a closed structure is not exact, cohomology provides a framework for describing the resulting obstruction.
-
----
-
-# Exercises
-
-## Exercise 6.1 — Identify the Cochains
-
-For each object, determine whether it is naturally a 0-cochain or a 1-cochain:
-
-1. a function assigning a value to every state;
-2. a function assigning a value to every directed edge;
-3. a potential $\psi$;
-4. a debt function $D$.
-
-Explain your answers.
-
----
-
-## Exercise 6.2 — Compute a Coboundary
-
-Let
-
-$$
-\psi(b_1)=1,
-\qquad
-\psi(b_2)=4,
-\qquad
-\psi(b_3)=9.
-$$
-
-Compute
-
-$$
-(\delta\psi)(b_1,b_2),
-$$
-
-$$
-(\delta\psi)(b_2,b_3),
-$$
-
-and
-
-$$
-(\delta\psi)(b_1,b_3).
-$$
-
----
-
-## Exercise 6.3 — Gauge Freedom
-
-Let
-
-$$
-\widetilde{\psi}=\psi+c.
-$$
-
-Prove directly that
-
-$$
-\delta\widetilde{\psi}
-=
-\delta\psi.
-$$
-
-Explain why this corresponds to the nonuniqueness of potentials.
-
----
-
-## Exercise 6.4 — Exact Debt
-
-Suppose
-
-$$
-D(b_i,b_j)=\psi(b_j)-\psi(b_i).
-$$
-
-Show that $D$ is exact.
-
-What is the corresponding 0-cochain?
-
----
-
-## Exercise 6.5 — Closed Triangle
-
-Suppose
-
-$$
-D(b_1,b_2)=2,
-$$
-
-$$
-D(b_2,b_3)=3,
-$$
-
-and
-
-$$
-D(b_3,b_1)=-5.
-$$
-
-Compute
-
-$$
-D(b_1,b_2)+D(b_2,b_3)+D(b_3,b_1).
-$$
-
-What does the result suggest about the existence of a potential?
-
----
-
-## Exercise 6.6 — Nonzero Circulation
-
-Suppose
-
-$$
-D(b_1,b_2)=2,
-$$
-
-$$
-D(b_2,b_3)=3,
-$$
-
-and
-
-$$
-D(b_3,b_1)=1.
-$$
-
-Compute the circulation around the triangle.
-
-Can $D$ be represented as
-
-$$
-D(b_i,b_j)=\psi(b_j)-\psi(b_i)?
-$$
-
-Explain.
-
----
-
-## Exercise 6.7 — Verify $\delta^2=0$
-
-Let
-
-$$
-\psi(b_1)=a,
-\qquad
-\psi(b_2)=b,
-\qquad
-\psi(b_3)=c.
-$$
-
-Compute
-
-$$
-\delta(\delta\psi)
-$$
-
-on the triangle $(b_1,b_2,b_3)$ and verify that it equals zero.
-
----
-
-## Exercise 6.8 — Exact Implies Cocycle
-
-Suppose
-
-$$
-D=\delta\psi.
-$$
-
-Use
-
-$$
-\delta^2=0
-$$
-
-to prove that
-
-$$
-\delta D=0.
-$$
-
-Explain why this establishes
-
-$$
-B^1\subseteq Z^1.
-$$
-
----
-
-## Exercise 6.9 — Exact or Not?
-
-Consider the directed cycle
-
-$$
-b_1\to b_2\to b_3\to b_1
-$$
-
-with
-
-$$
-D(b_1,b_2)=4,
-$$
-
-$$
-D(b_2,b_3)=-1,
-$$
-
-and
-
-$$
-D(b_3,b_1)=-3.
-$$
-
-Determine whether the total cycle debt is zero.
-
-Construct a potential if possible.
-
----
-
-## Exercise 6.10 — Potential Reconstruction
-
-Choose
-
-$$
-\psi(b_1)=0.
-$$
-
-Suppose
-
-$$
-D(b_1,b_2)=3,
-$$
-
-$$
-D(b_2,b_3)=4,
-$$
-
-and
-
-$$
-D(b_3,b_4)=-2.
-$$
-
-Construct a potential on
-
-$$
-\{b_1,b_2,b_3,b_4\}.
-$$
-
-Then compute
-
-$$
-D(b_1,b_4).
-$$
-
----
-
-## Exercise 6.11 — Closed Versus Exact
-
-Explain in your own words the difference between:
-
-$$
-\delta D=0
-$$
-
-and
-
-$$
-D=\delta\psi.
-$$
-
-Which condition is stronger?
-
----
-
-## Exercise 6.12 — Cohomology
-
-Explain the meaning of
-
-$$
-H^1=\frac{Z^1}{B^1}.
-$$
-
-What mathematical information is lost when we identify two cocycles that differ by an exact cochain?
-
----
-
-## Exercise 6.13 — Complete State Space
-
-Explain why the basepoint construction from Chapter 4 gives an explicit potential for the complete pairwise debt structure.
-
-How does this relate to exactness?
-
----
-
-## Exercise 6.14 — Conceptual Question
-
-Why might a local consistency condition fail to guarantee the existence of a global potential?
-
-Give an example involving a cycle.
-
----
-
-## Exercise 6.15 — HST Interpretation
-
-In the language of HST, explain the following statement:
-
-> “Epistemic debt can be represented as a 1-cochain, while a potential represents a 0-cochain whose coboundary generates the debt.”
-
-What new questions become possible once debt is viewed this way?
+**Exercise 6.12 — Gauge freedom and cohomology.** Explain the relationship between the gauge freedom $\psi \mapsto \psi + c$ and the cohomology group $H^0$. What is $H^0(\mathcal{B}; \mathbb{R})$ for a connected space?
