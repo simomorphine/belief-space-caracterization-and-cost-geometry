@@ -320,10 +320,8 @@ The $\gamma$-geometry is the study of how the geometry of belief space depends o
 
 **Exercise 11.11 (Reflection question).** Is the $\gamma$-deformation a *continuous deformation* of geometries, or a *bifurcation*? Write a short essay (one page) arguing for your position.
 
----
 
-*In the next chapter, we begin Part V by developing the polar decomposition of quasi-metrics. We show that every quasi-metric decomposes uniquely as $d = S + \frac{1}{2}A$, where $S$ is a symmetric pseudometric and $A$ is an antisymmetric 2-form. This decomposition is the foundation for the topology lattice of Chapters 13–14.*
 
----
+
 
 **End of Chapter 11.**
