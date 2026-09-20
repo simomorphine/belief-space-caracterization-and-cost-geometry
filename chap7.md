@@ -102,7 +102,7 @@ $$\mathrm{Re} Q(b_i, b_j) = d(b_i, b_j), \qquad \mathrm{Im} Q(b_i, b_j) = D(b_i,
 
 **Remark 7.5.** Property 4 implies property 3, since $\psi(b_j) - \psi(b_i)$ is automatically antisymmetric in $(b_i, b_j)$. They are listed separately for convenience.
 
-Thus the diagonal of $Q$ is zero, and all finite transitions lie in the closed right half-plane $\operatorname{Re} Q \geq 0$.
+Thus the diagonal of $Q$ is zero, and all finite transitions lie in the closed right half-plane $\mathrm{Re} Q \geq 0$.
 
 ---
 
