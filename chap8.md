@@ -1,72 +1,76 @@
-# Chapter 7: The Modulus is a Metric
+# Chapter 8: The Modulus as a Quasi-Metric
 
 ---
 
-In Chapter 6, we introduced the complex quasi-metric $Q = d + iD$ and proved that its modulus $|Q|$ satisfies the triangle inequality. This chapter develops the metric properties of $|Q|$ in full.
+In Chapter 7, we introduced the complex quasi-metric $Q = d + iD$ and proved that its modulus $|Q|$ satisfies the triangle inequality. This chapter develops the metric properties of $|Q|$ in full and introduces the topological structure it induces.
 
-The central theme is the following: **the modulus repairs what the real part lacks.** The energy quasi-metric $d$ may be asymmetric; the modulus $|Q|$ is symmetric whenever $d$ is symmetric, and satisfies the triangle inequality always. The modulus is the "metric completion" of the complex quasi-metric—the observable that behaves like a genuine distance.
+The central theme is the following: **the modulus repairs what the real part lacks—but only partially.** The energy quasi-metric $d$ may be asymmetric; the modulus $|Q|$ is symmetric whenever $d$ is symmetric, and satisfies the triangle inequality always. But the modulus does *not* repair the asymmetry of $d$: if $d$ is asymmetric, then $|Q|$ is a quasi-metric, not a metric.
 
-This chapter is the bridge between the complex structure of $Q$ and the geometric/topological structure that follows in Parts IV and V.
+This chapter is the bridge between the complex structure of $Q$ and the topological structure that follows in Parts IV and V. The main new contributions are:
+
+1. The bounded distortion inequality: $d \le |Q| \le d + |D|$.
+2. The metric topology $\tau_{|Q|}$.
+3. The metric completion $\overline{\mathcal{B}}$.
+4. The sharpness/equality condition for the triangle inequality.
+5. The systematic statement of metric properties.
+
+**Remark 8.0 (Relation to Chapter 7).** Chapter 7 already established the triangle inequality for $|Q|$ and the conditions under which $|Q|$ is a metric. This chapter does not repeat those proofs in full; it cross-references them and focuses on the new content. The reader who wants only the triangle inequality can read Chapter 7, Theorem 7.8. The reader who wants the full metric structure should read both chapters.
 
 ---
 
-## 7.1 The triangle inequality in detail
+## 8.1 The triangle inequality: summary
 
-We begin by revisiting the proof of the triangle inequality for $|Q|$, with all details made explicit.
+We begin by recalling the triangle inequality for $|Q|$ and stating the equality condition, which is new.
 
-**Theorem 7.1 (Triangle inequality for $|Q|$).** For all $b_i, b_j, b_k \in \mathcal{B}$,
+**Theorem 8.1 (Triangle inequality for $|Q|$).** For all $b_i, b_j, b_k \in \mathcal{B}$,
 
 $$|Q(b_i, b_k)| \le |Q(b_i, b_j)| + |Q(b_j, b_k)|.$$
 
-*Proof.* We prove this in three steps.
+*Proof.* See Chapter 7, Theorem 7.8. The proof uses the triangle inequality for $d$, the additivity of $D$, and Minkowski's inequality in $\mathbb{R}^2$. $\square$
 
-**Step 1: Reduction to $\mathbb{R}^2$.** Define vectors $u, v, w \in \mathbb{R}^2$ by
+**Remark 8.2.** The triangle inequality for $|Q|$ uses only two properties: the triangle inequality for $d$ and the additivity of $D$. Symmetry of $d$ is *not* used. The modulus satisfies the triangle inequality regardless of whether $d$ is symmetric.
 
-$$u := (d(b_i, b_j), D(b_i, b_j)), \quad v := (d(b_j, b_k), D(b_j, b_k)), \quad w := u + v = (d(b_i, b_j) + d(b_j, b_k), D(b_i, b_j) + D(b_j, b_k)).$$
+**Remark 8.3.** The proof is the standard proof that a norm on a product is a norm. Specifically, the map $(d, D) \mapsto |Q|$ is the Euclidean norm on $\mathbb{R}^2$, and the triangle inequality for $|Q|$ is the triangle inequality for the Euclidean norm, transported through the map $(b_i, b_j) \mapsto (d(b_i, b_j), D(b_i, b_j))$.
 
-Then $|Q(b_i, b_j)| = \|u\|_2$, $|Q(b_j, b_k)| = \|v\|_2$, and $\|w\|_2 = \sqrt{(d(b_i, b_j) + d(b_j, b_k))^2 + (D(b_i, b_j) + D(b_j, b_k))^2}$.
+### The equality condition
 
-**Step 2: Comparison with $|Q(b_i, b_k)|$.** We have
+We now analyze when the triangle inequality is sharp.
 
-$$|Q(b_i, b_k)|^2 = d(b_i, b_k)^2 + D(b_i, b_k)^2.$$
+**Theorem 8.4 (Equality condition).** For $b_i, b_j, b_k \in \mathcal{B}$ with $Q(b_i, b_j) \neq 0$ and $Q(b_j, b_k) \neq 0$, the equality
 
-By the triangle inequality for $d$:
+$$|Q(b_i, b_k)| = |Q(b_i, b_j)| + |Q(b_j, b_k)|$$
 
-$$d(b_i, b_k) \le d(b_i, b_j) + d(b_j, b_k).$$
+holds if and only if there exists $\lambda > 0$ such that
 
-By additivity of $D$:
+$$d(b_i, b_j) = \lambda \, d(b_j, b_k) \quad \text{and} \quad D(b_i, b_j) = \lambda \, D(b_j, b_k).$$
 
-$$D(b_i, b_k) = D(b_i, b_j) + D(b_j, b_k).$$
+Equivalently, the vectors $(d(b_i, b_j), D(b_i, b_j))$ and $(d(b_j, b_k), D(b_j, b_k))$ are non-negative scalar multiples of each other.
 
-Both quantities are non-negative (the second after squaring). Hence
+*Proof.* This is the equality condition for Minkowski's inequality in $\mathbb{R}^2$. Equality holds if and only if the two vectors are non-negative scalar multiples of each other. $\square$
 
-$$d(b_i, b_k)^2 \le (d(b_i, b_j) + d(b_j, b_k))^2, \qquad D(b_i, b_k)^2 = (D(b_i, b_j) + D(b_j, b_k))^2.$$
+**Corollary 8.5 (Equality in the pure-cost case).** If $D = 0$ identically, then the triangle inequality for $|Q| = d$ is sharp if and only if the path through $b_j$ is optimal:
 
-Summing:
+$$d(b_i, b_k) = d(b_i, b_j) + d(b_j, b_k).$$
 
-$$|Q(b_i, b_k)|^2 \le (d(b_i, b_j) + d(b_j, b_k))^2 + (D(b_i, b_j) + D(b_j, b_k))^2 = \|w\|_2^2.$$
+**Corollary 8.6 (Equality in the pure-debt case).** If $d = 0$ identically, then $|Q| = |D|$, and the triangle inequality is sharp if and only if $D(b_i, b_j)$ and $D(b_j, b_k)$ have the same sign.
 
-**Step 3: Minkowski.** By Minkowski's inequality in $\mathbb{R}^2$:
+**Corollary 8.7 (Equality in the general case).** In general, the triangle inequality is sharp if and only if the phase $\theta$ is the same for both transitions:
 
-$$\|w\|_2 = \|u + v\|_2 \le \|u\|_2 + \|v\|_2 = |Q(b_i, b_j)| + |Q(b_j, b_k)|.$$
+$$\theta(b_i, b_j) = \theta(b_j, b_k).$$
 
-Combining steps 2 and 3:
+*Proof.* The vectors $(d(b_i, b_j), D(b_i, b_j))$ and $(d(b_j, b_k), D(b_j, b_k))$ are non-negative scalar multiples of each other if and only if they have the same phase. $\square$
 
-$$|Q(b_i, b_k)| \le \|w\|_2 \le |Q(b_i, b_j)| + |Q(b_j, b_k)|. \quad \square$$
+**Remark 8.8.** The equality condition says that the triangle inequality is sharp precisely when the two transitions lie on the same ray in the cost-debt plane. This is the discrete analogue of the statement that the Euclidean triangle inequality is sharp if and only if the two vectors are colinear and same-signed.
 
-**Remark 7.2.** The proof uses only two properties of the ingredients: the triangle inequality for $d$, and the additivity of $D$. Symmetry of $d$ is *not* used. The modulus satisfies the triangle inequality regardless of whether $d$ is symmetric.
-
-**Remark 7.3.** The proof is the standard proof that a norm on a product is a norm. Specifically, the map $(d, D) \mapsto |Q|$ is the Euclidean norm on $\mathbb{R}^2$, and the triangle inequality for $|Q|$ is the triangle inequality for the Euclidean norm, transported through the map $(b_i, b_j) \mapsto (d(b_i, b_j), D(b_i, b_j))$.
-
-**Remark 7.4.** The triangle inequality for $|Q|$ is *sharp*: equality holds if and only if the vectors $u$ and $v$ are non-negative scalar multiples of each other. In the context of belief space, this means that the path from $b_i$ to $b_k$ through $b_j$ is optimal: the cost and debt of the direct transition equal the sums of the costs and debts of the intermediate transitions.
+**Remark 8.9 (Path optimality).** The equality condition can be interpreted as a statement about path optimality: the path through $b_j$ is optimal in the modulus metric if and only if the phases of the two transitions agree. This connects to the optimization theory of Chapter 10.
 
 ---
 
-## 7.2 The modulus as a metric: full statement
+## 8.2 The modulus as a metric: full statement
 
-We now state the full metric properties of $|Q|$.
+We now state the full metric properties of $|Q|$ systematically. The proofs are assembled from results in Chapter 7 and the new results above.
 
-**Theorem 7.5 (Metric properties of $|Q|$).** Let $|Q| : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$ be the modulus of the complex quasi-metric $Q = d + iD$. Then:
+**Theorem 8.10 (Metric properties of $|Q|$).** Let $|Q| : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$ be the modulus of the complex quasi-metric $Q = d + iD$. Then:
 
 - **(M0) Identity.** $|Q|(b, b) = 0$ for all $b \in \mathcal{B}$.
 - **(M1) Non-negativity.** $|Q|(b_i, b_j) \ge 0$ for all $b_i, b_j \in \mathcal{B}$.
@@ -78,49 +82,29 @@ We now state the full metric properties of $|Q|$.
 
 - (M0) $|Q|(b, b) = \sqrt{d(b, b)^2 + D(b, b)^2} = 0$.
 - (M1) Square root of a sum of squares.
-- (M2) Theorem 7.1.
+- (M2) Theorem 8.1.
 - (M3) $|Q|(b_i, b_j)^2 - |Q|(b_j, b_i)^2 = [d(b_i, b_j)^2 - d(b_j, b_i)^2] + [D(b_i, b_j)^2 - D(b_j, b_i)^2]$. The second bracket is zero by antisymmetry. So $|Q|(b_i, b_j) = |Q|(b_j, b_i)$ iff $d(b_i, b_j) = d(b_j, b_i)$.
 - (M4) $|Q|(b_i, b_j) = 0$ iff $d(b_i, b_j)^2 + D(b_i, b_j)^2 = 0$ iff both terms are zero. $\square$
 
-**Corollary 7.6.** If $d$ is symmetric and satisfies the identity of indiscernibles, then $|Q|$ is a metric on $\mathcal{B}$.
+**Corollary 8.11.** If $d$ is symmetric and satisfies the identity of indiscernibles, then $|Q|$ is a metric on $\mathcal{B}$.
 
-**Corollary 7.7.** If $d$ is symmetric but fails the identity of indiscernibles, then $|Q|$ is a pseudometric on $\mathcal{B}$.
+**Corollary 8.12.** If $d$ is symmetric but fails the identity of indiscernibles, then $|Q|$ is a pseudometric on $\mathcal{B}$.
 
-**Corollary 7.8.** If $d$ is asymmetric, then $|Q|$ is a quasi-metric on $\mathcal{B}$ (satisfies the triangle inequality but not necessarily symmetry).
+**Corollary 8.13.** If $d$ is asymmetric, then $|Q|$ is a quasi-metric on $\mathcal{B}$ (satisfies the triangle inequality but not necessarily symmetry).
 
-**Remark 7.9.** The modulus $|Q|$ is always *at least* a quasi-metric. It is a metric exactly when $d$ is symmetric and identity-respecting. It is a pseudometric when $d$ is symmetric but not identity-respecting.
+**Remark 8.14.** The modulus $|Q|$ is always *at least* a quasi-metric. It is a metric exactly when $d$ is symmetric and identity-respecting. It is a pseudometric when $d$ is symmetric but not identity-respecting.
 
-**Remark 7.10.** The failure of symmetry of $|Q|$ is *inherited* from the failure of symmetry of $d$. The debt $D$ does not contribute to asymmetry of the modulus, because $D$ enters as $D^2$, which is symmetric. So the modulus is "as symmetric as $d$ is."
+**Remark 8.15.** The failure of symmetry of $|Q|$ is *inherited* from the failure of symmetry of $d$. The debt $D$ does not contribute to asymmetry of the modulus, because $D$ enters as $D^2$, which is symmetric. So the modulus is "as symmetric as $d$ is."
 
----
-
-## 7.3 The metric topology
-
-The modulus $|Q|$ induces a topology on $\mathcal{B}$.
-
-**Definition 7.11 (Metric ball).** The *ball of radius $r$ around $b$* is
-
-$$B(b, r) := \{b' \in \mathcal{B} : |Q|(b, b') < r\}.$$
-
-**Definition 7.12 (Metric topology).** The *metric topology* $\tau_{|Q|}$ is the topology generated by the balls $B(b, r)$ for $b \in \mathcal{B}$ and $r > 0$.
-
-**Proposition 7.13.** If $d$ is symmetric, then $\tau_{|Q|}$ is the topology induced by the pseudometric $|Q|$.
-
-**Proposition 7.14.** If $d$ is asymmetric, then $\tau_{|Q|}$ is the topology induced by the quasi-metric $|Q|$. This topology is not necessarily Hausdorff.
-
-*Proof.* The forward and backward balls $B^+(b, r) = \{b' : |Q|(b, b') < r\}$ and $B^-(b, r) = \{b' : |Q|(b', b) < r\}$ may differ. The topology generated by the forward balls is one topology; the one generated by the backward balls is another. If $d$ is asymmetric, these topologies may differ.
-
-**Remark 7.15.** The metric topology $\tau_{|Q|}$ is the "symmetrized" topology of the complex quasi-metric. It is the topology generated by the modulus, which is the observable that behaves most like a metric.
-
-**Remark 7.16.** In Part V, we will develop a finer topology structure: the *bitopological* structure generated by the forward and backward balls. This structure is richer than $\tau_{|Q|}$ and captures the asymmetry of the complex quasi-metric.
+**Remark 8.16 (The title of this chapter).** The chapter is titled "The Modulus as a Quasi-Metric" rather than "The Modulus is a Metric" because the latter would suggest an unconditional result. In fact, $|Q|$ is a metric only under additional hypotheses on $d$. The unconditional statement is that $|Q|$ is a quasi-metric.
 
 ---
 
-## 7.4 Comparison with the energy quasi-metric
+## 8.3 Bounded distortion
 
 The modulus $|Q|$ is related to the energy quasi-metric $d$ by a simple inequality.
 
-**Proposition 7.17.** For all $b_i, b_j \in \mathcal{B}$,
+**Proposition 8.17 (Bounded distortion).** For all $b_i, b_j \in \mathcal{B}$,
 
 $$d(b_i, b_j) \le |Q|(b_i, b_j) \le d(b_i, b_j) + |D(b_i, b_j)|.$$
 
@@ -128,176 +112,135 @@ $$d(b_i, b_j) \le |Q|(b_i, b_j) \le d(b_i, b_j) + |D(b_i, b_j)|.$$
 
 $$|Q|^2 = d^2 + D^2 \le d^2 + 2d|D| + D^2 = (d + |D|)^2.$$
 
-Taking square roots:
+Taking square roots: $|Q| \le d + |D|$. $\square$
 
-$$|Q| \le d + |D|. \quad \square$$
+**Corollary 8.18.** $|Q|(b_i, b_j) = d(b_i, b_j)$ if and only if $D(b_i, b_j) = 0$.
 
-**Corollary 7.18.** $|Q|(b_i, b_j) = d(b_i, b_j)$ if and only if $D(b_i, b_j) = 0$.
+**Corollary 8.19.** $|Q|(b_i, b_j) = d(b_i, b_j) + |D(b_i, b_j)|$ if and only if $d(b_i, b_j) = 0$ or $D(b_i, b_j) = 0$.
 
-**Corollary 7.19.** $|Q|(b_i, b_j) \le d(b_i, b_j) + |D(b_i, b_j)|$, with equality if and only if $d(b_i, b_j) = 0$ or $D(b_i, b_j) = 0$ or they have the same sign in the sense of the triangle inequality in $\mathbb{R}^2$.
+*Proof.* From the proof of Proposition 8.17, equality holds if and only if $d|D| = 0$. So $d = 0$ or $D = 0$. $\square$
 
-**Remark 7.20.** The modulus $|Q|$ is always *at least* the cost $d$. The debt adds to the cost in the modulus. This is intuitive: a transition with debt is "more costly" in the modulus sense than a transition with the same cost but no debt.
+**Remark 8.20.** The modulus $|Q|$ is always *at least* the cost $d$. The debt adds to the cost in the modulus. This is intuitive: a transition with debt is "more costly" in the modulus sense than a transition with the same cost but no debt.
 
-**Remark 7.21.** The modulus is a strictly increasing function of the debt magnitude: for fixed $d$, $|Q|$ increases with $|D|$. So debt always adds to the modulus.
+**Remark 8.21.** The modulus is a strictly increasing function of the debt magnitude: for fixed $d$, $|Q|$ increases with $|D|$. So debt always adds to the modulus.
 
-**Proposition 7.22 (Bounded distortion).** For all $b_i, b_j \in \mathcal{B}$ with $|D(b_i, b_j)| \le M$,
+**Proposition 8.22 (Bounded distortion with phase).** For all $b_i, b_j \in \mathcal{B}$ with $Q(b_i, b_j) \neq 0$,
 
-$$d(b_i, b_j) \le |Q|(b_i, b_j) \le d(b_i, b_j) + M.$$
+$$|Q|(b_i, b_j) = d(b_i, b_j) \sec \theta(b_i, b_j),$$
 
-So the modulus is within a bounded additive factor of the cost, with the bound controlled by the maximum debt.
+where $\theta$ is the phase. In particular:
 
----
+- $|Q| = d$ if and only if $\theta = 0$.
+- $|Q| \to +\infty$ relative to $d$ as $\theta \to \pm\pi/2$.
 
-## 7.5 The modulus and the phase
+*Proof.* Since $d = |Q| \cos\theta$, we have $|Q| = d / \cos\theta = d \sec\theta$. $\square$
 
-We now relate the modulus and the phase.
-
-**Proposition 7.23.** For all $b_i, b_j$,
-
-$$d(b_i, b_j) = |Q(b_i, b_j)| \cos \theta(b_i, b_j), \qquad D(b_i, b_j) = |Q(b_i, b_j)| \sin \theta(b_i, b_j).$$
-
-*Proof.* These are the standard trigonometric decompositions of a complex number in polar form. $\square$
-
-**Corollary 7.24.** The cost $d$ is the projection of $Q$ onto the real axis; the debt $D$ is the projection onto the imaginary axis.
-
-**Corollary 7.25.** The phase $\theta$ is the angle between $Q$ and the real axis.
-
-**Remark 7.26.** The modulus $|Q|$ is the "total" magnitude of the transition, combining cost and debt. The phase $\theta$ is the "direction" of the transition, indicating whether it is dominated by cost ($\theta \approx 0$) or debt ($\theta \approx \pm\pi/2$).
-
-**Remark 7.27.** The pair $(|Q|, \theta)$ is the polar coordinate representation of the complex quasi-metric. It is an alternative to the Cartesian representation $(d, D)$. Both are equivalent; the polar representation is more convenient for geometric considerations.
+**Remark 8.23.** The phase $\theta$ measures the "distortion" of the modulus relative to the cost. When $\theta = 0$, the modulus equals the cost. As $|\theta| \to \pi/2$, the modulus becomes much larger than the cost.
 
 ---
 
-## 7.6 The metric completion
+## 8.4 The metric topology
+
+The modulus $|Q|$ induces a topology on $\mathcal{B}$.
+
+**Definition 8.24 (Metric ball).** The *ball of radius $r$ around $b$* is
+
+$$B(b, r) := \lbrace b' \in \mathcal{B} : |Q|(b, b') < r \rbrace.$$
+
+**Definition 8.25 (Metric topology).** The *metric topology* $\tau_{|Q|}$ is the topology generated by the balls $B(b, r)$ for $b \in \mathcal{B}$ and $r > 0$.
+
+**Proposition 8.26.** The metric topology $\tau_{|Q|}$ is the topology induced by the quasi-metric $|Q|$.
+
+**Proposition 8.27.** If $d$ is symmetric, then $\tau_{|Q|}$ is Hausdorff if and only if $|Q|$ is a metric (i.e., $|Q|$ satisfies the identity of indiscernibles).
+
+*Proof.* If $|Q|$ is a metric, then distinct points have positive distance, so the topology is Hausdorff. Conversely, if $|Q|$ is not a metric, then there exist distinct $b_i \neq b_j$ with $|Q|(b_i, b_j) = 0$, so every neighborhood of $b_i$ contains $b_j$ and vice versa, and the topology is not Hausdorff. $\square$
+
+**Proposition 8.28.** If $d$ is asymmetric, then $\tau_{|Q|}$ is not necessarily Hausdorff.
+
+*Proof.* The forward and backward balls $B^+(b, r) = \{b' : |Q|(b, b') < r\}$ and $B^-(b, r) = \{b' : |Q|(b', b) < r\}$ may differ. The topology generated by the forward balls is one topology; the one generated by the backward balls is another. If $d$ is asymmetric, these topologies may differ, and the resulting topology may not be Hausdorff. $\square$
+
+**Remark 8.29.** The metric topology $\tau_{|Q|}$ is the "symmetrized" topology of the complex quasi-metric. It is the topology generated by the modulus, which is the observable that behaves most like a metric.
+
+**Remark 8.30.** In Part V, we will develop a finer topology structure: the *bitopological* structure generated by the forward and backward balls. This structure is richer than $\tau_{|Q|}$ and captures the asymmetry of the complex quasi-metric.
+
+**Proposition 8.31 (Comparison with the $d$-topology).** If $D = 0$ identically, then $\tau_{|Q|} = \tau_d$, the topology induced by the energy quasi-metric $d$.
+
+*Proof.* If $D = 0$, then $|Q| = d$, so the balls of $|Q|$ coincide with the balls of $d$. $\square$
+
+**Remark 8.32.** When $D \neq 0$, the topology $\tau_{|Q|}$ may differ from $\tau_d$. In general, $\tau_{|Q|}$ is finer than $\tau_d$ in the sense that the balls of $|Q|$ are "larger" (since $|Q| \ge d$).
+
+---
+
+## 8.5 The metric completion
 
 The modulus $|Q|$ induces a metric topology, and this topology has a natural completion.
 
-**Definition 7.28 (Cauchy sequence).** A sequence $(b_n)$ in $\mathcal{B}$ is *Cauchy* with respect to $|Q|$ if for every $\epsilon > 0$, there exists $N$ such that $|Q|(b_m, b_n) < \epsilon$ for all $m, n > N$.
+**Definition 8.33 (Cauchy sequence).** A sequence $(b_n)$ in $\mathcal{B}$ is *Cauchy* with respect to $|Q|$ if for every $\epsilon > 0$, there exists $N$ such that $|Q|(b_m, b_n) < \epsilon$ for all $m, n > N$.
 
-**Definition 7.29 (Completion).** The *completion* of $\mathcal{B}$ with respect to $|Q|$ is the set $\overline{\mathcal{B}}$ of equivalence classes of Cauchy sequences, equipped with the extended modulus $|\overline{Q}|$.
+**Definition 8.34 (Completion).** The *completion* of $\mathcal{B}$ with respect to $|Q|$ is the set $\overline{\mathcal{B}}$ of equivalence classes of Cauchy sequences, equipped with the extended modulus $|\overline{Q}|$.
 
-**Proposition 7.30.** The completion $\overline{\mathcal{B}}$ is a complete metric space (if $d$ is symmetric) or complete quasi-metric space (if $d$ is asymmetric).
+**Proposition 8.35.** The completion $\overline{\mathcal{B}}$ is a complete metric space (if $d$ is symmetric) or complete quasi-metric space (if $d$ is asymmetric).
 
-*Proof.* Standard completion construction. $\square$
+*Proof.* Standard completion construction: define the distance between two Cauchy sequences $(b_n)$ and $(c_n)$ as $\lim_{n \to \infty} |Q|(b_n, c_n)$, verify that this is well-defined and satisfies the metric axioms, and show that $\mathcal{B}$ embeds densely in $\overline{\mathcal{B}}$. $\square$
 
-**Remark 7.31.** The completion may include points that are not in the original belief space. These are "limit beliefs" — beliefs that can be approximated by sequences of reachable beliefs but are not themselves reachable in finite time.
+**Remark 8.36.** The completion may include points that are not in the original belief space. These are "limit beliefs"—beliefs that can be approximated by sequences of reachable beliefs but are not themselves reachable in finite time.
 
-**Remark 7.32.** The completion is not always necessary. In many applications, the belief space is already complete (e.g., if it is a finite set, or if it is closed under limits). But the construction is important for theoretical completeness.
+**Remark 8.37.** The completion is not always necessary. In many applications, the belief space is already complete (e.g., if it is a finite set, or if it is closed under limits). But the construction is important for theoretical completeness.
 
----
+**Example 8.38 (Completion of a finite space).** If $\mathcal{B}$ is finite, then every Cauchy sequence is eventually constant, so $\overline{\mathcal{B}} = \mathcal{B}$. The completion adds no new points.
 
-## 7.7 The modulus and the triangle inequality: sharpness
-
-We now analyze when the triangle inequality for $|Q|$ is sharp.
-
-**Proposition 7.33 (Equality condition).** For $b_i, b_j, b_k \in \mathcal{B}$, the equality
-
-$$|Q(b_i, b_k)| = |Q(b_i, b_j)| + |Q(b_j, b_k)|$$
-
-holds if and only if the vectors $(d(b_i, b_j), D(b_i, b_j))$ and $(d(b_j, b_k), D(b_j, b_k))$ are non-negative scalar multiples of each other.
-
-*Proof.* This is the equality condition for Minkowski's inequality in $\mathbb{R}^2$. $\square$
-
-**Corollary 7.34.** If $D = 0$ identically, then the triangle inequality for $|Q| = d$ is sharp if and only if the path through $b_j$ is optimal.
-
-**Corollary 7.35.** If $d = 0$ identically, then the triangle inequality for $|Q| = |D|$ is sharp if and only if $D(b_i, b_j)$ and $D(b_j, b_k)$ have the same sign.
-
-**Remark 7.36.** The equality condition is the same as the condition that the path through $b_j$ is "geodesic" in the modulus metric. This connects to the optimization theory of Chapter 10.
-
-**Remark 7.37.** The failure of equality is the *excess* of the modulus over the direct transition. This excess is the "detour cost" in the modulus metric. It is non-negative by the triangle inequality.
+**Example 8.39 (Completion of $\mathbb{Q}$ with respect to the Euclidean metric).** If $\mathcal{B} = \mathbb{Q}$ with $d(q_1, q_2) = |q_1 - q_2|$ and $D = 0$, then $\overline{\mathcal{B}} = \mathbb{R}$. The completion adds the irrational numbers as limit points.
 
 ---
 
-## 7.8 The metric properties of the modulus
-
-We summarize the metric properties of $|Q|$ in a single theorem.
-
-**Theorem 7.38 (Complete metric properties).** Let $|Q| : \mathcal{B} \times \mathcal{B} \to \mathbb{R}_{\ge 0}$ be the modulus of the complex quasi-metric $Q = d + iD$. Then:
-
-- **(i)** $|Q|$ is a quasi-metric on $\mathcal{B}$, always.
-- **(ii)** $|Q|$ is a pseudometric on $\mathcal{B}$ if $d$ is symmetric.
-- **(iii)** $|Q|$ is a metric on $\mathcal{B}$ if $d$ is symmetric and satisfies the identity of indiscernibles.
-- **(iv)** $|Q|$ is bounded below by $d$: $|Q| \ge d$.
-- **(v)** $|Q|$ is bounded above by $d + |D|$: $|Q| \le d + |D|$.
-- **(vi)** $|Q| = d$ if and only if $D = 0$ identically.
-- **(vii)** The metric topology $\tau_{|Q|}$ is the same as the topology induced by the balls $B(b, r) = \{b' : |Q|(b, b') < r\}$.
-
-*Proof.* Assembled from the propositions and theorems above. $\square$
-
-**Remark 7.39.** The theorem says that the modulus is a "minimal" metric derived from the complex quasi-metric. It is always at least a quasi-metric, and it inherits the symmetry and identity properties of $d$.
-
-**Remark 7.40.** The modulus is the "natural" metric associated with the complex quasi-metric. It is the observable that behaves most like a classical metric, and it is the one that will be used for topological considerations.
-
----
-
-## 7.9 Examples
-
-We close this chapter with examples illustrating the metric properties of $|Q|$.
-
-**Example 7.41 (Symmetric cost, nonzero debt).** Let $\mathcal{B} = \{1, 2, 3\}$ with
-
-$$d = \begin{pmatrix} 0 & 2 & 4 \\ 2 & 0 & 3 \\ 4 & 3 & 0 \end{pmatrix}, \qquad D = \begin{pmatrix} 0 & 1 & 2 \\ -1 & 0 & 1 \\ -2 & -1 & 0 \end{pmatrix}.$$
-
-The modulus is
-
-$$|Q| = \begin{pmatrix} 0 & \sqrt{5} & \sqrt{20} \\ \sqrt{5} & 0 & \sqrt{10} \\ \sqrt{20} & \sqrt{10} & 0 \end{pmatrix} \approx \begin{pmatrix} 0 & 2.236 & 4.472 \\ 2.236 & 0 & 3.162 \\ 4.472 & 3.162 & 0 \end{pmatrix}.$$
-
-Verify: $|Q|(1, 3) = 4.472 \le 2.236 + 3.162 = 5.398$. ✓
-
-**Example 7.42 (Asymmetric cost, nonzero debt).** Let $\mathcal{B} = \{1, 2\}$ with $d(1, 2) = 3$, $d(2, 1) = 1$, $D(1, 2) = 2$, $D(2, 1) = -2$. The modulus is $|Q|(1, 2) = \sqrt{9 + 4} = \sqrt{13} \approx 3.606$, $|Q|(2, 1) = \sqrt{1 + 4} = \sqrt{5} \approx 2.236$. The modulus is asymmetric because $d$ is asymmetric.
-
-**Example 7.43 (Pure cost).** If $D = 0$, then $|Q| = d$. The modulus is just the cost.
-
-**Example 7.44 (Pure debt).** If $d = 0$ (all transitions have zero cost), then $|Q| = |D|$. The modulus is the absolute value of the debt. It is symmetric (since $|D|$ is symmetric) even though $D$ is antisymmetric.
-
-**Remark 7.45.** The examples illustrate the range of behaviors of the modulus. In general, $|Q|$ is a metric-like object that combines the asymmetry of $d$ with the symmetry of $D^2$.
-
----
-
-## 7.10 Summary
+## 8.6 Summary
 
 We have developed the metric properties of the modulus $|Q| = \sqrt{d^2 + D^2}$.
 
 Key results:
 
-- **Triangle inequality.** $|Q(b_i, b_k)| \le |Q(b_i, b_j)| + |Q(b_j, b_k)|$ (Theorem 7.1).
-- **Metric properties.** $|Q|$ is a quasi-metric always; a pseudometric if $d$ is symmetric; a metric if $d$ is symmetric and identity-respecting (Theorem 7.5).
-- **Bounded distortion.** $d \le |Q| \le d + |D|$ (Proposition 7.17).
-- **Polar form.** $d = |Q| \cos\theta$, $D = |Q| \sin\theta$ (Proposition 7.23).
-- **Metric topology.** $\tau_{|Q|}$ is the topology generated by the balls of $|Q|$.
-- **Completion.** $\overline{\mathcal{B}}$ is the completion of $\mathcal{B}$ with respect to $|Q|$.
-- **Equality condition.** The triangle inequality is sharp iff the vectors $(d, D)$ are colinear and same-sign.
+- **Triangle inequality.** $|Q(b_i, b_k)| \le |Q(b_i, b_j)| + |Q(b_j, b_k)|$ (Theorem 8.1, proved in Chapter 7).
+- **Equality condition.** The triangle inequality is sharp if and only if the vectors $(d, D)$ are non-negative scalar multiples of each other (Theorem 8.4).
+- **Metric properties.** $|Q|$ is a quasi-metric always; a pseudometric if $d$ is symmetric; a metric if $d$ is symmetric and identity-respecting (Theorem 8.10).
+- **Bounded distortion.** $d \le |Q| \le d + |D|$ (Proposition 8.17).
+- **Phase distortion.** $|Q| = d \sec\theta$ (Proposition 8.22).
+- **Metric topology.** $\tau_{|Q|}$ is the topology generated by the balls of $|Q|$ (Definition 8.25).
+- **Hausdorff condition.** $\tau_{|Q|}$ is Hausdorff if and only if $|Q|$ is a metric (Proposition 8.27).
+- **Completion.** $\overline{\mathcal{B}}$ is the completion of $\mathcal{B}$ with respect to $|Q|$ (Definition 8.34).
 
-The modulus is the natural metric associated with the complex quasi-metric. It is the observable that behaves most like a classical distance, and it is the one that will be used for topological considerations in Part V.
-
----
-
-## 7.11 Exercises
-
-**Exercise 7.1.** Verify the triangle inequality for $|Q|$ in Example 7.41 for all triples.
-
-**Exercise 7.2.** Prove that if $d$ is symmetric, then $|Q|$ is symmetric.
-
-**Exercise 7.3.** Show that if $d$ is a metric, then $|Q|$ is a metric if and only if $D = 0$.
-
-**Exercise 7.4.** Compute the modulus $|Q|$ for the pure debt case $d = 0$. Show that $|Q|$ is symmetric.
-
-**Exercise 7.5.** Prove Proposition 7.17 (bounded distortion).
-
-**Exercise 7.6.** Show that the equality condition in Proposition 7.33 is equivalent to the condition that the path through $b_j$ is optimal in the modulus metric.
-
-**Exercise 7.7.** Let $\mathcal{B}$ be a finite set with $n$ elements. Show that $|Q|$ is a metric if and only if $d$ is a metric and $D$ vanishes only on the diagonal.
-
-**Exercise 7.8.** Compute the metric completion of $\mathcal{B}$ for the example in Exercise 7.1. Does it contain any new points?
-
-**Exercise 7.9.** Prove that the metric topology $\tau_{|Q|}$ is Hausdorff if and only if $|Q|$ is a metric.
-
-**Exercise 7.10.** Reflect on the following question: why is the modulus $|Q|$ a metric even when $Q$ itself is not? Write a short essay (one page) arguing for your position.
+The modulus is the natural quasi-metric associated with the complex quasi-metric. It is the observable that behaves most like a classical distance, and it is the one that will be used for topological considerations in Part V.
 
 ---
 
-*In the next chapter, we develop the gauge structure of the complex quasi-metric. We introduce the gauge group, describe its action on $Q$, and identify the gauge-invariant observables.*
+## 8.7 Exercises
 
----
+**Exercise 8.1.** Verify the triangle inequality for $|Q|$ in the following example. Let $\mathcal{B} = \{1, 2, 3\}$ with
 
-**End of Chapter 7.**
+$$d = \begin{pmatrix} 0 & 2 & 4 \\ 2 & 0 & 3 \\ 4 & 3 & 0 \end{pmatrix}, \qquad D = \begin{pmatrix} 0 & 1 & 2 \\ -1 & 0 & 1 \\ -2 & -1 & 0 \end{pmatrix}.$$
+
+Compute $|Q|$ for all pairs and verify the triangle inequality for all triples.
+
+**Exercise 8.2.** Prove that if $d$ is symmetric, then $|Q|$ is symmetric. Give an example where $d$ is asymmetric and $|Q|$ is also asymmetric.
+
+**Exercise 8.3.** Show that if $d$ is a metric, then $|Q|$ is a metric, regardless of $D$. Give an example where $D \neq 0$ and $|Q|$ is still a metric.
+
+**Exercise 8.4.** Compute the modulus $|Q|$ for the pure debt case $d = 0$. Show that $|Q|$ is symmetric even though $D$ is antisymmetric.
+
+**Exercise 8.5.** Prove Proposition 8.17 (bounded distortion).
+
+**Exercise 8.6.** Prove Corollary 8.19: $|Q| = d + |D|$ if and only if $d = 0$ or $D = 0$.
+
+**Exercise 8.7.** Show that the equality condition in Theorem 8.4 is equivalent to the condition that the phases of the two transitions agree.
+
+**Exercise 8.8.** Let $\mathcal{B}$ be a finite set with $n$ elements. Show that $|Q|$ is a metric if and only if $d$ is a metric (i.e., $d$ is symmetric and identity-respecting). Does $D$ play any role in this condition?
+
+**Exercise 8.9.** Compute the metric completion of $\mathcal{B} = \mathbb{Q}$ with $d(q_1, q_2) = |q_1 - q_2|$ and $D = 0$. What is the completion?
+
+**Exercise 8.10.** Prove that the metric topology $\tau_{|Q|}$ is Hausdorff if and only if $|Q|$ is a metric.
+
+**Exercise 8.11.** Let $D = 0$ identically. Show that $\tau_{|Q|} = \tau_d$.
+
+**Exercise 8.12.** Let $d = 0$ identically. Show that $|Q| = |D|$ and that $\tau_{|Q|}$ is the discrete topology if $D$ separates points.
+
+**Exercise 8.13.** Reflect on the following question: why is the modulus $|Q|$ a quasi-metric even when $Q$ itself is not? Write a short essay (one page) arguing for your position.
+
