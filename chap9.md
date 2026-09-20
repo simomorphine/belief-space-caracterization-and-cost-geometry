@@ -374,6 +374,4 @@ The gauge structure is a fundamental aspect of the complex quasi-metric. It is t
 
 
 
----
 
-**End of Chapter 9**
