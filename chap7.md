@@ -76,7 +76,7 @@ We call $Q$ the **complex quasi-metric**, and the decomposition $Q = d + iD$ the
 
 The real and imaginary parts are
 
-$$\operatorname{Re} Q(b_i, b_j) = d(b_i, b_j), \qquad \operatorname{Im} Q(b_i, b_j) = D(b_i, b_j).$$
+$$\mathrm{Re} Q(b_i, b_j) = d(b_i, b_j), \qquad \mathrm{Im} Q(b_i, b_j) = D(b_i, b_j).$$
 
 **Convention 7.2.** When the context is clear we write $Q_{ij}$, $d_{ij}$ and $D_{ij}$ for $Q(b_i, b_j)$, $d(b_i, b_j)$ and $D(b_i, b_j)$.
 
@@ -89,9 +89,9 @@ $$\operatorname{Re} Q(b_i, b_j) = d(b_i, b_j), \qquad \operatorname{Im} Q(b_i, b
 **Proposition 7.4 (Basic properties).** For all $b, b_i, b_j \in \mathcal{B}$ (with $d(b_i, b_j) < +\infty$):
 
 1. **Identity.** $Q(b, b) = 0$.
-2. **Nonnegative real part.** $\operatorname{Re} Q(b_i, b_j) \geq 0$.
-3. **Antisymmetric imaginary part.** $\operatorname{Im} Q(b_i, b_j) = -\operatorname{Im} Q(b_j, b_i)$.
-4. **Exact imaginary part.** $\operatorname{Im} Q = \delta\psi$ for some $\psi : \mathcal{B} \to \mathbb{R}$.
+2. **Nonnegative real part.** $\mathrm{Re} Q(b_i, b_j) \geq 0$.
+3. **Antisymmetric imaginary part.** $\mathrm{Im} Q(b_i, b_j) = -\mathrm{Im} Q(b_j, b_i)$.
+4. **Exact imaginary part.** $\mathrm{Im} Q = \delta\psi$ for some $\psi : \mathcal{B} \to \mathbb{R}$.
 
 *Proof.*
 
@@ -227,7 +227,7 @@ The modulus describes the magnitude of a transition. The next quantity describes
 
 **Definition 7.14 (Phase).** For $Q(b_i, b_j) \neq 0$ define the phase
 
-$$\theta(b_i, b_j) := \arg Q(b_i, b_j) = \operatorname{atan2}\bigl(D(b_i, b_j),\, d(b_i, b_j)\bigr).$$
+$$\theta(b_i, b_j) := \arg Q(b_i, b_j) = \mathrm{atan2}\bigl(D(b_i, b_j),\, d(b_i, b_j)\bigr).$$
 
 Because $d(b_i, b_j) \geq 0$,
 
@@ -337,7 +337,7 @@ $$(d, D) \longleftrightarrow d + iD.$$
 
 The polar representation gives a second description $(\rho, \theta)$. The two coordinate systems are related by
 
-$$\rho = \sqrt{d^2 + D^2}, \qquad \theta = \operatorname{atan2}(D, d),$$
+$$\rho = \sqrt{d^2 + D^2}, \qquad \theta = \mathrm{atan2}(D, d),$$
 
 and conversely
 
@@ -447,7 +447,7 @@ $$\alpha Q := (\alpha d) + i(\alpha D).$$
 
 **Proposition 7.28.** The conjugate satisfies
 
-$$\operatorname{Re}\overline{Q} = \operatorname{Re}Q, \quad \operatorname{Im}\overline{Q} = -\operatorname{Im}Q, \quad |\overline{Q}| = |Q|, \quad \arg\overline{Q} = -\arg Q.$$
+$$\mathrm{Re}\overline{Q} = \mathrm{Re}Q, \quad \mathrm{Im}\overline{Q} = -\mathrm{Im}Q, \quad |\overline{Q}| = |Q|, \quad \arg\overline{Q} = -\arg Q.$$
 
 *Proof.* Immediate. $\square$
 
@@ -478,8 +478,8 @@ A **complex 1-cochain** on $\mathcal{B}$ is a function $Q : \mathcal{B} \times \
 **Proposition 7.33.** The complex quasi-metric is a complex 1-cochain satisfying
 
 1. $Q(b, b) = 0$;
-2. $\operatorname{Re}Q \geq 0$;
-3. $\operatorname{Im}Q$ is a real 1-coboundary, $\operatorname{Im}Q = \delta\psi$.
+2. $\mathrm{Re}Q \geq 0$;
+3. $\mathrm{Im}Q$ is a real 1-coboundary, $\mathrm{Im}Q = \delta\psi$.
 
 *Proof.* Immediate from the definitions. $\square$
 
@@ -495,7 +495,7 @@ $$d(b_1, b_2) = 3, \qquad D(b_1, b_2) = 2.$$
 
 Then
 
-$$Q(b_1, b_2) = 3 + 2i, \qquad |Q(b_1, b_2)| = \sqrt{13}, \qquad \theta(b_1, b_2) = \operatorname{atan2}(2, 3).$$
+$$Q(b_1, b_2) = 3 + 2i, \qquad |Q(b_1, b_2)| = \sqrt{13}, \qquad \theta(b_1, b_2) = \mathrm{atan2}(2, 3).$$
 
 For the reverse transition suppose $d(b_2, b_1) = 5$. Then $D(b_2, b_1) = -2$, so
 
@@ -556,7 +556,7 @@ This distinction prevents us from attributing properties of one component to the
 
 The central relations of this chapter are
 
-$$\boxed{Q = d + iD}, \qquad \boxed{|Q| = \sqrt{d^2 + D^2}}, \qquad \boxed{\arg Q = \operatorname{atan2}(D, d)},$$
+$$\boxed{Q = d + iD}, \qquad \boxed{|Q| = \sqrt{d^2 + D^2}}, \qquad \boxed{\arg Q = \mathrm{atan2}(D, d)},$$
 
 equivalently
 
@@ -572,8 +572,8 @@ These give three equivalent descriptions of a transition: $(d, D)$, $Q$, and $(|
 
 ## 7.22 What we have established
 
-- **Definition.** $Q(b_i, b_j) = d(b_i, b_j) + iD(b_i, b_j)$, with $\operatorname{Re}Q = d$ and $\operatorname{Im}Q = D = \delta\psi$.
-- **Basic properties.** $Q(b, b) = 0$, $\operatorname{Re}Q \geq 0$, and $\operatorname{Im}Q$ is antisymmetric and exact.
+- **Definition.** $Q(b_i, b_j) = d(b_i, b_j) + iD(b_i, b_j)$, with $\operatorname{Re}Q = d$ and $\mathrm{Im}Q = D = \delta\psi$.
+- **Basic properties.** $Q(b, b) = 0$, $\mathrm{Re}Q \geq 0$, and $\mathrm{Im}Q$ is antisymmetric and exact.
 - **Modulus.** $|Q|$ satisfies the triangle inequality whenever $d$ does (Theorem 7.8). It is symmetric, and a pseudometric or metric, only when $d$ is symmetric (and separating); otherwise it is a quasi-metric.
 - **Phase.** $\theta = \arg Q \in [-\pi/2, \pi/2]$ measures the relative orientation of cost and debt, with $D/d = \tan\theta$.
 - **Reversal.** Reversing a transition negates the debt but not necessarily the cost, so $Q(b_j, b_i) = \overline{Q(b_i, b_j)}$ iff $d$ is symmetric.
