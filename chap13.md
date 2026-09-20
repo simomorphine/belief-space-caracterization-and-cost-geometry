@@ -316,6 +316,4 @@ The bitopological structure is the natural topological setting for quasi-metrics
 
 
 
----
 
-**End of Chapter 13.**
