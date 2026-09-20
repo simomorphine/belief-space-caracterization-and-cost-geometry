@@ -338,6 +338,3 @@ The open structure is not a list of unsolved problems in the usual sense. It is 
 
 
 
----
-
-**End of Chapter 17.**
