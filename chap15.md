@@ -291,6 +291,4 @@ The $\mathbb{Z}/2$-grading is the deepest structural feature of the complex quas
 **Exercise 15.10 (Reflection question).** Is the $\mathbb{Z}/2$-grading the *only* natural grading of the complex quasi-metric, or are there others? Write a short essay (one page) arguing for your position.
 
 
----
 
-**End of Chapter 15.**
