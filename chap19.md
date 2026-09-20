@@ -225,7 +225,4 @@ The theory is not a solution to a problem; it is a *reframing*. It shows that th
 
 *This is the end of the book. The theory remains open. The reader is invited to continue.*
 
-
-**End of Chapter 19.**
-
 **End of the Book.**
