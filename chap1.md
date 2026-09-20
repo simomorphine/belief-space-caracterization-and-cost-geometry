@@ -183,7 +183,7 @@ Each chapter is self-contained. Each begins with a definition and ends with exer
 
 ## 1.9 Exercises
 
-**Exercise 1.1.** Give an example of a cost function on a finite set that is asymmetric. Compute $d(b_i, b_j)$ and $d(b_j, b_i)$ for all pairs, and verify that $d$ is a quasi-metric but not a metric.
+**Exercise 1.1.** Give an example of a cost function on a finite set that is asymmetric. Compute $d(b_i, b_j)$ and $d(b_j, b_i)$ for all pairs. Does the triangular inequality hold?
 
 **Exercise 1.2.** Give an example of a cost function that violates the triangle inequality in the subadditive direction. Verify that $d(b_i, b_k) > d(b_i, b_j) + d(b_j, b_k)$ for some triple.
 
