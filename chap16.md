@@ -311,6 +311,3 @@ We close this chapter with a heuristic discussion of the comma category.
 **Exercise 16.10 (Reflection question).** Is the categorical picture the "right" foundation for the theory, or is it a higher-level description of a more fundamental structure? Write a short essay (one page) arguing for your position.
 
 
----
-
-**End of Chapter 16.**
