@@ -436,9 +436,34 @@ d =
 \end{pmatrix}
 ```
 
-**Exercise 2.2.** Show that if $d$ is symmetric, then $G_d$ is an undirected graph (or rather, a directed graph with symmetric edge weights). Give an example of a symmetric quasi-metric that is not a metric.
+**Exercise 2.2.** Show that if $d$ is symmetric, then $G_d$ may be viewed as an undirected weighted graph (equivalently, as a directed graph with symmetric edge weights). Give an example of a symmetric quasi-metric that is not a metric.
 
-**Exercise 2.3.** Prove that if $d(b_i, b_j) = 0$ and $d(b_j, b_i) = 0$, then $b_i \sim b_j$ is an equivalence relation. Show that the quotient $\mathcal{B}/{\sim}$ is a quasi metric space.
+**Exercise 2.3.** Let $d$ be a pseudo-quasi-metric on $\mathcal{B}$. Define a relation $\sim$ on $\mathcal{B}$ by
+
+$$
+b_i\sim b_j
+\quad\Longleftrightarrow\quad
+d(b_i,b_j)=0
+\quad\text{and}\quad
+d(b_j,b_i)=0.
+$$
+
+1. Prove that $\sim$ is an equivalence relation on $\mathcal{B}$.
+2. Define the quotient space
+
+$$
+\mathcal{B}/{\sim}
+$$
+
+and show that
+
+$$
+\bar d([b_i],[b_j])=d(b_i,b_j)
+$$
+
+is well-defined.
+3. Prove that $\bar d$ is a quasi-metric on $\mathcal{B}/{\sim}$.
+
 
 **Exercise 2.4.** Give an example of an information processing system where the energy quasi-metric is asymmetric but the underlying cost function is symmetric. (Hint: consider path composition.)
 
