@@ -667,6 +667,4 @@ The equilibrium hierarchy is the culmination of Part V. It organizes the four eq
 
 
 
----
 
-**End of Chapter 14.**
