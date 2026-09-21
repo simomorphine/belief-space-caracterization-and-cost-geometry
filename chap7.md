@@ -572,7 +572,7 @@ These give three equivalent descriptions of a transition: $(d, D)$, $Q$, and $(|
 
 ## 7.22 What we have established
 
-- **Definition.** $Q(b_i, b_j) = d(b_i, b_j) + iD(b_i, b_j)$, with $\operatorname{Re}Q = d$ and $\mathrm{Im}Q = D = \delta\psi$.
+- **Definition.** $Q(b_i, b_j) = d(b_i, b_j) + iD(b_i, b_j)$, with $\mathrm{Re}Q = d$ and $\mathrm{Im}Q = D = \delta\psi$.
 - **Basic properties.** $Q(b, b) = 0$, $\mathrm{Re}Q \geq 0$, and $\mathrm{Im}Q$ is antisymmetric and exact.
 - **Modulus.** $|Q|$ satisfies the triangle inequality whenever $d$ does (Theorem 7.8). It is symmetric, and a pseudometric or metric, only when $d$ is symmetric (and separating); otherwise it is a quasi-metric.
 - **Phase.** $\theta = \arg Q \in [-\pi/2, \pi/2]$ measures the relative orientation of cost and debt, with $D/d = \tan\theta$.
