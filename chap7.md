@@ -286,7 +286,7 @@ In particular:
 - **Negative debt.** If $D < 0$ then $\theta < 0$.
 - **Pure debt.** If $d = 0$ and $D \neq 0$, then $Q = iD$ and
 
-$$\theta = \begin{cases} \dfrac{\pi}{2}, & D > 0, \\[6pt] -\dfrac{\pi}{2}, & D < 0. \end{cases}$$
+$$\theta = \begin{cases} \dfrac{\pi}{2}, & D > 0, \\ -\dfrac{\pi}{2}, & D < 0. \end{cases}$$
 
 ---
 
