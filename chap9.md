@@ -297,7 +297,7 @@ We summarize the gauge structure in a single table.
 | Potential $\psi$ | $\psi : \mathcal{B} \to \mathbb{R}$ | $\psi \mapsto \psi + \chi$ |
 | Debt $D$ | $D = \delta\psi$ | $D \mapsto D + \delta\chi$ |
 | Complex quasi-metric $Q$ | $Q = d + iD$ | $Q \mapsto Q + i\delta\chi$ |
-| Modulus $|Q|$ | $|Q| = \sqrt{d^2 + D^2}$ | $|Q|^2 \mapsto |Q|^2 + 2D\delta\chi + (\delta\chi)^2$ |
+| Modulus $\|Q\|$ | $\|Q\| = \sqrt{d^2 + D^2}$ | $\|Q\|^2 \mapsto \|Q\|^2 + 2D\delta\chi + (\delta\chi)^2$ |
 | Gauge group $\mathcal{G}$ | $\mathbb{R}^\mathcal{B}$ | — |
 | Stabilizer | Constant functions | Acts trivially |
 
