@@ -1,6 +1,6 @@
 ## A Note on the Nature of This Work
 
-This work, **“A Humble Philosophical Attempt to Build the Mathematical Foundation for Complex-Valued Reinforcement Learning,”** should **not** be interpreted as a finished scientific discovery, a validated theory, or a complete AI paradigm.
+This work, should **not** be interpreted as a finished scientific discovery, a validated theory, or a complete AI paradigm.
 
 This repository is primarily **my way of learning, exploring, and thinking**. I collect ideas, mathematical formulations, experiments, and references that may help me better understand the subject and, potentially, build a foundation for future work.
 
